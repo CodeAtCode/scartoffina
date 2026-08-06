@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Fattura Professionista - {{numero}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 22px; color: #2c3e50; }
+h2 { font-size: 14px; margin-top: 20px; }
+.intestazione { display: flex; justify-content: space-between; margin: 20px 0; }
+.intestazione > div { flex: 1; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; font-size: 13px; }
+.importo { text-align: right; font-variant-numeric: tabular-nums; }
+.totale { font-weight: bold; background: #f0f0f0; }
+.cassa { background: #fff3e0; }
+</style>
+</head>
+<body>
+<h1>Fattura n. {{numero}} del {{data}}</h1>
+
+<div class="intestazione">
+  <div>
+    <h2>Prestatore</h2>
+    <p>{{prestatore_nome}}<br>
+    P.IVA: {{prestatore_piva}}<br>
+    CF: {{prestatore_cf}}<br>
+    Regime: {{regime}}</p>
+  </div>
+  <div>
+    <h2>Committente</h2>
+    <p>{{committente_nome}}<br>
+    P.IVA/CF: {{committente_piva}}<br>
+    Indirizzo: {{committente_indirizzo}}</p>
+  </div>
+</div>
+
+<h2>Prestazione</h2>
+<table>
+  <tr><th>Descrizione</th><th class="importo">Importo (€)</th></tr>
+  <tr><td>{{descrizione}}</td><td class="importo">{{imponibile}}</td></tr>
+</table>
+
+<h2>Calcolo</h2>
+<table>
+  <tr><th>Voce</th><th class="importo">Importo (€)</th></tr>
+  <tr><td>Imponibile</td><td class="importo">{{imponibile}}</td></tr>
+  {{#cassa_previdenziale}}
+  <tr class="cassa"><td>Rivalsa Cassa ({{aliquota_cassa}}%)</td><td class="importo">{{rivalsa_cassa}}</td></tr>
+  <tr><td>Imponibile fiscale</td><td class="importo">{{imponibile_fiscale}}</td></tr>
+  {{/cassa_previdenziale}}
+  <tr><td>IVA ({{aliquota_iva}}%)</td><td class="importo">{{iva}}</td></tr>
+  <tr><td>Ritenuta d'acconto ({{aliquota_ritenuta}}%)</td><td class="importo">- {{ritenuta}}</td></tr>
+  <tr class="totale"><td>Netto a pagare</td><td class="importo">{{netto_pagare}}</td></tr>
+</table>
+
+<p style="margin-top: 30px; font-size: 12px; color: #666;">
+  Pagamento: {{modalita_pagamento}} — Scadenza: {{scadenza}}
+</p>
+</body>
+</html>

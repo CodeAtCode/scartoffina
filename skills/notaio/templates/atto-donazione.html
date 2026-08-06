@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Atto di Donazione - {{data}}</title>
+<style>
+body { font-family: 'Times New Roman', serif; margin: 60px; line-height: 1.8; text-align: justify; }
+h1 { font-size: 18px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+.sezione { margin: 20px 0; }
+.campo { font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Atto di Donazione</h1>
+
+<div class="sezione">
+  <p><span class="campo">Repubblica Italiana</span> — Atto di donazione</p>
+  <p><span class="campo">Data:</span> {{data}} — <span class="campo">Luogo:</span> {{luogo}}</p>
+</div>
+
+<div class="sezione">
+  <h3>Donante</h3>
+  <p>Nome: {{donante_nome}}<br>
+  CF: {{donante_cf}}<br>
+  Indirizzo: {{donante_indirizzo}}</p>
+</div>
+
+<div class="sezione">
+  <h3>Donatario</h3>
+  <p>Nome: {{donatario_nome}}<br>
+  CF: {{donatario_cf}}<br>
+  Indirizzo: {{donatario_indirizzo}}<br>
+  Grado di parentela: {{grado_parentela}}</p>
+</div>
+
+<div class="sezione">
+  <h3>Oggetto della Donazione</h3>
+  <p>{{oggetto_descrizione}}</p>
+  <p>Valore dichiarato: {{valore}} €</p>
+</div>
+
+<div class="sezione">
+  <h3>Accettazione</h3>
+  <p>Il donatario accetta la presente donazione.</p>
+</div>
+
+<div class="sezione">
+  <h3>Imposte</h3>
+  <p>Imposta di donazione: {{imposta_donazione}} € (art. 57 D.Lgs. 346/1990)<br>
+  Franchigia applicata: {{franchigia}} €<br>
+  Aliquota: {{aliquota}}%</p>
+</div>
+
+<div class="sezione">
+  <h3>Sottoscrizione</h3>
+  <p>Il Donante: ____________________<br>
+  Il Donatario: ____________________<br>
+  Il Notaio: ____________________</p>
+</div>
+
+<p style="margin-top: 40px; font-size: 11px; color: #666;">
+  Schema di riferimento. Non sostituisce la formulazione del notaio rogante.
+</p>
+</body>
+</html>

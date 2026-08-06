@@ -1,0 +1,126 @@
+{
+  "_meta": {
+    "verified_at": "2026-08-06",
+    "source": "manuale",
+    "tier": "manual",
+    "next_check_due": "2027-01-01",
+    "note": "Esempio di anagrafe condominiale per riparto spese e calcoli"
+  },
+  "condominio": {
+    "denominazione": "Condominio Via Roma 10",
+    "indirizzo": "Via Roma 10, Milano",
+    "codice_fiscale": "91234567890",
+    "partita_iva": "01234567890",
+    "codice_amministratore": "RSSMRA80A01F205X",
+    "anno_registrazione": 2026
+  },
+  "amministratore": {
+    "nome": "Mario Rossi",
+    "codice_fiscale": "RSSMRA80A01F205X",
+    "requisiti": {
+      "diploma": true,
+      "corso_base": true,
+      "aggiornamento_biennale": true,
+      "polizza_rc": true,
+      "libero_da_condanne": true
+    },
+    "compenso_annuo": 2500.00
+  },
+  "unita_immobiliari": [
+    {
+      "interna": "A",
+      "piano": "terra",
+      "millesimi_generale": 80,
+      "millesimi_riscaldamento": 75,
+      "millesimi_ascensore": 0,
+      "proprietario": {
+        "nome": "Luigi Verdi",
+        "codice_fiscale": "VRDLGU70A01F205X",
+        "email": "luigi.verdi@example.com",
+        "pec": "luigi.verdi@pec.example.com"
+      },
+      "destinazione_uso": "abitativa",
+      "condomino_moroso": false
+    },
+    {
+      "interna": "B",
+      "piano": "primo",
+      "millesimi_generale": 100,
+      "millesimi_riscaldamento": 95,
+      "millesimi_ascensore": 100,
+      "proprietario": {
+        "nome": "Giulia Ferrari",
+        "codice_fiscale": "FRRGLI75C41F205Y",
+        "email": "giulia.ferrari@example.com"
+      },
+      "destinazione_uso": "abitativa",
+      "condomino_moroso": false
+    },
+    {
+      "interna": "C",
+      "piano": "secondo",
+      "millesimi_generale": 110,
+      "millesimi_riscaldamento": 105,
+      "millesimi_ascensore": 110,
+      "proprietario": {
+        "nome": "Carlo Russo",
+        "codice_fiscale": "RSSCRL80A01F205X",
+        "email": "carlo.russo@example.com"
+      },
+      "destinazione_uso": "abitativa",
+      "condomino_moroso": false
+    },
+    {
+      "interna": "D",
+      "piano": "terzo",
+      "millesimi_generale": 105,
+      "millesimi_riscaldamento": 100,
+      "millesimi_ascensore": 105,
+      "proprietario": {
+        "nome": "Anna Esposito",
+        "codice_fiscale": "ESPNNA85A41F205Y",
+        "email": "anna.esposito@example.com"
+      },
+      "destinazione_uso": "abitativa",
+      "condomino_moroso": true,
+      "debito": 450.00
+    },
+    {
+      "interna": "Box 1",
+      "piano": "interrato",
+      "millesimi_generale": 50,
+      "millesimi_riscaldamento": 0,
+      "millesimi_ascensore": 0,
+      "proprietario": {
+        "nome": "Luigi Verdi",
+        "codice_fiscale": "VRDLGU70A01F205X"
+      },
+      "destinazione_uso": "box auto",
+      "condomino_moroso": false
+    }
+  ],
+  "totale_millesimi": {
+    "generale": 1000,
+    "riscaldamento": 375,
+    "ascensore": 315
+  },
+  "preventivo_2026": {
+    "spese_generali": [
+      {"voce": "Pulizia scale e parti comuni", "importo": 600.00},
+      {"voce": "Illuminazione scale", "importo": 350.00},
+      {"voce": "Portierato", "importo": 8000.00},
+      {"voce": "Assicurazione condominio", "importo": 450.00},
+      {"voce": "Manutenzione ascensore", "importo": 800.00},
+      {"voce": "Spese amministratore", "importo": 2500.00}
+    ],
+    "spese_riscaldamento": [
+      {"voce": "Combustibile", "importo": 4500.00},
+      {"voce": "Manutenzione caldaia", "importo": 350.00}
+    ],
+    "fondo_riserva": {"minimo_obbligatorio": 523.50, "attuale": 600.00}
+  },
+  "riparto_esempio": {
+    "spesa_totale_generale": 12700.00,
+    "formula": "(spesa × millesimi_condomino) / 1000"
+  }
+}

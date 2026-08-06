@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "source": "manual",
+    "source_url": "https://www.agenziaentrate.gov.it/portale/web/guest/iva-+-imposta-sul-valore-aggiunto-/aliquote-iva",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "manual",
+    "license": "CC-BY-4.0",
+    "tier": "manual",
+    "next_check_due": "2027-01-01",
+    "note": "Aliquote IVA D.P.R. 633/1972 e successive modifiche. Verificare Legge di Bilancio per variazioni."
+  },
+  "aliquote": [
+    {
+      "codice": "22",
+      "aliquota": 0.22,
+      "descrizione": "Aliquota ordinaria",
+      "riferimento_normativo": "Tabella allegata al D.P.R. 633/1972"
+    },
+    {
+      "codice": "10",
+      "aliquota": 0.10,
+      "descrizione": "Aliquota ridotta (beni e servizi essenziali)",
+      "riferimento_normativo": "Art. 1 c. 1 L. 413/1991; n. 11-12 parte II tabella"
+    },
+    {
+      "codice": "4",
+      "aliquota": 0.04,
+      "descrizione": "Aliquota ridotta (generi alimentari, libri, farmaci)",
+      "riferimento_normativo": "N. 1-3 parte II tabella D.P.R. 633/1972"
+    },
+    {
+      "codice": "5",
+      "aliquota": 0.05,
+      "descrizione": "Aliquota ridotta (lotte concessioni demaniali)",
+      "riferimento_normativo": "Art. 2 c. 2-bis D.P.R. 633/1972"
+    },
+    {
+      "codice": "0",
+      "aliquota": 0.0,
+      "descrizione": "Esenzione IVA (operazioni esenti art. 10)",
+      "riferimento_normativo": "Art. 10 D.P.R. 633/1972"
+    }
+  ],
+  "operazioni_non_imponibili": [
+    {
+      "descrizione": "Esportazioni",
+      "riferimento_normativo": "Art. 8 D.P.R. 633/1972"
+    },
+    {
+      "descrizione": "Cessioni intracomunitarie",
+      "riferimento_normativo": "Art. 41 D.L. 331/1993"
+    },
+    {
+      "descrizione": "Servizi internazionali",
+      "riferimento_normativo": "Art. 9 D.P.R. 633/1972"
+    }
+  ]
+}

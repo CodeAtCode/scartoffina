@@ -1,0 +1,37 @@
+{
+  "condominio": "Condominio Via Roma 10",
+  "data": "2026-09-15",
+  "luogo": "Sala riunioni del condominio",
+  "convocazione": "prima",
+  "presidente": "Mario Rossi",
+  "segretario": "Giulia Bianchi",
+  "presenti": [
+    {"nome": "Mario Rossi", "millesimi": 150, "delega": ""},
+    {"nome": "Giulia Bianchi", "millesimi": 200, "delega": "delega Scala A"},
+    {"nome": "Luigi Verdi", "millesimi": 100, "delega": ""}
+  ],
+  "ordine_del_giorno": [
+    "Approvazione bilancio consuntivo 2025",
+    "Approvazione preventivo spese 2026"
+  ],
+  "deliberazioni": [
+    {
+      "argomento": "Approvazione bilancio consuntivo 2025",
+      "favorevoli": 450,
+      "contrari": 0,
+      "astenuti": 0,
+      "esito": "APPROVATA",
+      "tipo_maggioranza": "ordinaria",
+      "note": "Bilancio approvato all'unanimita"
+    },
+    {
+      "argomento": "Approvazione preventivo spese 2026",
+      "favorevoli": 400,
+      "contrari": 50,
+      "astenuti": 0,
+      "esito": "APPROVATA",
+      "tipo_maggioranza": "ordinaria",
+      "note": "Preventivo approvato a maggioranza"
+    }
+  ]
+}

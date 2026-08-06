@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Ravvedimento Operoso - {{tributo}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+h2 { font-size: 16px; margin-top: 24px; color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+th, td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; }
+.importo { text-align: right; font-variant-numeric: tabular-nums; }
+.totale { font-weight: bold; background: #f0f0f0; }
+.formula { background: #f8f9fa; padding: 10px; font-family: monospace; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1>Ravvedimento Operoso</h1>
+
+<h2>Dati del ravvedimento</h2>
+<table>
+  <tr><td>Tributo</td><td>{{tributo}}</td></tr>
+  <tr><td>Scadenza originaria</td><td>{{scadenza_originaria}}</td></tr>
+  <tr><td>Data del pagamento</td><td>{{data_ravvedimento}}</td></tr>
+  <tr><td>Giorni di ritardo</td><td>{{giorni_ritardo}}</td></tr>
+  <tr><td>Tipo ravvedimento</td><td>{{tipo_ravvedimento}}</td></tr>
+</table>
+
+<h2>Calcolo</h2>
+<table>
+  <tr><th>Voce</th><th>Base</th><th>Aliquota</th><th class="importo">Importo (€)</th></tr>
+  <tr>
+    <td>Imposta originale</td>
+    <td>-</td>
+    <td>-</td>
+    <td class="importo">{{imposta_originale}}</td>
+  </tr>
+  <tr>
+    <td>Sanzione ridotta</td>
+    <td>{{imposta_originale}}</td>
+    <td>{{aliquota_sanzione}}%</td>
+    <td class="importo">{{sanzione_ridotta}}</td>
+  </tr>
+  <tr>
+    <td>Interessi</td>
+    <td>{{imposta_originale}}</td>
+    <td>{{tasso_interesse}}%</td>
+    <td class="importo">{{interessi}}</td>
+  </tr>
+  <tr class="totale">
+    <td colspan="3">Totale da versare</td>
+    <td class="importo">{{totale_versare}}</td>
+  </tr>
+</table>
+
+<h2>Formule applicate</h2>
+<div class="formula">
+  <p>Sanzione = {{imposta_originale}} × {{aliquota_sanzione}}% = {{sanzione_ridotta}} €</p>
+  <p>Interessi = {{imposta_originale}} × {{tasso_interesse}}% × {{giorni_ritardo}}/365 = {{interessi}} €</p>
+  <p>Totale = {{imposta_originale}} + {{sanzione_ridotta}} + {{interessi}} = {{totale_versare}} €</p>
+</div>
+
+<h2>Tipologie di ravvedimento</h2>
+<table>
+  <tr><th>Periodo</th><th>Sanzione ridotta</th></tr>
+  <tr><td>Entro 14 giorni</td><td>0,1% (1/200 della sanzione)</td></tr>
+  <tr><td>Entro 30 giorni</td><td>1/8 (1,5%)</td></tr>
+  <tr><td>Entro il termine dichiarazione</td><td>1/9 (~1,3%)</td></tr>
+  <tr><td>Entro 90 giorni</td><td>1/10 (1,8%)</td></tr>
+  <tr><td>Entro 1 anno</td><td>1/15 (9%)</td></tr>
+</table>
+
+<p style="margin-top: 30px; font-size: 12px; color: #666;">
+  D.Lgs. 472/1997 art. 13 — Ravvedimento operoso.
+</p>
+</body>
+</html>

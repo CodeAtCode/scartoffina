@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "verified_at": "2026-08-06",
+    "source": "https://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/9108472",
+    "tier": "manual",
+    "next_check_due": "2027-08-06"
+  },
+  "titolare": "Azienda Esempio S.r.l.",
+  "trattamenti": [
+    {
+      "id": "HR-001",
+      "finalita": "Gestione rapporto di lavoro",
+      "base_giuridica": "obbligo_legale",
+      "trasferimento_extra_ue": false
+    },
+    {
+      "id": "MKT-001",
+      "finalita": "Email marketing",
+      "base_giuridica": "consenso",
+      "trasferimento_extra_ue": true
+    },
+    {
+      "id": "SEC-001",
+      "finalita": "Sicurezza beni aziendali",
+      "base_giuridica": "legittimo_interesse",
+      "trasferimento_extra_ue": false
+    }
+  ]
+}

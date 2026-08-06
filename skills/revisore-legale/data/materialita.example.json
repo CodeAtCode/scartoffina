@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "skill": "revisore-legale",
+    "tipo": "materialita",
+    "tier": "manual",
+    "fonte": "esempio",
+    "data_aggiornamento": "2025-01-01",
+    "source": "esempio",
+    "verified_at": "2025-01-01",
+    "next_check_due": "2026-01-01"
+  },
+  "azienda": {
+    "denominazione": "Azienda Esempio S.r.l.",
+    "partita_iva": "12345678903",
+    "esercizio": 2024
+  },
+  "totale_attivo": 1000000.0,
+  "ricavi": 2500000.0,
+  "utile": 50000.0
+}

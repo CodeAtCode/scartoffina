@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Preventivo Condominiale - {{esercizio}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+h2 { font-size: 16px; margin-top: 24px; color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+th, td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; }
+.importo { text-align: right; font-variant-numeric: tabular-nums; }
+.totale { font-weight: bold; background: #f0f0f0; }
+.categoria { font-weight: 600; color: #2c3e50; }
+</style>
+</head>
+<body>
+<h1>Preventivo Condominiale — Anno {{esercizio}}</h1>
+<p><strong>Condominio:</strong> {{condominio}}</p>
+
+<h2>Spese previste</h2>
+<table>
+  <tr><th>Voce di spesa</th><th class="importo">Importo preventivato (€)</th></tr>
+  {{#spese}}
+  <tr class="{{#categoria}}categoria{{/categoria}}">
+    <td style="padding-left: {{livello}}">{{descrizione}}</td>
+    <td class="importo">{{importo}}</td>
+  </tr>
+  {{/spese}}
+  <tr class="totale"><td>Totale preventivo</td><td class="importo">{{totale_preventivo}}</td></tr>
+</table>
+
+<h2>Riparto per condòmino (esempio)</h2>
+<table>
+  <tr><th>Condomino</th><th>Millesimi</th><th class="importo">Quota annua</th><th class="importo">Rata mensile</th></tr>
+  {{#riparto}}
+  <tr>
+    <td>{{nome}}</td>
+    <td class="importo">{{millesimi}}</td>
+    <td class="importo">{{quota_annua}}</td>
+    <td class="importo">{{rata_mensile}}</td>
+  </tr>
+  {{/riparto}}
+</table>
+
+<h2>Fondo di riserva</h2>
+<table>
+  <tr><td>Minimo obbligatorio (3% del preventivo)</td><td class="importo">{{fondo_minimo}}</td></tr>
+  <tr><td>Fondo attuale</td><td class="importo">{{fondo_attuale}}</td></tr>
+  <tr><td>Integrazione necessaria</td><td class="importo">{{integrazione}}</td></tr>
+</table>
+
+<p style="margin-top: 30px; font-size: 12px; color: #666;">
+  Il preventivo è approvato dall'assemblea con maggioranza semplice (500 millesimi + 1) ex art. 1136 c.c.
+</p>
+</body>
+</html>

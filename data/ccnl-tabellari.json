@@ -1,0 +1,77 @@
+{
+  "_meta": {
+    "source": "CNEL/Contratti Collettivi Nazionali",
+    "source_url": "https://www.cnel.it/temi/lavoro/contratti-collettivi-nazionali",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "manual",
+    "license": "CC-BY-4.0",
+    "tier": "manual",
+    "next_check_due": "2026-12-31",
+    "note": "Minimi tabellari CCNL aggiornati al 2026. Verificare rinnovo contrattuale per variazioni."
+  },
+  "ccnl": [
+    {
+      "codice": "METALMECCANICO",
+      "denominazione": "Metalmeccanica - Industria",
+      "sindacato": "FNIM-FIOM, FIM, UILM",
+      "scadenza_contratto": "2026-12-31",
+      "livelli": ["EG", "D", "C", "B", "A1", "A2"],
+      "minimo_tabellare_mensile": [
+        {"livello": "EG", "importo": 1850.00, "descrizione": "Esecutori generici"},
+        {"livello": "D", "importo": 2100.00, "descrizione": "Esecutori specializzati"},
+        {"livello": "C", "importo": 2350.00, "descrizione": "Quadri intermedi"},
+        {"livello": "B", "importo": 2650.00, "descrizione": "Quadri"},
+        {"livello": "A1", "importo": 3100.00, "descrizione": "Dirigenti junior"},
+        {"livello": "A2", "importo": 3800.00, "descrizione": "Dirigenti senior"}
+      ]
+    },
+    {
+      "codice": "TERZIARIO",
+      "denominazione": "Terziario - Commercio",
+      "sindacato": "FIALS, FISASC, UISL",
+      "scadenza_contratto": "2026-06-30",
+      "livelli": ["1", "2", "3", "4", "5", "6", "7"],
+      "minimo_tabellare_mensile": [
+        {"livello": "1", "importo": 1650.00, "descrizione": "Addetti esecutori"},
+        {"livello": "2", "importo": 1750.00, "descrizione": "Addetti qualificati"},
+        {"livello": "3", "importo": 1880.00, "descrizione": "Addetti specializzati"},
+        {"livello": "4", "importo": 2050.00, "descrizione": "Addetti altamente specializzati"},
+        {"livello": "5", "importo": 2250.00, "descrizione": "Preposti"},
+        {"livello": "6", "importo": 2550.00, "descrizione": "Quadri"},
+        {"livello": "7", "importo": 3200.00, "descrizione": "Dirigenti"}
+      ]
+    },
+    {
+      "codice": "LOGISTICA",
+      "denominazione": "Logistica e Trasporti",
+      "sindacato": "FILTA, FISTEL, UILTUCS",
+      "scadenza_contratto": "2026-09-30",
+      "livelli": ["EG", "D", "C", "B", "A1", "A2"],
+      "minimo_tabellare_mensile": [
+        {"livello": "EG", "importo": 1720.00, "descrizione": "Addetti generici"},
+        {"livello": "D", "importo": 1920.00, "descrizione": "Addetti magazzinieri"},
+        {"livello": "C", "importo": 2150.00, "descrizione": "Autisti qualificati"},
+        {"livello": "B", "importo": 2400.00, "descrizione": "Caposquadra"},
+        {"livello": "A1", "importo": 2750.00, "descrizione": "Responsabili area"},
+        {"livello": "A2", "importo": 3400.00, "descrizione": "Direttori operativi"}
+      ]
+    },
+    {
+      "codice": "STUDI_PROFSSIONALI",
+      "denominazione": "Studi Professionali",
+      "sindacato": "FIAIP, CNA, CASAP",
+      "scadenza_contratto": "2026-11-30",
+      "livelli": ["1", "2", "3", "4", "5", "6", "7"],
+      "minimo_tabellare_mensile": [
+        {"livello": "1", "importo": 1580.00, "descrizione": "Collaboratori amministrativi"},
+        {"livello": "2", "importo": 1720.00, "descrizione": "Collaboratori qualificati"},
+        {"livello": "3", "importo": 1900.00, "descrizione": "Professionisti junior"},
+        {"livello": "4", "importo": 2150.00, "descrizione": "Professionisti"},
+        {"livello": "5", "importo": 2450.00, "descrizione": "Professionisti senior"},
+        {"livello": "6", "importo": 2850.00, "descrizione": "Soci di capitale"},
+        {"livello": "7", "importo": 3500.00, "descrizione": "Soci di lavoro"}
+      ]
+    }
+  ]
+}

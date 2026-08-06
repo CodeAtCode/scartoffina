@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Rendiconto Condominiale - {{esercizio}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+h2 { font-size: 16px; margin-top: 24px; color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+th, td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; }
+.importo { text-align: right; font-variant-numeric: tabular-nums; }
+.totale { font-weight: bold; background: #f0f0f0; }
+.avanzo { color: #2e7d32; font-weight: 600; }
+.disavanzo { color: #c62828; font-weight: 600; }
+</style>
+</head>
+<body>
+<h1>Rendiconto Condominiale — Anno {{esercizio}}</h1>
+<p><strong>Condominio:</strong> {{condominio}}</p>
+
+<h2>Entrate</h2>
+<table>
+  <tr><th>Descrizione</th><th class="importo">Importo (€)</th></tr>
+  {{#entrate}}
+  <tr><td>{{descrizione}}</td><td class="importo">{{importo}}</td></tr>
+  {{/entrate}}
+  <tr class="totale"><td>Totale Entrate</td><td class="importo">{{totale_entrate}}</td></tr>
+</table>
+
+<h2>Uscite</h2>
+<table>
+  <tr><th>Descrizione</th><th class="importo">Importo (€)</th></tr>
+  {{#uscite}}
+  <tr><td>{{descrizione}}</td><td class="importo">{{importo}}</td></tr>
+  {{/uscite}}
+  <tr class="totale"><td>Totale Uscite</td><td class="importo">{{totale_uscite}}</td></tr>
+</table>
+
+<h2>Saldo</h2>
+<table>
+  <tr><td>Saldo consuntivo</td><td class="importo {{#avanzo}}avanzo{{/avanzo}}{{#disavanzo}}disavanzo{{/disavanzo}}">{{saldo}} €</td></tr>
+</table>
+
+<h2>Riparto tra Condomini</h2>
+<table>
+  <tr><th>Condomino</th><th>Millesimi</th><th class="importo">Quota</th><th class="importo">Versato</th><th class="importo">Saldo</th></tr>
+  {{#riparto}}
+  <tr>
+    <td>{{nome}}</td>
+    <td class="importo">{{millesimi}}</td>
+    <td class="importo">{{quota}}</td>
+    <td class="importo">{{versato}}</td>
+    <td class="importo {{#debito}}disavanzo{{/debito}}{{#credito}}avanzo{{/credito}}">{{saldo_condomino}}</td>
+  </tr>
+  {{/riparto}}
+</table>
+
+<p style="margin-top: 30px; font-size: 12px; color: #666;">
+  Approvato dall'assemblea in data {{data_approvazione}} — Verbale n. {{verbale_numero}}
+</p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "redditi": {
+    "fabbricati": 12000.00,
+    "lavoro_dipendente": 35000.00,
+    "autonomo": 8000.00
+  },
+  "ritenute": {
+    "ritenuta_autonomo": 1600.00,
+    "ritenuta_dipendente": 7000.00
+  },
+  "crediti": {
+    "credito_anno_precedente": 500.00
+  },
+  "imposta_calcolata": 11500.00,
+  "imposta_dichiarata": 2400.00
+}

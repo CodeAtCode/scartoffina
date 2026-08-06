@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "skill": "inps-inail",
+    "tipo": "contributi",
+    "tier": "manual",
+    "fonte": "esempio",
+    "data_aggiornamento": "2025-01-01",
+    "source": "esempio",
+    "verified_at": "2025-01-01",
+    "next_check_due": "2026-01-01"
+  },
+  "lavoratore": {
+    "id": "LAV-001",
+    "nome": "Mario Rossi",
+    "codice_fiscale": "RSSMRA80A01H501Z",
+    "gestione": "dipendenti",
+    "retribuzione_mensile": 2500.0
+  },
+  "datore": {
+    "denominazione": "Azienda Esempio S.r.l.",
+    "partita_iva": "12345678903",
+    "posizione_inps": "1234567890"
+  },
+  "periodo": {
+    "mese": 1,
+    "anno": 2025
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "_meta": {
+    "source": "INAIL SPARQL",
+    "source_url": "https://dati.inail.it/",
+    "fetched_at": "2026-08-05T00:00:00",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "inail_sparql",
+    "license": "CC-BY-4.0",
+    "tier": "1",
+    "next_check_due": "2027-01-01",
+    "note": "Tassi tariffa INAIL per classi di rischio. Aggiornamento annuale INAIL."
+  },
+  "anno_riferimento": 2026,
+  "tasso_medio_settoriale": 1.6,
+  "tasso_base_riferimento": 1.6,
+  "classi_rischio": [
+    {
+      "classe": 1,
+      "settore": "Servizi amministrativi",
+      "codice_ateaco": "62-63",
+      "tasso": 0.5,
+      "note": "Ufficio, informatica, servizi professionali"
+    },
+    {
+      "classe": 2,
+      "settore": "Commercio al dettaglio",
+      "codice_ateaco": "47",
+      "tasso": 0.8,
+      "note": "Negozi, centri commerciali"
+    },
+    {
+      "classe": 3,
+      "settore": "Alberghi e ristorazione",
+      "codice_ateaco": "55-56",
+      "tasso": 1.2,
+      "note": "Rischio medio per ustioni, scivolamenti"
+    },
+    {
+      "classe": 4,
+      "settore": "Trasporti stradali",
+      "codice_ateaco": "49",
+      "tasso": 1.8,
+      "note": "Trasporto merci e passeggeri"
+    },
+    {
+      "classe": 5,
+      "settore": "Agricoltura",
+      "codice_ateaco": "01-03",
+      "tasso": 2.5,
+      "note": "Coltivazioni, allevamenti"
+    },
+    {
+      "classe": 6,
+      "settore": "Manifatturiero leggero",
+      "codice_ateaco": "10-12",
+      "tasso": 1.2,
+      "note": "Industria alimentare, tessile"
+    },
+    {
+      "classe": 7,
+      "settore": "Manifatturiero pesante",
+      "codice_ateaco": "20-25",
+      "tasso": 3.5,
+      "note": "Chimico, metallurgico"
+    },
+    {
+      "classe": 8,
+      "settore": "Costruzioni civili",
+      "codice_ateaco": "41",
+      "tasso": 4.5,
+      "note": "Edilizia residenziale"
+    },
+    {
+      "classe": 9,
+      "settore": "Costruzioni industriali",
+      "codice_ateaco": "42-43",
+      "tasso": 6.5,
+      "note": "Opere pubbliche, impianti"
+    },
+    {
+      "classe": 10,
+      "settore": "Estrattivi",
+      "codice_ateaco": "05-09",
+      "tasso": 8.0,
+      "note": "Cave, miniere - rischio elevato"
+    }
+  ],
+  "oscillazione_tasso": {
+    "sconto_max": 0.3,
+    "aggbonus_max": 0.3,
+    "note": "Oscillazione fino a ±30% in base all'esperienza sinistri"
+  },
+  "calcolo_premio": {
+    "formula": "Reddito_assoggettabile x tasso_tariffa / 1000",
+    "note": "Il tasso è espresso in per mille"
+  },
+  "sconti_e_sovrattasse": [
+    {
+      "tipologia": "Sconto per buona esperienza",
+      "massimo": 0.3,
+      "note": "Fino a 30% di sconto per aziende con pochi infortuni"
+    },
+    {
+      "tipologia": "AggBonus per cattiva esperienza",
+      "massimo": 0.3,
+      "note": "Fino a 30% di sovrattassa per aziende con molti infortuni"
+    },
+    {
+      "tipologia": "Sconto per misure di prevenzione",
+      "massimo": 0.15,
+      "note": "Sconto aggiuntivo per investimenti in sicurezza"
+    }
+  ]
+}

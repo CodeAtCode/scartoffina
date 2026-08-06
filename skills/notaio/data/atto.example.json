@@ -1,0 +1,17 @@
+{
+  "data": "2026-09-15",
+  "luogo": "Roma",
+  "antefatto": "il venditore e legittimo proprietario del bene oggetto del presente atto",
+  "venditore_nome": "Mario Rossi",
+  "venditore_dati": "nato a Roma il 01/01/1960, CF RSSMRA60A01H501Z",
+  "acquirente_nome": "Giulia Bianchi",
+  "acquirente_dati": "nata a Milano il 15/05/1985, CF BNCGLI85E55F205X",
+  "oggetto_descrizione": "n. 3 - Scala A - Piano 2 - Via Roma 10, Roma",
+  "prezzo": 250000,
+  "modalita_pagamento": "bonifico bancario",
+  "garanzie": "a norma di legge ex art. 1490 c.c.",
+  "registro": 2500,
+  "ipotecaria": 250,
+  "catastale": 55,
+  "sottoscrizione": "in calce al presente atto"
+}

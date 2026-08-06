@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Conto Economico - {{esercizio}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+h2 { font-size: 14px; margin-top: 24px; color: #2c3e50; text-transform: uppercase; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+td { padding: 6px 12px; border-bottom: 1px solid #f0f0f0; }
+.importo { text-align: right; font-variant-numeric: tabular-nums; }
+.voce { padding-left: 20px; }
+.totale-sezione { font-weight: bold; background: #f8f9fa; }
+.totale-f finale { font-weight: bold; font-size: 18px; background: #e8f5e9; }
+.positivo { color: #2e7d32; }
+.negativo { color: #c62828; }
+</style>
+</head>
+<body>
+<h1>Conto Economico anno {{esercizio}}</h1>
+<p style="font-size: 12px; color: #666;">Redatto secondo OIC 34 — Schema civilistico art. 2425 c.c.</p>
+
+<h2>Valore della Produzione</h2>
+<table>
+  <tr><td>A) Ricavi delle vendite e prestazioni</td><td class="importo">{{ricavi}}</td></tr>
+  <tr><td class="voce">B) Variazioni rimanenze</td><td class="importo">{{var_rimanenze}}</td></tr>
+  <tr><td class="voce">C) Incrementi immobilizzazioni per lavori interni</td><td class="importo">{{incr_interni}}</td></tr>
+  <tr><td class="voce">D) Altri ricavi e proventi</td><td class="importo">{{altri_ricavi}}</td></tr>
+  <tr class="totale-sezione"><td>Totale valore produzione</td><td class="importo">{{totale_valore}}</td></tr>
+</table>
+
+<h2>Costi della Produzione</h2>
+<table>
+  <tr><td>E) Acquisti per consumi</td><td class="importo">{{acquisti}}</td></tr>
+  <tr><td>F) Servizi</td><td class="importo">{{servizi}}</td></tr>
+  <tr><td>G) Costi per il personale</td><td class="importo">{{costi_personale}}</td></tr>
+  <tr><td class="voce">Salari e stipendi</td><td class="importo">{{salari}}</td></tr>
+  <tr><td class="voce">Oneri sociali</td><td class="importo">{{oneri_sociali}}</td></tr>
+  <tr><td class="voce">TFR</td><td class="importo">{{tfr}}</td></tr>
+  <tr><td>H) Ammortamenti</td><td class="importo">{{ammortamenti}}</td></tr>
+  <tr><td>I) Svalutazioni</td><td class="importo">{{svalutazioni}}</td></tr>
+  <tr><td>L) Accantonamenti</td><td class="importo">{{accantonamenti}}</td></tr>
+  <tr><td>M) Altri costi</td><td class="importo">{{altri_costi}}</td></tr>
+  <tr class="totale-sezione"><td>Totale costi produzione</td><td class="importo">{{totale_costi}}</td></tr>
+</table>
+
+<table>
+  <tr class="totale-finale">
+    <td>RISULTATO D'ESERCIZIO (A-H)</td>
+    <td class="importo {{#utile}}positivo{{/utile}}{{#perdita}}negativo{{/perdita}}">
+      {{risultato}} €
+    </td>
+  </tr>
+</table>
+</body>
+</html>

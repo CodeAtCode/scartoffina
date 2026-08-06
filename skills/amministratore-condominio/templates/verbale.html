@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Verbale Assemblea - {{condominio}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+h2 { font-size: 16px; margin-top: 24px; color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+th, td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; }
+.millesimi { text-align: right; }
+.approvata { color: #2e7d32; font-weight: 600; }
+.respinta { color: #c62828; font-weight: 600; }
+.delibera { margin: 15px 0; padding: 10px; background: #f8f9fa; border-left: 3px solid #2c3e50; }
+.firme { margin-top: 40px; display: flex; gap: 60px; }
+</style>
+</head>
+<body>
+<h1>Verbale Assemblea Condominiale</h1>
+
+<p><strong>Condominio:</strong> {{condominio}}<br>
+<strong>Data:</strong> {{data}}<br>
+<strong>Luogo:</strong> {{luogo}}<br>
+<strong>Convocazione:</strong> {{convocazione}}</p>
+
+<p><strong>Presidente:</strong> {{presidente}}<br>
+<strong>Segretario:</strong> {{segretario}}</p>
+
+<h2>Presenti</h2>
+<table>
+  <tr><th>Condomino</th><th class="millesimi">Millesimi</th><th>Delega</th></tr>
+  {{#presenti}}
+  <tr><td>{{nome}}</td><td class="millesimi">{{millesimi}}</td><td>{{delega}}</td></tr>
+  {{/presenti}}
+  <tr style="font-weight:bold; background:#f0f0f0;"><td>Totale</td><td class="millesimi">{{totale_millesimi}}/1000</td><td></td></tr>
+</table>
+
+<h2>Ordine del Giorno</h2>
+<ol>
+  {{#odg_items}}
+  <li>{{.}}</li>
+  {{/odg_items}}
+</ol>
+
+<h2>Deliberazioni</h2>
+{{#deliberazioni}}
+<div class="delibera">
+  <p><strong>Argomento {{numero}}:</strong> {{argomento}}</p>
+  <p>Favorevoli: {{favorevoli}} millesimi | Contrari: {{contrari}} millesimi | Astenuti: {{astenuti}} millesimi</p>
+  <p>Tipo maggioranza: {{tipo_maggioranza}} — <span class="{{esito_class}}">{{esito}}</span></p>
+  {{#note}}<p><em>Note: {{note}}</em></p>{{/note}}
+</div>
+{{/deliberazioni}}
+
+<div class="firme">
+  <p>Il Presidente:<br><br>__________________</p>
+  <p>Il Segretario:<br><br>__________________</p>
+</div>
+
+<p style="margin-top: 30px; font-size: 12px; color: #666;">Data: {{data}}</p>
+</body>
+</html>

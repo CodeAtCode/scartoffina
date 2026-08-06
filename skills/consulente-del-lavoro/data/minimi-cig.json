@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "version": "0.1.0",
+    "descrizione": "Minimi CIG/CIGS 2025"
+  },
+  "_meta": {
+    "verified_at": "2026-08-06",
+    "next_check_due": "2027-01-01",
+    "source": "https://www.inps.it",
+    "tier": "manual"
+  },
+  "cig_ordinaria": {
+    "aliquota": 0.8,
+    "settimane_massime_anno": 13,
+    "tetto_mensile": 1154.74
+  },
+  "cigs": {
+    "aliquota": 0.8,
+    "settimane_massime_anno": 26,
+    "tetto_mensile": 1154.74
+  },
+  "cigd": {
+    "aliquota": 0.8,
+    "durata_massima_mesi": 12,
+    "tetto_mensile": 1154.74
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "reddito_complessivo": 45000,
+  "coniuge": {
+    "reddito": 0,
+    "a_carico": true
+  },
+  "figli_carico": 2,
+  "regione": "lombardia",
+  "comune": "milano",
+  "oneri_deducibili": {
+    "mutuo_abitazione_principale": 0,
+    "spese_mediche": 0,
+    "previdenza_complementare": 0,
+    "erogazioni_liberali": 0,
+    "assegni_mantenimento": 0
+  },
+  "redditi_addizionali": {
+    "redditi_capitali": 0,
+    "redditi_fondiari": 0,
+    "crypto_plusvalenze": 0,
+    "lavoro_autonomo": 0
+  },
+  "immobili": [
+    {
+      "categoria": "A/3",
+      "rendita_catastale": 950,
+      "prima_casa": true,
+      "comune": "milano"
+    }
+  ]
+}

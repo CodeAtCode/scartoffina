@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Modello 730 - {{anno}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 30px; line-height: 1.5; }
+h1 { font-size: 18px; border-bottom: 2px solid #333; padding-bottom: 8px; }
+h2 { font-size: 14px; margin-top: 20px; color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+th, td { padding: 5px 10px; text-align: left; border: 1px solid #ccc; }
+th { background: #f8f9fa; }
+.importo { text-align: right; font-variant-numeric: tabular-nums; }
+.totale { font-weight: bold; background: #f0f0f0; }
+</style>
+</head>
+<body>
+<h1>Modello 730 — Anno {{anno}}</h1>
+
+<h2>Contribuente</h2>
+<table>
+  <tr><td>Codice fiscale</td><td>{{cf}}</td></tr>
+  <tr><td>Cognome e nome</td><td>{{nome}}</td></tr>
+  <tr><td>Comune di residenza</td><td>{{comune}}</td></tr>
+  <tr><td>Quadro</td><td>CU</td></tr>
+</table>
+
+<h2>Quadro CU - Redditi</h2>
+<table>
+  <tr><th>Tipologia</th><th class="importo">Ammontare (€)</th></tr>
+  <tr><td>Reddito da lavoro dipendente</td><td class="importo">{{reddito_dipendente}}</td></tr>
+  <tr><td>Reddito da lavoro autonomo</td><td class="importo">{{reddito_autonomo}}</td></tr>
+  <tr><td>Reddito da fabbricati</td><td class="importo">{{reddito_fabbricati}}</td></tr>
+  <tr><td>Reddito da terreni</td><td class="importo">{{reddito_terreni}}</td></tr>
+  <tr class="totale"><td>Reddito complessivo</td><td class="importo">{{reddito_complessivo}}</td></tr>
+</table>
+
+<h2>Quadro E - Oneri detraibili</h2>
+<table>
+  <tr><th>Oneri</th><th class="importo">Importo (€)</th><th class="importo">Detrazione</th></tr>
+  <tr><td>Spese mediche</td><td class="importo">{{spese_mediche}}</td><td class="importo">{{detrazione_mediche}}</td></tr>
+  <tr><td>Spese scolastiche</td><td class="importo">{{spese_scolastiche}}</td><td class="importo">{{detrazione_scolastiche}}</td></tr>
+  <tr><td>Spese funebri</td><td class="importo">{{spese_funebri}}</td><td class="importo">{{detrazione_funebri}}</td></tr>
+  <tr><td>Erogazioni liberali</td><td class="importo">{{liberali}}</td><td class="importo">{{detrazione_liberali}}</td></tr>
+  <tr><td>Ristrutturazioni edilizie</td><td class="importo">{{ristrutturazioni}}</td><td class="importo">{{detrazione_ristrutturazioni}}</td></tr>
+  <tr><td>Interessi mutuo</td><td class="importo">{{interessi_mutuo}}</td><td class="importo">{{detrazione_mutuo}}</td></tr>
+  <tr class="totale"><td colspan="2">Totale detrazioni</td><td class="importo">{{totale_detrazioni}}</td></tr>
+</table>
+
+<h2>Quadro RN - Calcolo IRPEF</h2>
+<table>
+  <tr><th>Voce</th><th class="importo">Importo (€)</th></tr>
+  <tr><td>Reddito imponibile</td><td class="importo">{{imponibile}}</td></tr>
+  <tr><td>IRPEF a debito</td><td class="importo">{{irpef_dovuta}}</td></tr>
+  <tr><td>IRPEF trattenuta dal sostituto</td><td class="importo">{{irpef_trattenuta}}</td></tr>
+  <tr><td>Detrazioni lavoro dipendente</td><td class="importo">{{detrazioni_lavoro}}</td></tr>
+  <tr><td>Detrazioni carichi famiglia</td><td class="importo">{{detrazioni_famiglia}}</td></tr>
+  <tr class="totale">
+    <td>Saldo IRPEF</td>
+    <td class="importo">{{saldo_irpef}}</td>
+  </tr>
+</table>
+
+<p style="margin-top: 20px; font-size: 12px; color: #666;">
+  Modello 730/{{anno}} — Da presentare tramite sostituto d'imposta o CAF/professionista abilitato.
+</p>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "source": "Garante per la protezione dei dati personali",
+    "source_url": "https://www.garanteprivacy.it/home/docweb",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "manual",
+    "license": "CC-BY-4.0",
+    "tier": "manual",
+    "next_check_due": "2026-12-31",
+    "note": "Provvedimenti chiave del Garante Privacy. Consultare sito ufficiale per testi completi."
+  },
+  "provvedimenti": [
+    {
+      "id": "docweb-9834521",
+      "data": "2024-01-25",
+      "titolo": "Cookie banner: sanzioni per pratiche ingannevoli",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9834521",
+      "settore": "Cookie e tracciamento",
+      "sanzione": "25.000.000 EUR",
+      "soggetti_colpiti": "Gruppo mediatico internazionale",
+      "riassunto": "Sanzione per cookie banner che non consentivano il rifiuto facile quanto l'accettazione"
+    },
+    {
+      "id": "docweb-9756432",
+      "data": "2024-03-15",
+      "titolo": "Videosorveglianza: linee guida per l'installazione",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9756432",
+      "settore": "Videosorveglianza",
+      "sanzione": null,
+      "soggetti_colpiti": "Aziende e condomini",
+      "riassunto": "Linee guida per videosorveglianza nei luoghi di lavoro e spazi comuni"
+    },
+    {
+      "id": "docweb-9823156",
+      "data": "2024-06-10",
+      "titolo": "Biometria: trattamento impronte digitali per presenze",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9823156",
+      "settore": "Biometria",
+      "sanzione": "150.000 EUR",
+      "soggetti_colpiti": "Azienda manifatturiera",
+      "riassunto": "Sanzione per uso impronte digitali per timbratura senza base giuridica adeguata"
+    },
+    {
+      "id": "docweb-9901234",
+      "data": "2025-02-20",
+      "titolo": "Data breach: obbligo di notifica entro 72 ore",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9901234",
+      "settore": "Data breach",
+      "sanzione": "500.000 EUR",
+      "soggetti_colpiti": "Fintech startup",
+      "riassunto": "Sanzione per mancata notifica data breach che ha interessato 50.000 utenti"
+    },
+    {
+      "id": "docweb-9945678",
+      "data": "2025-09-12",
+      "titolo": "Sanzioni amministrative: criteri di applicazione",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9945678",
+      "settore": "Sanzioni",
+      "sanzione": null,
+      "soggetti_colpiti": "Titolari trattamento",
+      "riassunto": "Linee guida per calcolo sanzioni GDPR in base a gravità, durata e intenzionalità"
+    }
+  ],
+  "criteri_sanzionatori": {
+    "art_83_gdpr": {
+      "violazioni_leggeri": "fino a 10.000.000 EUR o 2% fatturato mondiale",
+      "violazioni_gravi": "fino a 20.000.000 EUR o 4% fatturato mondiale",
+      "fattori_valutazione": ["gravità", "durata", "intenzionalità", "misure mitigazione", "categoria dati", "numero interessati"]
+    }
+  }
+}

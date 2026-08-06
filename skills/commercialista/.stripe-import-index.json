@@ -1,0 +1,56 @@
+[
+  {
+    "stripe_invoice_id": "in_001",
+    "numero": "2026/001",
+    "data": "2026-01-15 10:00:00",
+    "tipo_documento": "TD01",
+    "cedente": {
+      "denominazione": "Stripe Italy S.r.l.",
+      "partita_iva": "12345678901"
+    },
+    "cessiomario": {
+      "denominazione": "Cliente Gamma S.r.l."
+    },
+    "linee": [
+      {
+        "numero": 1,
+        "descrizione": "Servizio consulenza",
+        "quantita": 1,
+        "unita_misura": "pz",
+        "prezzo_unitario": 800.0,
+        "prezzo_totale": 800.0,
+        "aliquota_iva": 0.22
+      }
+    ],
+    "imponibile": 800.0,
+    "imposta": 176.0,
+    "totale": 976.0
+  },
+  {
+    "stripe_invoice_id": "in_002",
+    "numero": "2026/002",
+    "data": "2026-01-20 14:30:00",
+    "tipo_documento": "TD01",
+    "cedente": {
+      "denominazione": "Stripe Italy S.r.l.",
+      "partita_iva": "12345678901"
+    },
+    "cessiomario": {
+      "denominazione": "Cliente Delta S.r.l."
+    },
+    "linee": [
+      {
+        "numero": 1,
+        "descrizione": "Servizio sviluppo",
+        "quantita": 1,
+        "unita_misura": "pz",
+        "prezzo_unitario": 1000.0,
+        "prezzo_totale": 1000.0,
+        "aliquota_iva": 0.22
+      }
+    ],
+    "imponibile": 1000.0,
+    "imposta": 220.0,
+    "totale": 1220.0
+  }
+]

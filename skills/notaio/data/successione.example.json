@@ -1,0 +1,21 @@
+{
+  "de_cuius": {
+    "nome": "Luigi Verdi",
+    "data_decesso": "2026-01-15",
+    "luogo_decesso": "Roma"
+  },
+  "asse_ereditario": 500000,
+  "passivita": 50000,
+  "eredi": [
+    {
+      "nome": "Mario Verdi",
+      "grado_parentela": "coniuge_figli",
+      "quota": 0.5
+    },
+    {
+      "nome": "Giulia Verdi",
+      "grado_parentela": "coniuge_figli",
+      "quota": 0.5
+    }
+  ]
+}

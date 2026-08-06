@@ -1,0 +1,93 @@
+{
+  "_meta": {
+    "source": "Agenzia delle Entrate - OMI",
+    "source_url": "https://www.agenziaentrate.gov.it/portale/web/guest/osservatorio-mercato-immobiliare",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "manual",
+    "license": "CC-BY-4.0",
+    "tier": "2",
+    "next_check_due": "2026-11-01",
+    "note": "Quotazioni OMI semestrali. Aggiornamento semestrale (S1/S2). Accesso con credenziali SPID/CIE."
+  },
+  "periodo_riferimento": "2026-S1",
+  "data_pubblicazione": "2026-04-15",
+  "quotazioni": [
+    {
+      "comune": "Roma",
+      "zona_omi": "Municipio I - Centro Storico",
+      "categoria_ami": "A/1, A/8, A/9",
+      "tipologia": "Abitativo civile",
+      "valore_min": 5500,
+      "valore_max": 9000,
+      "unita": "euro_mq",
+      "note": "Zone prestigiose: Trastevere, Prati, Parioli"
+    },
+    {
+      "comune": "Roma",
+      "zona_omi": "Municipio V - Tiburtino",
+      "categoria_ami": "A/2, A/3",
+      "tipologia": "Abitativo economico",
+      "valore_min": 2200,
+      "valore_max": 3200,
+      "unita": "euro_mq",
+      "note": "Zone residenziali periferiche"
+    },
+    {
+      "comune": "Milano",
+      "zona_omi": "Municipio 1 - Centro",
+      "categoria_ami": "A/1, A/8, A/9",
+      "tipologia": "Abitativo di lusso",
+      "valore_min": 7500,
+      "valore_max": 15000,
+      "unita": "euro_mq",
+      "note": "Quadrilatero moda, Brera, Porta Nuova"
+    },
+    {
+      "comune": "Milano",
+      "zona_omi": "Municipio 4 - Lambrate",
+      "categoria_ami": "A/2, A/3",
+      "tipologia": "Abitativo economico",
+      "valore_min": 2800,
+      "valore_max": 4200,
+      "unita": "euro_mq",
+      "note": "Zone in riqualificazione"
+    },
+    {
+      "comune": "Napoli",
+      "zona_omi": "Chiaia - Vomero",
+      "categoria_ami": "A/2, A/3",
+      "tipologia": "Abitativo civile",
+      "valore_min": 2500,
+      "valore_max": 4500,
+      "unita": "euro_mq",
+      "note": "Zone residenziali esclusive"
+    },
+    {
+      "comune": "Napoli",
+      "zona_omi": "Periferia Est",
+      "categoria_ami": "A/2, A/3",
+      "tipologia": "Abitativo economico",
+      "valore_min": 900,
+      "valore_max": 1500,
+      "unita": "euro_mq",
+      "note": "Zone periferiche"
+    },
+    {
+      "comune": "Bari",
+      "zona_omi": "Muratie - Centro Storico",
+      "categoria_ami": "A/2, A/3",
+      "tipologia": "Abitativo civile",
+      "valore_min": 1800,
+      "valore_max": 2800,
+      "unita": "euro_mq",
+      "note": "Centro storico in riqualificazione"
+    }
+  ],
+  "metadati": {
+    "fonte": "Agenzia delle Entrate - Osservatorio Mercato Immobiliare",
+    "aggiornamento": "Semestrale (15 gennaio / 15 luglio)",
+    "copertura": "Comuni capoluogo e principali città",
+    "utilizzo": "Valutazioni fiscali, imposte di registro, plusvalenze"
+  }
+}

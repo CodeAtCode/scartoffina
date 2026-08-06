@@ -1,0 +1,29 @@
+{
+  "numero": "2026/1",
+  "data": "2026-01-15",
+  "tipo_documento": "TD01",
+  "cedente": {
+    "denominazione": "Studio Beta S.r.l.",
+    "partita_iva": "12345678901",
+    "indirizzo": "Via Roma 1, Roma"
+  },
+  "cessiomario": {
+    "denominazione": "Cliente Gamma S.r.l.",
+    "partita_iva": "98765432109",
+    "indirizzo": "Via Verdi 2, Milano"
+  },
+  "linee": [
+    {
+      "numero": 1,
+      "descrizione": "Servizio consulenza",
+      "quantita": 1,
+      "unita_misura": "ore",
+      "prezzo_unitario": 800.00,
+      "prezzo_totale": 800.00,
+      "aliquota_iva": 0.22
+    }
+  ],
+  "imponibile": 800.00,
+  "imposta": 176.00,
+  "totale": 976.00
+}

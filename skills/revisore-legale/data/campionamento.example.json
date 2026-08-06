@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "skill": "revisore-legale",
+    "tipo": "campionamento",
+    "tier": "manual",
+    "fonte": "esempio",
+    "data_aggiornamento": "2025-01-01",
+    "source": "esempio",
+    "verified_at": "2025-01-01",
+    "next_check_due": "2026-01-01"
+  },
+  "azienda": {
+    "denominazione": "Azienda Esempio S.r.l.",
+    "esercizio": 2024
+  },
+  "popolazione": 5000,
+  "tolleranza": 0.05,
+  "rischio_controllo": 0.6,
+  "errore_atteso": 0.02
+}

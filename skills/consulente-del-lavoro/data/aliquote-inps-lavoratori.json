@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "version": "0.1.0",
+    "descrizione": "Aliquote contributive INPS lavoratori dipendenti 2025"
+  },
+  "_meta": {
+    "verified_at": "2026-08-06",
+    "next_check_due": "2027-01-01",
+    "source": "https://www.inps.it",
+    "tier": "manual"
+  },
+  "dipendente": 0.0919,
+  "azienda": 0.3019,
+  "totale": 0.3938,
+  "note": "Aliquote standard 2025, FPV compreso. Variano per categoria (apprendisti, trasferte, ecc.)"
+}

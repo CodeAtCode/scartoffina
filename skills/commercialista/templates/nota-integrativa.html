@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Nota Integrativa - {{esercizio}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+h2 { font-size: 16px; margin-top: 30px; color: #2c3e50; }
+h3 { font-size: 14px; margin-top: 20px; color: #34495e; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+th, td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; }
+.importo { text-align: right; }
+</style>
+</head>
+<body>
+<h1>Nota Integrativa al bilancio d'esercizio {{esercizio}}</h1>
+
+<h2>1. Criteri di redazione e di valutazione</h2>
+<p>Il bilancio è redatto in conformità agli articoli 2423 e seguenti del codice civile e ai principi contabili nazionali (OIC).</p>
+<p><strong>Costo storico:</strong> le immobilizzazioni sono iscritte al costo di acquisto diminuito dei relativi fondi di ammortamento.</p>
+<p><strong>Criterio di competenza:</strong> i componenti positivi e negativi di reddito sono iscritti in base al principio della competenza economica.</p>
+
+<h2>2. Immobilizzazioni materiali</h2>
+<table>
+  <tr><th>Categoria</th><th>Costo storico</th><th>Fondo amm.</th><th>Valore netto</th></tr>
+  <tr><td>Fabbricati</td><td class="importo">{{fabbricati_costo}}</td><td class="importo">{{fabbricati_fondo}}</td><td class="importo">{{fabbricati_netto}}</td></tr>
+  <tr><td>Impianti e macchinari</td><td class="importo">{{impianti_costo}}</td><td class="importo">{{impianti_fondo}}</td><td class="importo">{{impianti_netto}}</td></tr>
+  <tr><td>Attrezzature</td><td class="importo">{{attrezzature_costo}}</td><td class="importo">{{attrezzature_fondo}}</td><td class="importo">{{attrezzature_netto}}</td></tr>
+  <tr><td>Automezzi</td><td class="importo">{{automezzi_costo}}</td><td class="importo">{{automezzi_fondo}}</td><td class="importo">{{automezzi_netto}}</td></tr>
+</table>
+
+<h2>3. Immobilizzazioni immateriali</h2>
+<p>Software: costo {{software_costo}} €, fondo ammortamento {{software_fondo}} €, netto {{software_netto}} €.</p>
+
+<h2>4. Crediti</h2>
+<table>
+  <tr><th>Tipologia</th><th>Importo</th><th>Svalutazione</th><th>Netto</th></tr>
+  <tr><td>Clienti</td><td class="importo">{{crediti_clienti}}</td><td class="importo">{{svalutazione_clienti}}</td><td class="importo">{{crediti_clienti_netti}}</td></tr>
+  <tr><td>Crediti tributari</td><td class="importo">{{crediti_tributari}}</td><td class="importo">0</td><td class="importo">{{crediti_tributari}}</td></tr>
+</table>
+
+<h2>5. Rimanenze</h2>
+<p>Valutate al costo di acquisto (metodo LIFO).</p>
+
+<h2>6. Patrimonio netto</h2>
+<table>
+  <tr><th>Voce</th><th>Importo</th></tr>
+  <tr><td>Capitale sociale</td><td class="importo">{{capitale_sociale}}</td></tr>
+  <tr><td>Riserva legale</td><td class="importo">{{riserva_legale}}</td></tr>
+  <tr><td>Riserve utili</td><td class="importo">{{riserve_utili}}</td></tr>
+  <tr><td>Utile d'esercizio</td><td class="importo">{{utile_esercizio}}</td></tr>
+</table>
+
+<h2>7. Fondi rischi e oneri</h2>
+<p>Fondo per contenzioso tributario: {{fondo_contenzioso}} €.</p>
+
+<h2>8. TFR dipendenti</h2>
+<p>Fondo TFR: {{tfr}} €. Metodo di calcolo: coefficiente L. 296/2006.</p>
+
+<h2>9. Debiti</h2>
+<table>
+  <tr><th>Tipologia</th><th>Breve termine</th><th>Lungo termine</th></tr>
+  <tr><td>Debiti finanziari (banche)</td><td class="importo">{{debiti_banche_bt}}</td><td class="importo">{{debiti_banche_lt}}</td></tr>
+  <tr><td>Debiti verso fornitori</td><td class="importo">{{debiti_fornitori}}</td><td class="importo">0</td></tr>
+  <tr><td>Debiti tributari</td><td class="importo">{{debiti_tributari}}</td><td class="importo">0</td></tr>
+  <tr><td>Debiti verso dipendenti</td><td class="importo">{{debiti_dipendenti}}</td><td class="importo">0</td></tr>
+</table>
+
+<h2>10. Fatti successivi alla chiusura</h2>
+<p>{{fatti_successivi}}</p>
+
+<h2>11. Operazioni con parti correlate</h2>
+<p>{{parti_correlate}}</p>
+
+<h2>12. Trattamento fiscale</h2>
+<p>IRPEF/IRES: aliquota 24%. IRAP: 3,9% base.</p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "source": "ISTAT",
+    "source_url": "https://www.istat.it/it/archivio/67",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "istat_sdmx_api",
+    "license": "CC-BY-4.0",
+    "tier": "1",
+    "next_check_due": "2026-09-01",
+    "note": "Indice IPC MCI (Massimo Consumo Individuale) per contingenza. Aggiornamento mensile."
+  },
+  "edizioni": [
+    {
+      "data": "2026-01-01",
+      "valore_ipc": 5.0,
+      "tipo": "adel",
+      "variazione_annua": 0.02,
+      "note": "Adeguamento contingenza gennaio 2026"
+    },
+    {
+      "data": "2025-07-01",
+      "valore_ipc": 4.9,
+      "tipo": "adel",
+      "variazione_annua": 0.015,
+      "note": "Adeguamento contingenza luglio 2025"
+    },
+    {
+      "data": "2025-01-01",
+      "valore_ipc": 4.83,
+      "tipo": "adel",
+      "variazione_annua": 0.012,
+      "note": "Adeguamento contingenza gennaio 2025"
+    },
+    {
+      "data": "2024-07-01",
+      "valore_ipc": 4.77,
+      "tipo": "adel",
+      "variazione_annua": 0.008,
+      "note": "Adeguamento contingenza luglio 2024"
+    }
+  ],
+  "metadati": {
+    "base_riferimento": "2021=100",
+    "fonte_calcolo": "ISTAT - Indice dei prezzi al consumo per l'intera collettività (NIC)",
+    "frequenza_aggiornamento": "mensile",
+    "soggetti_interessati": "Lavoratori dipendenti pubblici e privati"
+  }
+}

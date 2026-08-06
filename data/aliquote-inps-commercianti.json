@@ -1,0 +1,89 @@
+{
+  "_meta": {
+    "source": "INPS ODAPI",
+    "source_url": "https://www.inps.it/odapi",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "inps_odapi",
+    "license": "CC-BY-4.0",
+    "tier": "1",
+    "next_check_due": "2027-01-01",
+    "note": "Aliquote contributive INPS gestione commercianti. Aggiornamento annuale INPS."
+  },
+  "gestione": "Commercianti",
+  "anno_riferimento": 2026,
+  "aliquota_base": 0.235,
+  "scaglioni_reddito": [
+    {
+      "scaglione": "minimale",
+      "reddito_min": 0,
+      "reddito_max": 18558.0,
+      "aliquota": 0.235,
+      "contributo_minimo": 4361.13,
+      "note": "Reddito inferiore al minimale: si paga il contributo minimo"
+    },
+    {
+      "scaglione": "intermedio",
+      "reddito_min": 18558.01,
+      "reddito_max": 87165.0,
+      "aliquota": 0.24,
+      "note": "Aliquota progressiva tra minimale e massimale"
+    },
+    {
+      "scaglione": "massimale",
+      "reddito_min": 87165.01,
+      "reddito_max": null,
+      "aliquota": 0.24,
+      "note": "Oltre il massimale, aliquota fissa"
+    }
+  ],
+  "contributo_minimo_annuo": 4361.13,
+  "rateizzazione": {
+    "acconto_gennaio": 0.1666,
+    "acconto_luglio": 0.1666,
+    "saldo_dicembre": 0.6668,
+    "note": "Rateizzazione in 2 acconti + saldo"
+  },
+  "esoneri_e_riduzioni": [
+    {
+      "tipologia": "Donne commercianti",
+      "riduzione": 0.35,
+      "durata": "5 anni",
+      "note": "Riduzione 35% per donne che avviano attività"
+    },
+    {
+      "tipologia": "Giovani under 35",
+      "riduzione": 0.3,
+      "durata": "3 anni",
+      "note": "Riduzione 30% per giovani under 35"
+    },
+    {
+      "tipologia": "Disabili",
+      "riduzione": 0.5,
+      "durata": "illimitata",
+      "note": "Riduzione 50% per commercianti con disabilità"
+    },
+    {
+      "tipologia": "Esercenti piccole attività",
+      "riduzione": 0.2,
+      "durata": "3 anni",
+      "note": "Riduzione 20% per attività con ricavi < 25.000 EUR"
+    }
+  ],
+  "prestazioni_coperte": [
+    "Pensione di vecchiaia",
+    "Pensione di anzianità",
+    "Assegno ordinario di invalidità",
+    "Pensione di inabilità",
+    "Indennità di malattia",
+    "Indennità di maternità",
+    "Assegno al nucleo familiare"
+  ],
+  "esoneri_particolari": [
+    {
+      "tipologia": "Coniuge collaboratore",
+      "aliquota": 0.1,
+      "note": "Aliquota ridotta per coniuge collaboratore"
+    }
+  ]
+}

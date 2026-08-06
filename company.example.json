@@ -1,0 +1,62 @@
+{
+  "_comment": "Modello di company.json — copiare in company.json e compilare con i dati dell'azienda. MAI committare company.json compilato (vedi .gitignore).",
+  "ragione_sociale": "Esempio S.r.l.",
+  "codice_fiscale": "12345678901",
+  "partita_iva": "01234567890",
+  "forma_giuridica": "SRL",
+  "regime_contabile": "ordinaria",
+  "codice_ateco": "62.01.00",
+  "sede_legale": {
+    "via": "Via Esempio 1",
+    "cap": "00100",
+    "comune": "Roma",
+    "provincia": "RM",
+    "regione": "Lazio"
+  },
+  "cciaa": {
+    "numero_rea": "RM-123456",
+    "data_iscrizione": "2020-01-01",
+    "ufficio": "Roma"
+  },
+  "inps": {
+    "posizione_matricola": "1234567890",
+    "gestione": "commercianti",
+    "data_iscrizione": "2020-01-01"
+  },
+  "inail": {
+    "posizione": "1234567890",
+    "data_iscrizione": "2020-01-01"
+  },
+  "fatturazione": {
+    "prefix": "FT/2026/",
+    "next_number": 1,
+    "codice_destinatario": "0000000",
+    "pec": "ordinaria@pec.example.it"
+  },
+  "pagamento": {
+    "termini_default": "30GGDF",
+    "metodi": ["bonifico", "RID", "assegno"],
+    "iban": "IT00X0000000000000000000000",
+    "penali_ritardo": {
+      "interessi_mora": 0.08,
+      "riferimento_normativo": "D.Lgs. 231/2002 art. 4"
+    },
+    "indennita_incasso": {
+      "importo_fisso": 0,
+      "percentuale_spese": 0.0,
+      "riferimento_normativo": "D.L. 9/2012 art. 62"
+    }
+  },
+  "conti_bancari": [
+    {
+      "banca": "Banca Esempio",
+      "iban": "IT00X0000000000000000000000",
+      "bic": "ABCDITMMXXX"
+    }
+  ],
+  "esercizio_fiscale": {
+    "inizio": "2026-01-01",
+    "fine": "2026-12-31",
+    "chiusura": "2027-04-30"
+  }
+}

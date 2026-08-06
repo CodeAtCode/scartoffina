@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "skill": "inps-inail",
+    "tipo": "durc",
+    "tier": "manual",
+    "fonte": "esempio",
+    "data_aggiornamento": "2025-01-01",
+    "source": "esempio",
+    "verified_at": "2025-01-01",
+    "next_check_due": "2026-01-01"
+  },
+  "azienda": "Azienda Esempio S.r.l.",
+  "partita_iva": "12345678903",
+  "data_rilascio": "2025-01-15",
+  "esito_regolarita": "regolare",
+  "inps_regolare": true,
+  "inail_regolare": true
+}

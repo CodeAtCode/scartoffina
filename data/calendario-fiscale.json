@@ -1,0 +1,188 @@
+{
+  "_meta": {
+    "source": "manual",
+    "source_url": "https://www.agenziaentrate.gov.it/portale/web/guest/calendario-fiscale",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "manual",
+    "license": "CC-BY-4.0",
+    "tier": "manual",
+    "next_check_due": "2027-01-01",
+    "note": "Calendario fiscale annuale. Le scadenze ricorrenti sono fisse; alcune variano se cadono di festivo (rinvio al primo giorno lavorativo successivo). Verificare provvedimenti AE annuali."
+  },
+  "anno": 2026,
+  "scadenze": [
+    {
+      "mese": 1,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile (contribuenti mensili) - liquidazione dicembre",
+      "riferimento": "D.P.R. 633/1972 art. 17",
+      "tipo": "iva"
+    },
+    {
+      "mese": 1,
+      "giorno": 16,
+      "descrizione": "Versamento ritenute IRPEF lavoro dipendente e autonomo - dicembre",
+      "riferimento": "D.P.R. 600/1973",
+      "tipo": "ritenute"
+    },
+    {
+      "mese": 1,
+      "giorno": 16,
+      "descrizione": "Versamento contributi INPS DM10/DM11 - dicembre",
+      "riferimento": "L. 218/1952",
+      "tipo": "contributi"
+    },
+    {
+      "mese": 1,
+      "giorno": 31,
+      "descrizione": "Comunicazione delle liquidazioni periodiche IVA - IV trimestre",
+      "riferimento": "D.P.R. 633/1972 art. 17-bis",
+      "tipo": "iva"
+    },
+    {
+      "mese": 2,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - gennaio + ritenute + contributi",
+      "tipo": "mensile"
+    },
+    {
+      "mese": 2,
+      "giorno": 28,
+      "descrizione": "Modello 770 - invio telematico (annualità precedente)",
+      "riferimento": "D.P.R. 605/1973",
+      "tipo": "dichiarazione"
+    },
+    {
+      "mese": 2,
+      "giorno": 28,
+      "descrizione": "Certificazione Unica (CU) - consegna ai percettori e invio telematico",
+      "riferimento": "D.P.R. 600/1973 art. 4",
+      "tipo": "certificazione"
+    },
+    {
+      "mese": 3,
+      "giorno": 16,
+      "descrizione": "Versamento saldo IVA annuale (acconto marzo se dovuto)",
+      "tipo": "iva"
+    },
+    {
+      "mese": 3,
+      "giorno": 16,
+      "descrizione": "Prima rata acconto IRPEF/IRES/IRAP o unica soluzione",
+      "riferimento": "D.P.R. 600/1973; D.Lgs. 446/1997",
+      "tipo": "acconto"
+    },
+    {
+      "mese": 4,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - marzo",
+      "tipo": "iva"
+    },
+    {
+      "mese": 5,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - aprile",
+      "tipo": "iva"
+    },
+    {
+      "mese": 5,
+      "giorno": 16,
+      "descrizione": "Comunicazione liquidazioni IVA - I trimestre",
+      "tipo": "iva"
+    },
+    {
+      "mese": 6,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - maggio",
+      "tipo": "iva"
+    },
+    {
+      "mese": 7,
+      "giorno": 1,
+      "descrizione": "Modello Redditi - invio telematico (persone fisiche)",
+      "riferimento": "D.P.R. 600/1973",
+      "tipo": "dichiarazione"
+    },
+    {
+      "mese": 7,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - giugno + II rata acconto imposte (se rateizzato)",
+      "tipo": "iva"
+    },
+    {
+      "mese": 7,
+      "giorno": 16,
+      "descrizione": "Saldo e II rata acconto IRPEF/IRES/IRAP",
+      "tipo": "acconto"
+    },
+    {
+      "mese": 7,
+      "giorno": 31,
+      "descrizione": "Comunicazione liquidazioni IVA - II trimestre",
+      "tipo": "iva"
+    },
+    {
+      "mese": 8,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - luglio",
+      "tipo": "iva"
+    },
+    {
+      "mese": 9,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - agosto",
+      "tipo": "iva"
+    },
+    {
+      "mese": 10,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - settembre",
+      "tipo": "iva"
+    },
+    {
+      "mese": 10,
+      "giorno": 31,
+      "descrizione": "Comunicazione liquidazioni IVA - III trimestre",
+      "tipo": "iva"
+    },
+    {
+      "mese": 11,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - ottobre",
+      "tipo": "iva"
+    },
+    {
+      "mese": 12,
+      "giorno": 16,
+      "descrizione": "Versamento IVA mensile - novembre",
+      "tipo": "iva"
+    },
+    {
+      "mese": 12,
+      "giorno": 16,
+      "descrizione": "Versamento IVA annuale - acconto (88% liquidazione annuale o storico)",
+      "tipo": "iva"
+    },
+    {
+      "mese": 12,
+      "giorno": 16,
+      "descrizione": "Versamento IMU - acconto (saldo annualità precedente)",
+      "tipo": "imu"
+    },
+    {
+      "mese": 12,
+      "giorno": 27,
+      "descrizione": "Approvazione bilancio d'esercizio (entro 120 gg dalla chiusura)",
+      "riferimento": "Codice Civile art. 2364",
+      "tipo": "bilancio"
+    },
+    {
+      "mese": 12,
+      "giorno": 31,
+      "descrizione": "Deposito bilancio al Registro Imprese (entro 30 gg dall'approvazione)",
+      "riferimento": "Codice Civile art. 2435",
+      "tipo": "bilancio"
+    }
+  ]
+}

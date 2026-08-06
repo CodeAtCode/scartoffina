@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "skill": "revisore-legale",
+    "tipo": "indipendenza",
+    "tier": "manual",
+    "fonte": "esempio",
+    "data_aggiornamento": "2025-01-01",
+    "source": "esempio",
+    "verified_at": "2025-01-01",
+    "next_check_due": "2026-01-01"
+  },
+  "revisore": {
+    "denominazione": "Studio Revisore Esempio S.r.l.",
+    "iscritto_rea": "MI-1234567",
+    "iscritto_software": "REC-12345"
+  },
+  "cliente": {
+    "denominazione": "Azienda Esempio S.r.l.",
+    "partita_iva": "12345678903"
+  },
+  "minacce": [
+    {
+      "tipo": "interessi_finanziari",
+      "descrizione": "Possesso quote cliente",
+      "mitigata": true,
+      "salvagardia": "dismissione quote prima incarico"
+    },
+    {
+      "tipo": "rapporto_personale",
+      "descrizione": "Parente impiegato cliente",
+      "mitigata": false,
+      "salvagardia": ""
+    }
+  ],
+  "salvagardie": [
+    {
+      "tipo": "segregazione_team",
+      "descrizione": "Persona diversa dal revisore per incarichi"
+    }
+  ]
+}

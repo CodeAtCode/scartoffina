@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "source": "INPS ODAPI",
+    "source_url": "https://www.inps.it/odapi",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "inps_odapi",
+    "license": "CC-BY-4.0",
+    "tier": "1",
+    "next_check_due": "2027-01-01",
+    "note": "Aliquote contributive INPS gestione separata. Aggiornamento annuale INPS."
+  },
+  "gestione": "Gestione Separata",
+  "anno_riferimento": 2026,
+  "aliquota_base": 0.2607,
+  "aliquota_agevolata": 0.2407,
+  "note_agevolazione": "Aliquota agevolata per chi non è già assicurato obbligatoriamente presso altre forme previdenziali",
+  "scaglioni_reddito": [
+    {
+      "scaglione": "tutti",
+      "reddito_min": 0,
+      "reddito_max": null,
+      "aliquota": 0.2607,
+      "note": "Aliquota unica, nessun minimale obbligatorio"
+    }
+  ],
+  "contributo_minimo_annuo": null,
+  "prestazioni_coperte": [
+    "Pensione di vecchiaia",
+    "Pensione di anzianità",
+    "Pensione di inabilità",
+    "Assegno al nucleo familiare"
+  ],
+  "prestazioni_non_coperte": [
+    "TFR (Trattamento di Fine Rapporto)",
+    "Indennità di malattia",
+    "Indennità di maternità (salvo opzioni specifiche)",
+    "Cassa integrazione",
+    "NASpI (disoccupazione)"
+  ],
+  "soggetti_assoggettabili": [
+    "Collaboratori coordinati e continuativi (co.co.co)",
+    "Professionisti con partita IVA senza cassa",
+    "Amministratori di società non retribuiti",
+    "Soci di cooperative non lavoratori",
+    "Agenti di commercio con convenzione"
+  ],
+  "calcolo_contributi": {
+    "formula": "Reddito imponibile x aliquota",
+    "reddito_assoggettabile_min": 0,
+    "reddito_assoggettabile_max": 119519.0,
+    "note": "Oltre il massimale, aliquota ridotta al 24.07%"
+  },
+  "rateizzazione": {
+    "acconto_giugno": 0.5,
+    "saldo_dicembre": 0.5,
+    "note": "Rateizzazione in 2 rate: acconto e saldo"
+  }
+}

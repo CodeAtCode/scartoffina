@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "source": "manual",
+    "source_url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2023-12-30;213",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "manual",
+    "license": "CC-BY-4.0",
+    "tier": "manual",
+    "next_check_due": "2026-12-31",
+    "note": "Scaglioni IRPEF dalla L. 213/2023 (Legge di Bilancio 2024), in vigore dal 2024. 3 scaglioni (riforma semplificazione). Verificare Legge di Bilancio 2026 per variazioni."
+  },
+  "anno_imposta": 2024,
+  "riferimento_normativo": "L. 30 dicembre 2023, n. 213 (Legge di Bilancio 2024), art. 1 c. 67-69",
+  "scaglioni": [
+    {
+      "progressivo": 1,
+      "limite_inferiore": 0,
+      "limite_superiore": 28000,
+      "aliquota": 0.23,
+      "descrizione": "Fino a 28.000 euro"
+    },
+    {
+      "progressivo": 2,
+      "limite_inferiore": 28000,
+      "limite_superiore": 50000,
+      "aliquota": 0.35,
+      "descrizione": "Oltre 28.000 e fino a 50.000 euro"
+    },
+    {
+      "progressivo": 3,
+      "limite_inferiore": 50000,
+      "limite_superiore": null,
+      "aliquota": 0.43,
+      "descrizione": "Oltre 50.000 euro"
+    }
+  ],
+  "detrazioni_forfettarie": {
+    "lavoro_dipendente": {
+      "riferimento_normativo": "Art. 13 TUIR",
+      "scaglioni": [
+        {"reddito_max": 15000, "importo": 1955, "aliquota_effettiva_max": 0.13},
+        {"reddito_max": 28000, "importo_base": 1910, "riduzione_oltre_15000": 0.019},
+        {"reddito_max": 50000, "importo_base": 1910, "riduzione_oltre_28000": 0.074}
+      ]
+    },
+    "pensione": {
+      "riferimento_normativo": "Art. 13 c. 3 TUIR"
+    }
+  },
+  "no_tax_area": {
+    "descrizione": "Area di non tassazione per redditi da lavoro dipendente e assimilati",
+    "riferimento_normativo": "Art. 1 c. 67 L. 213/2023",
+    "importo_max": 8500
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "skill": "inps-inail",
+    "tipo": "pensione",
+    "tier": "manual",
+    "fonte": "esempio",
+    "data_aggiornamento": "2025-01-01",
+    "source": "esempio",
+    "verified_at": "2025-01-01",
+    "next_check_due": "2026-01-01"
+  },
+  "lavoratore": {
+    "id": "LAV-003",
+    "nome": "Carlo Verdi",
+    "codice_fiscale": "VRDCRL70R10H501X",
+    "eta": 67,
+    "anni_contributi": 22,
+    "tipo_pensione_richiesta": "vecchiaia"
+  },
+  "data_domanda": "2025-03-01"
+}

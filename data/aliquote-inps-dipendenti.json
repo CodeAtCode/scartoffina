@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "source": "INPS ODAPI",
+    "source_url": "https://www.inps.it/odapi",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "inps_odapi",
+    "license": "CC-BY-4.0",
+    "tier": "1",
+    "next_check_due": "2027-01-01",
+    "note": "Aliquote contributive INPS gestione dipendenti. Aggiornamento annuale Legge di Bilancio."
+  },
+  "gestione": "FPLD",
+  "anno_riferimento": 2026,
+  "aliquote_complessive": {
+    "a_carico_datore": 0.2381,
+    "a_carico_lavoratore": 0.0919,
+    "totale": 0.33
+  },
+  "aliquote_specifiche": [
+    {
+      "voce": "Previdenza ordinaria",
+      "a_carico_datore": 0.2381,
+      "a_carico_lavoratore": 0.0919,
+      "note": "Aliquota base gestione dipendenti"
+    },
+    {
+      "voce": "TFR (Trattamento di Fine Rapporto)",
+      "a_carico_datore": 0.0691,
+      "a_carico_lavoratore": 0.0,
+      "note": "Accantonamento TFR + rivalutazione"
+    },
+    {
+      "voce": "CIG (Cassa Integrazione Guadagni)",
+      "a_carico_datore": 0.003,
+      "a_carico_lavoratore": 0.003,
+      "note": "Cassa integrazione ordinaria"
+    },
+    {
+      "voce": "NASpI (Disoccupazione)",
+      "a_carico_datore": 0.0141,
+      "a_carico_lavoratore": 0.0141,
+      "note": "Nuova Assicurazione Sociale per l'Impiego"
+    },
+    {
+      "voce": "Assegni familiari",
+      "a_carico_datore": 0.0046,
+      "a_carico_lavoratore": 0.0016,
+      "note": "Contributo per assegni nucleo familiare"
+    },
+    {
+      "voce": "Formazione (Apprendisti)",
+      "a_carico_datore": 0.0016,
+      "a_carico_lavoratore": 0.0,
+      "note": "Fondo formazione per apprendisti"
+    }
+  ],
+  "aliquote_agevolate": [
+    {
+      "tipologia": "Apprendistato professionalizzante",
+      "a_carico_datore": 0.1,
+      "a_carico_lavoratore": 0.04,
+      "note": "Aliquota ridotta per apprendisti under 29"
+    },
+    {
+      "tipologia": "Assunzioni Sud Italia",
+      "a_carico_datore": 0.0,
+      "a_carico_lavoratore": 0.0919,
+      "note": "Esenzione totale datore per 3 anni (Legge di Bilancio)"
+    },
+    {
+      "tipologia": "Donne svantaggiate",
+      "a_carico_datore": 0.0,
+      "a_carico_lavoratore": 0.0919,
+      "note": "Esenzione totale datore per 24 mesi"
+    }
+  ],
+  "massimali": {
+    "anno": 2026,
+    "reddito_assoggettabile_max": 119519.0,
+    "note": "Oltre il massimale, aliquota ridotta al 9.19% a carico del lavoratore"
+  }
+}

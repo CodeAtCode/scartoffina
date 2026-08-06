@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "skill": "revisore-legale",
+    "tipo": "relazione",
+    "tier": "manual",
+    "fonte": "esempio",
+    "data_aggiornamento": "2025-01-01",
+    "source": "esempio",
+    "verified_at": "2025-01-01",
+    "next_check_due": "2026-01-01"
+  },
+  "azienda": {
+    "denominazione": "Azienda Esempio S.r.l.",
+    "partita_iva": "12345678903",
+    "esercizio": 2024
+  },
+  "revisore": {
+    "denominazione": "Studio Revisore Esempio S.r.l.",
+    "iscritto_rea": "MI-1234567"
+  },
+  "tipo_giudizio": "senza_osservazioni",
+  "firma": "Dott. Mario Bianchi",
+  "data_relazione": "2025-04-30"
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Riparto Spese - {{condominio}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+th, td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; }
+.millesimi, .importo { text-align: right; font-variant-numeric: tabular-nums; }
+.totale { font-weight: bold; background: #f0f0f0; }
+.credito { color: #2e7d32; }
+.debito { color: #c62828; }
+</style>
+</head>
+<body>
+<h1>Riparto Spese Condominiali — {{esercizio}}</h1>
+<p><strong>Condominio:</strong> {{condominio}}</p>
+
+<h2>Spese Generali (art. 1123 c.c. c.1)</h2>
+<table>
+  <tr><th>Condomino</th><th class="millesimi">Millesimi</th><th class="importo">Quota Generale</th><th class="importo">Quota Ascensore</th><th class="importo">Quota Riscaldamento</th><th class="importo">Totale</th></tr>
+  {{#condomini}}
+  <tr>
+    <td>{{nome}}</td>
+    <td class="millesimi">{{millesimi}}</td>
+    <td class="importo">{{quota_generale}}</td>
+    <td class="importo">{{quota_ascensore}}</td>
+    <td class="importo">{{quota_riscaldamento}}</td>
+    <td class="importo"><strong>{{totale}}</strong></td>
+  </tr>
+  {{/condomini}}
+  <tr class="totale">
+    <td>Totale</td>
+    <td class="millesimi">1000</td>
+    <td class="importo">{{totale_generale}}</td>
+    <td class="importo">{{totale_ascensore}}</td>
+    <td class="importo">{{totale_riscaldamento}}</td>
+    <td class="importo">{{totale_complessivo}}</td>
+  </tr>
+</table>
+
+<h2>Saldi per Condomino</h2>
+<table>
+  <tr><th>Condomino</th><th class="importo">Dovuto</th><th class="importo">Versato</th><th class="importo">Saldo</th></tr>
+  {{#saldi}}
+  <tr>
+    <td>{{nome}}</td>
+    <td class="importo">{{dovuto}}</td>
+    <td class="importo">{{versato}}</td>
+    <td class="importo {{#credito}}credito{{/credito}}{{#debito}}debito{{/debito}}">{{saldo}}</td>
+  </tr>
+  {{/saldi}}
+</table>
+
+<p style="margin-top: 30px; font-size: 12px; color: #666;">
+  Riparto calcolato in base alle tabelle millesimali approvate — art. 1123 c.c.
+</p>
+</body>
+</html>

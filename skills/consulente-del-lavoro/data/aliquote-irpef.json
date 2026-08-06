@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "version": "0.1.0",
+    "descrizione": "Scaglioni IRPEF 2025"
+  },
+  "_meta": {
+    "verified_at": "2026-08-06",
+    "next_check_due": "2027-01-01",
+    "source": "https://www.agenziaentrate.gov.it",
+    "tier": "manual"
+  },
+  "scaglioni": [
+    {
+      "limite": 28000,
+      "aliquota": 0.23
+    },
+    {
+      "limite": 50000,
+      "aliquota": 0.35
+    },
+    {
+      "limite": null,
+      "aliquota": 0.43
+    }
+  ]
+}

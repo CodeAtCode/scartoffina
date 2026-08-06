@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Calcolo IRPEF - {{anno}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+h2 { font-size: 16px; margin-top: 24px; color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+th, td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; }
+.importo { text-align: right; font-variant-numeric: tabular-nums; }
+.scaglione { background: #f8f9fa; }
+.totale { font-weight: bold; background: #f0f0f0; }
+.detrazione { color: #2e7d32; }
+.imposta { color: #c62828; }
+</style>
+</head>
+<body>
+<h1>Calcolo IRPEF {{anno}}</h1>
+
+<h2>Reddito imponibile</h2>
+<p>Reddito complessivo: <strong>{{reddito}} €</strong></p>
+
+<h2>Scagloni IRPEF {{anno}}</h2>
+<table>
+  <tr><th>Scaglione</th><th>Aliquota</th><th class="importo">Base imponibile</th><th class="importo">Imposta</th></tr>
+  {{#scaglioni}}
+  <tr class="scaglione">
+    <td>{{da}} - {{a}}</td>
+    <td>{{aliquota}}%</td>
+    <td class="importo">{{base}}</td>
+    <td class="importo">{{imposta_scaglione}}</td>
+  </tr>
+  {{/scaglioni}}
+  <tr class="totale">
+    <td colspan="3">IRPEF lorda</td>
+    <td class="importo imposta">{{irpef_lorda}}</td>
+  </tr>
+</table>
+
+<h2>Detrazioni</h2>
+<table>
+  <tr><th>Tipo detrazione</th><th class="importo">Importo (€)</th></tr>
+  <tr><td>Lavoro dipendente</td><td class="importo detrazione">{{detrazione_lavoro}}</td></tr>
+  <tr><td>Coniuge a carico</td><td class="importo detrazione">{{detrazione_coniuge}}</td></tr>
+  <tr><td>Figli a carico ({{numero_figli}})</td><td class="importo detrazione">{{detrazione_figli}}</td></tr>
+  <tr><td>Altri familiari a carico</td><td class="importo detrazione">{{detrazione_altri}}</td></tr>
+  <tr class="totale">
+    <td>Totale detrazioni</td>
+    <td class="importo detrazione">{{totale_detrazioni}}</td>
+  </tr>
+</table>
+
+<h2>IRPEF netta</h2>
+<table>
+  <tr><td>IRPEF lorda</td><td class="importo">{{irpef_lorda}}</td></tr>
+  <tr><td>Totale detrazioni</td><td class="importo detrazione">- {{totale_detrazioni}}</td></tr>
+  <tr class="totale"><td>IRPEF netta</td><td class="importo imposta">{{irpef_netta}}</td></tr>
+</table>
+
+<h2>Addizionali</h2>
+<table>
+  <tr><th>Addizionale</th><th>Aliquota</th><th class="importo">Importo (€)</th></tr>
+  <tr><td>Regionale ({{regione}})</td><td>{{aliquota_regionale}}%</td><td class="importo">{{addizionale_regionale}}</td></tr>
+  <tr><td>Comunale ({{comune}})</td><td>{{aliquota_comunale}}%</td><td class="importo">{{addizionale_comunale}}</td></tr>
+  <tr class="totale"><td colspan="2">Totale addizionali</td><td class="importo">{{totale_addizionali}}</td></tr>
+</table>
+
+<h2>Totale a debito</h2>
+<table>
+  <tr class="totale">
+    <td>IRPEF netta + Addizionali</td>
+    <td class="importo imposta">{{totale_debito}}</td>
+  </tr>
+</table>
+
+<p style="margin-top: 30px; font-size: 12px; color: #666;">
+  Calcolo basato sulle aliquote IRPEF {{anno}} — DPR 600/1973 art. 78-bis.
+</p>
+</body>
+</html>

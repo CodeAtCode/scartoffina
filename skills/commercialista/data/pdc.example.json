@@ -1,0 +1,16 @@
+{
+  "conti": [
+    {"codice": "01", "nome": "Cassa", "saldo": 5000.00, "classe": "attivo_circulante"},
+    {"codice": "02", "nome": "Banca", "saldo": 25000.00, "classe": "attivo_circulante"},
+    {"codice": "10", "nome": "Crediti v/clienti", "saldo": 12000.00, "classe": "attivo_circulante"},
+    {"codice": "20", "nome": "Fabbricati", "saldo": 100000.00, "classe": "immobilizzazioni_materiali"},
+    {"codice": "21", "nome": "Fondo ammortamento fabbricati", "saldo": -20000.00, "classe": "fondo_ammortamento"},
+    {"codice": "30", "nome": "Capitale sociale", "saldo": -50000.00, "classe": "patrimonio_netto"},
+    {"codice": "31", "nome": "Riserve", "saldo": -10000.00, "classe": "patrimonio_netto"},
+    {"codice": "40", "nome": "Debiti v/fornitori", "saldo": -8000.00, "classe": "debiti"},
+    {"codice": "50", "nome": "Ricavi vendite", "saldo": -45000.00, "classe": "ricavi"},
+    {"codice": "60", "nome": "Acquisti materie", "saldo": 15000.00, "classe": "costi_acquisti"},
+    {"codice": "61", "nome": "Servizi", "saldo": 8000.00, "classe": "costi_servizi"},
+    {"codice": "62", "nome": "Salari e stipendi", "saldo": 12000.00, "classe": "costi_personale"}
+  ]
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Fattura {{numero}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; color: #1a1a1a; }
+.header { display: flex; justify-content: space-between; margin-bottom: 40px; }
+.venditore, .compratore { width: 45%; }
+h1 { font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f5f5f5; font-weight: 600; }
+.totale { text-align: right; font-size: 18px; font-weight: bold; margin-top: 20px; }
+.imponibile, .iva, .totale-row { display: flex; justify-content: flex-end; gap: 80px; padding: 5px 0; }
+.label { font-weight: 600; }
+.footer { margin-top: 60px; font-size: 12px; color: #666; border-top: 1px solid #e0e0e0; padding-top: 20px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="venditore">
+    <h3>{{venditore_denominazione}}</h3>
+    <p>P.IVA: {{venditore_partita_iva}}<br>
+    {{venditore_indirizzo}}<br>
+    {{venditore_cap}} {{venditore_citta}}</p>
+  </div>
+  <div class="compratore">
+    <h3>{{cliente_denominazione}}</h3>
+    <p>P.IVA: {{cliente_partita_iva}}<br>
+    {{cliente_indirizzo}}<br>
+    {{cliente_cap}} {{cliente_citta}}</p>
+  </div>
+</div>
+
+<h1>Fattura N. {{numero}}</h1>
+<p>Data: {{data}} &nbsp;|&nbsp; Tipo: {{tipo_documento}}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Descrizione</th>
+      <th>Qtà</th>
+      <th>Prezzo Unit.</th>
+      <th>Aliquota IVA</th>
+      <th>Totale</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#linee}}
+    <tr>
+      <td>{{numero}}</td>
+      <td>{{descrizione}}</td>
+      <td>{{quantita}}</td>
+      <td>{{prezzo_unitario}} €</td>
+      <td>{{aliquota_iva_pct}}%</td>
+      <td>{{prezzo_totale}} €</td>
+    </tr>
+    {{/linee}}
+  </tbody>
+</table>
+
+<div class="imponibile"><span>Imponibile:</span><span>{{imponibile}} €</span></div>
+<div class="iva"><span>IVA ({{aliquota_iva_pct}}%):</span><span>{{imposta}} €</span></div>
+<div class="totale-row totale"><span>TOTALE FATTURA:</span><span>{{totale}} €</span></div>
+
+<div class="footer">
+  <p>Modalità di pagamento: {{modalita_pagamento}} &nbsp;|&nbsp; Scadenza: {{scadenza}}</p>
+  <p>Regime fiscale: {{regime_fiscale}} &nbsp;|&nbsp; Codice destinatario SDI: {{codice_destinatario}}</p>
+</div>
+</body>
+</html>

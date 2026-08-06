@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "verified_at": "2026-08-06",
+    "source": "https://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/9108472",
+    "tier": "manual",
+    "next_check_due": "2027-08-06"
+  },
+  "denominazione": "Azienda Esempio S.r.l.",
+  "tipo_organizzazione": "azienda_privata",
+  "settori": ["e-commerce"],
+  "numero_interessati": 50000,
+  "categorie_particolari": [],
+  "monitoraggio_sistematico_larga_scala": true,
+  "dpo_designato": true
+}

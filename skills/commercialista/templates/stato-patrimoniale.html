@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Stato Patrimoniale - {{esercizio}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+h2 { font-size: 16px; margin-top: 30px; color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; font-weight: 600; }
+.importo { text-align: right; font-variant-numeric: tabular-nums; }
+.totale-row { font-weight: bold; background: #f0f0f0; }
+.colonna-sx, .colonna-dx { width: 48%; vertical-align: top; }
+.columns { display: flex; gap: 4%; }
+</style>
+</head>
+<body>
+<h1>Stato Patrimoniale al 31/12/{{esercizio}}</h1>
+<p style="font-size: 12px; color: #666;">Redatto secondo OIC 34 — Schema civilistico art. 2424 c.c.</p>
+
+<div class="columns">
+  <div class="colonna-sx">
+    <h2>ATTIVO</h2>
+    <table>
+      <tr><th>Voce</th><th class="importo">Importo (€)</th></tr>
+      <tr><td colspan="2"><strong>A) Immobilizzazioni</strong></td></tr>
+      <tr><td style="padding-left:20px">I. Immobilizzazioni immateriali</td><td class="importo">{{immob_immateriali}}</td></tr>
+      <tr><td style="padding-left:20px">II. Immobilizzazioni materiali</td><td class="importo">{{immob_materiali}}</td></tr>
+      <tr><td style="padding-left:20px">III. Immobilizzazioni finanziarie</td><td class="importo">{{immob_finanziarie}}</td></tr>
+      <tr><td colspan="2"><strong>B) Attivo circolante</strong></td></tr>
+      <tr><td style="padding-left:20px">I. Rimanenze</td><td class="importo">{{rimanenze}}</td></tr>
+      <tr><td style="padding-left:20px">II. Crediti</td><td class="importo">{{crediti}}</td></tr>
+      <tr><td style="padding-left:20px">III. Attività finanziarie</td><td class="importo">{{att_finanziarie}}</td></tr>
+      <tr><td style="padding-left:20px">IV. Disponibilità liquide</td><td class="importo">{{disponibilita}}</td></tr>
+      <tr><td>C) Ratei e risconti</td><td class="importo">{{ratei_risconti_att}}</td></tr>
+      <tr class="totale-row"><td>TOTALE ATTIVO</td><td class="importo">{{totale_attivo}}</td></tr>
+    </table>
+  </div>
+
+  <div class="colonna-dx">
+    <h2>PASSIVO</h2>
+    <table>
+      <tr><th>Voce</th><th class="importo">Importo (€)</th></tr>
+      <tr><td colspan="2"><strong>A) Patrimonio netto</strong></td></tr>
+      <tr><td style="padding-left:20px">Capitale sociale</td><td class="importo">{{capitale_sociale}}</td></tr>
+      <tr><td style="padding-left:20px">Riserve</td><td class="importo">{{riserve}}</td></tr>
+      <tr><td style="padding-left:20px">Utile/perdita esercizio</td><td class="importo">{{utile_esercizio}}</td></tr>
+      <tr><td colspan="2"><strong>B) Fondo ammortamento</strong></td></tr>
+      <tr><td colspan="2"><strong>C) Fondi rischi e oneri</strong></td></tr>
+      <tr><td colspan="2"><strong>D) TFR dipendenti</strong></td></tr>
+      <tr><td colspan="2"><strong>E) Debiti</strong></td></tr>
+      <tr><td style="padding-left:20px">Debiti finanziari</td><td class="importo">{{debiti_fin}}</td></tr>
+      <tr><td style="padding-left:20px">Debiti fornitori</td><td class="importo">{{debiti_fornitori}}</td></tr>
+      <tr><td style="padding-left:20px">Debiti fiscali</td><td class="importo">{{debiti_fiscali}}</td></tr>
+      <tr><td>F) Ratei e risconti</td><td class="importo">{{ratei_risconti_pass}}</td></tr>
+      <tr class="totale-row"><td>TOTALE PASSIVO</td><td class="importo">{{totale_passivo}}</td></tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>

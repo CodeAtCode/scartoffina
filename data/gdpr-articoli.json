@@ -1,0 +1,135 @@
+{
+  "_meta": {
+    "source": "EUR-Lex CELEX",
+    "source_url": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "eur_lex_scraper",
+    "license": "CC-BY-4.0",
+    "tier": "1",
+    "next_check_due": "2027-01-01",
+    "note": "Estratto articoli chiave GDPR (Regolamento UE 2016/679). Testo ufficiale EUR-Lex."
+  },
+  "articoli": [
+    {
+      "numero": "5",
+      "titolo": "Principi relativi al trattamento dei dati personali",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e320"
+    },
+    {
+      "numero": "6",
+      "titolo": "Liceità del trattamento",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e354"
+    },
+    {
+      "numero": "7",
+      "titolo": "Condizioni per il consenso",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e388"
+    },
+    {
+      "numero": "9",
+      "titolo": "Trattamento di dati personali particolari",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e456"
+    },
+    {
+      "numero": "12",
+      "titolo": "Trasparenza e modalità di informazione",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e524"
+    },
+    {
+      "numero": "13",
+      "titolo": "Informazioni da fornire quando i dati sono raccolti",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e558"
+    },
+    {
+      "numero": "14",
+      "titolo": "Informazioni da fornire quando i dati non sono stati ottenuti",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e592"
+    },
+    {
+      "numero": "15",
+      "titolo": "Diritto di accesso dell'interessato",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e626"
+    },
+    {
+      "numero": "16",
+      "titolo": "Diritto di rettifica",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e660"
+    },
+    {
+      "numero": "17",
+      "titolo": "Diritto alla cancellazione (diritto all'oblio)",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e694"
+    },
+    {
+      "numero": "18",
+      "titolo": "Diritto di limitazione del trattamento",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e728"
+    },
+    {
+      "numero": "19",
+      "titolo": "Obbligo di notificazione in caso di rettifica o cancellazione",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e762"
+    },
+    {
+      "numero": "20",
+      "titolo": "Diritto alla portabilità dei dati",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e796"
+    },
+    {
+      "numero": "21",
+      "titolo": "Diritto di opposizione",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e830"
+    },
+    {
+      "numero": "22",
+      "titolo": "Decisioni individuali automatizzate",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e864"
+    },
+    {
+      "numero": "25",
+      "titolo": "Protezione dei dati fin dalla progettazione e per impostazione predefinita",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e928"
+    },
+    {
+      "numero": "28",
+      "titolo": "Responsabile del trattamento",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e994"
+    },
+    {
+      "numero": "30",
+      "titolo": "Registro delle attività di trattamento",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e1042"
+    },
+    {
+      "numero": "33",
+      "titolo": "Notifica di una violazione dei dati personali all'autorità di controllo",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e1106"
+    },
+    {
+      "numero": "34",
+      "titolo": "Comunicazione di una violazione dei dati personali all'interessato",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e1140"
+    },
+    {
+      "numero": "35",
+      "titolo": "Valutazione d'impatto sulla protezione dei dati",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e1174"
+    },
+    {
+      "numero": "37",
+      "titolo": "Responsabile della protezione dei dati (DPO)",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e1222"
+    },
+    {
+      "numero": "44",
+      "titolo": "Principio generale per i trasferimenti",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e1388"
+    },
+    {
+      "numero": "83",
+      "titolo": "Linee guida per l'applicazione delle sanzioni amministrative pecuniarie",
+      "url_celex": "https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX:32016R0679&qid=1679#d1e2026"
+    }
+  ]
+}

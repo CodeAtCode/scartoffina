@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Liquidazione IVA - {{denominazione}} - {{periodo}}</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #333; padding: 8px; text-align: right; }
+th { background-color: #f0f0f0; }
+.totale { font-weight: bold; background-color: #e0e0e0; }
+</style>
+</head>
+<body>
+<h1>Liquidazione IVA</h1>
+<p><strong>Soggetto:</strong> {{denominazione}}</p>
+<p><strong>Partita IVA:</strong> {{partita_iva}}</p>
+<p><strong>Periodo:</strong> {{periodo}}</p>
+
+<h2>Determinazione IVA Debita/Credita</h2>
+<table>
+<thead>
+<tr><th>Descrizione</th><th>Imponibile (€)</th><th>IVA (€)</th></tr>
+</thead>
+<tbody>
+<tr><td>Operazioni attive (aliquota 22%)</td><td>{{imp22_att}}</td><td>{{iva22_att}}</td></tr>
+<tr><td>Operazioni attive (aliquota 10%)</td><td>{{imp10_att}}</td><td>{{iva10_att}}</td></tr>
+<tr><td>Operazioni attive (aliquota 4%)</td><td>{{imp4_att}}</td><td>{{iva4_att}}</td></tr>
+<tr class="totale"><td>Totale IVA esigibile</td><td>{{imp_tot_att}}</td><td>{{iva_tot_att}}</td></tr>
+<tr><td>Acquisti (aliquota 22%)</td><td>{{imp22_pas}}</td><td>{{iva22_pas}}</td></tr>
+<tr><td>Acquisti (aliquota 10%)</td><td>{{imp10_pas}}</td><td>{{iva10_pas}}</td></tr>
+<tr class="totale"><td>Totale IVA detraibile</td><td>{{imp_tot_pas}}</td><td>{{iva_tot_pas}}</td></tr>
+<tr class="totale"><td>IVA a debito/credito</td><td></td><td>{{iva_debito}}</td></tr>
+</tbody>
+</table>
+
+<p><strong>Crediti IVA anni precedenti:</strong> {{crediti_precedenti}} €</p>
+<p><strong>IVA da versare:</strong> {{iva_versare}} €</p>
+
+<p>Luogo e data: {{luogo_data}}</p>
+</body>
+</html>

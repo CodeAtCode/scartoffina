@@ -1,0 +1,62 @@
+# Configurazione dataset e fonti Scartoffina (formato TOML)
+
+[[datasets.ateco]]
+source = "istat"
+parser = "parse_istat_ateco"
+output = "../data/ateco.json"
+cadenza = "annuale"
+tier = "open"
+
+[[datasets.irpef]]
+source = "normattiva"
+parser = "parse_irpef_from_legge"
+output = "../data/scaglioni-irpef.json"
+cadenza = "annuale"
+tier = "open"
+
+[[datasets.laws]]
+source = "normattiva"
+parser = "parse_normattiva_law"
+output = "../references/laws/"
+cadenza = "quotidiana"
+tier = "open"
+
+[[datasets.imu]]
+source = "imu_federalismo"
+parser = "parse_imu_comuni"
+output = "../data/imu-aliquote.json"
+cadenza = "annuale"
+tier = "semi"
+
+[[datasets.f24_codici]]
+source = "agenzia_entrate"
+parser = "parse_f24_codici"
+output = "../data/codici-tributo-f24.json"
+cadenza = "annuale"
+tier = "semi"
+
+[sources.istat]
+base_url = "https://esploradati.istat.it/SDMXWS/rest"
+rate_limit_per_min = 5
+license = "CC-BY-4.0"
+
+[sources.normattiva]
+base_url = "https://api.normattiva.it/bff-opendata/v1"
+rate_limit_per_sec = 1
+license = "CC-BY-4.0"
+
+[sources.inps_odapi]
+base_url = "https://serviziweb2.inps.it/odapi"
+rate_limit_per_min = 10
+
+[sources.inail_sparql]
+base_url = "https://dati.inail.it/sparql"
+
+[sources.open_siope]
+base_url = "https://github.com/dataciviclab/open-siope"
+
+[sources.agenzia_entrate]
+base_url = "https://www.agenziaentrate.gov.it/portale/open-data"
+
+[sources.imu_federalismo]
+base_url = "https://www.federalismofiscale.gov.it"

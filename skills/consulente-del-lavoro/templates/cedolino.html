@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Cedolino Paga</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #333; padding: 6px; }
+th { background: #f0f0f0; }
+</style>
+</head>
+<body>
+<h1>Cedolino Paga</h1>
+<p><strong>Datore:</strong> {{ragione_sociale}} | <strong>Dipendente:</strong> {{cognome_nome}} | <strong>Mese:</strong> {{mese}} {{anno}}</p>
+<table>
+<tr><th>Voce</th><th>Importo (€)</th></tr>
+<tr><td>Retribuzione base</td><td>{{retribuzione_base}}</td></tr>
+<tr><td>Contingente</td><td>{{contingente}}</td></tr>
+<tr><td>Superminimo</td><td>{{superminimo}}</td></tr>
+<tr><td>Majorazioni</td><td>{{majorazioni}}</td></tr>
+<tr><td><strong>Lordo</strong></td><td><strong>{{lordo}}</strong></td></tr>
+<tr><td>IRPEF</td><td>{{irpef}}</td></tr>
+<tr><td>Contributi INPS</td><td>{{contributi_inps}}</td></tr>
+<tr><td>Add. regionale</td><td>{{addizionale_regionale}}</td></tr>
+<tr><td>Add. comunale</td><td>{{addizionale_comunale}}</td></tr>
+<tr><td><strong>Netto</strong></td><td><strong>{{netto}}</strong></td></tr>
+</table>
+</body>
+</html>

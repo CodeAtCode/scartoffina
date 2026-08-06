@@ -1,0 +1,22 @@
+{
+  "operazioni": [
+    {
+      "data": "2026-01-15",
+      "numero": "1",
+      "tipo": "vendita",
+      "controparte": "Cliente Beta S.r.l.",
+      "partita_iva_controparte": "12345678901",
+      "imponibile": 1000.00,
+      "aliquota": 0.22
+    },
+    {
+      "data": "2026-01-20",
+      "numero": "2",
+      "tipo": "acquisto",
+      "controparte": "Fornitore Gamma S.r.l.",
+      "partita_iva_controparte": "98765432109",
+      "imponibile": 500.00,
+      "aliquota": 0.22
+    }
+  ]
+}

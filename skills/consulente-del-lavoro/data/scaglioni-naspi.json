@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "version": "0.1.0",
+    "descrizione": "Parametri NASpI 2025"
+  },
+  "_meta": {
+    "verified_at": "2026-08-06",
+    "next_check_due": "2027-01-01",
+    "source": "https://www.inps.it",
+    "tier": "manual"
+  },
+  "aliquota_iniziale": 0.75,
+  "tetto_mensile": 1300,
+  "riduzione_mensile": 0.03,
+  "settimane_minime": 13,
+  "durata_minima_mesi": 6,
+  "durata_massima_mesi": 24,
+  "franchigia_over50_mesi": 12
+}

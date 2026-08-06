@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Atto Societario - {{data}}</title>
+<style>
+body { font-family: 'Times New Roman', serif; margin: 60px; line-height: 1.8; text-align: justify; }
+h1 { font-size: 18px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+.sezione { margin: 20px 0; }
+</style>
+</head>
+<body>
+<h1>Atto Societario</h1>
+
+<div class="sezione">
+  <p><strong>Repubblica Italiana</strong> — {{tipo_atto}} {{forma_sociale}}</p>
+  <p><strong>Data:</strong> {{data}} — <strong>Luogo:</strong> {{luogo}}</p>
+</div>
+
+<div class="sezione">
+  <h3>Soci fondatori</h3>
+  <ul>
+    {{#soci}}
+    <li>{{nome}} — CF: {{cf}} — Quota: {{quota}} € ({{percentuale}}%)</li>
+    {{/soci}}
+  </ul>
+  <p>Capitale sociale sottoscritto: {{capitale}} €</p>
+</div>
+
+<div class="sezione">
+  <h3>Oggetto sociale</h3>
+  <p>{{oggetto_sociale}}</p>
+</div>
+
+<div class="sezione">
+  <h3>Sede legale</h3>
+  <p>{{sede_legale}}</p>
+</div>
+
+<div class="sezione">
+  <h3>Amministratori</h3>
+  <ul>
+    {{#amministratori}}
+    <li>{{nome}} — CF: {{cf}} — Carica: {{carica}}</li>
+    {{/amministratori}}
+  </ul>
+</div>
+
+<div class="sezione">
+  <h3>Imposte</h3>
+  <table style="width:100%; border-collapse: collapse;">
+    <tr><th style="border:1px solid #ccc; padding:6px;">Imposta</th><th style="border:1px solid #ccc; padding:6px;">Importo (€)</th></tr>
+    <tr><td style="border:1px solid #ccc; padding:6px;">Registro (fissa)</td><td style="border:1px solid #ccc; padding:6px;">200,00</td></tr>
+    <tr><td style="border:1px solid #ccc; padding:6px;">Bollo</td><td style="border:1px solid #ccc; padding:6px;">{{bollo}}</td></tr>
+  </table>
+</div>
+
+<div class="sezione">
+  <h3>Sottoscrizione</h3>
+  <p>I soci: ____________________<br>
+  Il Notaio: ____________________</p>
+</div>
+
+<p style="margin-top: 40px; font-size: 11px; color: #666;">
+  Schema di riferimento. Non sostituisce la formulazione del notaio rogante.
+</p>
+</body>
+</html>

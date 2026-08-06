@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Convocazione Assemblea - {{condominio}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+h2 { font-size: 16px; margin-top: 24px; color: #2c3e50; }
+.intestazione { margin-bottom: 30px; }
+.convocazione { display: flex; gap: 40px; margin: 20px 0; }
+.convocazione > div { flex: 1; padding: 15px; background: #f8f9fa; border-left: 3px solid #2c3e50; }
+.odg { margin: 20px 0; }
+.odg ol { padding-left: 20px; }
+.footer { margin-top: 40px; border-top: 1px solid #e0e0e0; padding-top: 20px; font-size: 12px; color: #666; }
+</style>
+</head>
+<body>
+<h1>Convocazione Assemblea Condominiale</h1>
+
+<div class="intestazione">
+  <p><strong>Condominio:</strong> {{condominio}}<br>
+  <strong>Sede:</strong> {{indirizzo}}</p>
+</div>
+
+<p>Il sottoscritto amministratore del condominio in oggetto convoca l'assemblea dei condomini nei seguenti giorni:</p>
+
+<div class="convocazione">
+  <div>
+    <h2>Prima Convocazione</h2>
+    <p>Data: {{data_prima}}<br>
+    Ora: {{ora_prima}}<br>
+    Luogo: {{luogo}}</p>
+  </div>
+  <div>
+    <h2>Seconda Convocazione</h2>
+    <p>Data: {{data_seconda}}<br>
+    Ora: {{ora_seconda}}<br>
+    Luogo: {{luogo}}</p>
+  </div>
+</div>
+
+<div class="odg">
+  <h2>Ordine del Giorno</h2>
+  <ol>
+    {{#odg_items}}
+    <li>{{.}}</li>
+    {{/odg_items}}
+  </ol>
+</div>
+
+<p>I documenti relativi agli argomenti all'ordine del giorno sono disponibili presso la sede del condominio e possono essere consultati dai condomini nei giorni precedenti l'assemblea.</p>
+
+<p>Si ricorda che ogni condomino può farsi rappresentare mediante delega scritta. Ciascun delegato può rappresentare massimo 3 condomini (art. 1136 c.c. c.9).</p>
+
+<div class="footer">
+  <p>L'amministratore<br>[firma]</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "verified_at": "2026-08-06",
+    "source": "manuale",
+    "tier": "manual",
+    "next_check_due": "2027-01-01",
+    "note": "Esempio di nucleo familiare per calcoli IRPEF e detrazioni carichi famiglia"
+  },
+  "nucleo_familiare": {
+    "contribuente": {
+      "nome": "Mario Rossi",
+      "codice_fiscale": "RSSMRA80A01F205X",
+      "data_nascita": "1980-01-01",
+      "comune_nascita": "Milano",
+      "comune_residenza": "Milano",
+      "regione": "Lombardia",
+      "stato_civile": "sposato",
+      "reddito_complessivo": 45000.00
+    },
+    "coniuge": {
+      "nome": "Giulia Bianchi",
+      "codice_fiscale": "BNCGLI82C41F205Y",
+      "data_nascita": "1982-03-01",
+      "reddito_complessivo": 15000.00,
+      "a_carico": true
+    },
+    "figli": [
+      {
+        "nome": "Luca Rossi",
+        "codice_fiscale": "RSSLCU10A01F205Z",
+        "data_nascita": "2010-01-01",
+        "eta": 16,
+        "a_carico": true,
+        "detrazione_maggiorata": false,
+        "patologie_disabilita": false
+      },
+      {
+        "nome": "Sofia Rossi",
+        "codice_fiscale": "RSSSFI12A41F205Z",
+        "data_nascita": "2012-01-01",
+        "eta": 14,
+        "a_carico": true,
+        "detrazione_maggiorata": false,
+        "patologie_disabilita": false
+      }
+    ],
+    "altri_familiari_a_carico": []
+  },
+  "abitazione_principale": {
+    "indirizzo": "Via Roma 1, Milano",
+    "rendita_catastale": 850.00,
+    "rendita_rivalutata": 1020.00,
+    "mutuo": {
+      "istituto": "Intesa Sanpaolo",
+      "data_stipula": "2015-06-15",
+      "capitale_iniziale": 200000.00,
+      "interessi_anno": 4500.00,
+      "rata_mensile": 850.00
+    }
+  },
+  "redditi": {
+    "lavoro_dipendente": 45000.00,
+    "lavoro_autonomo": 0.00,
+    "fabbricati": {
+      "abitazione_principale": 0.00,
+      "altri_fabbricati": 0.00
+    },
+    "terreni": 0.00,
+    "reddito_complessivo": 45000.00
+  },
+  "oneri_detraibili": {
+    "spese_mediche": 800.00,
+    "spese_scolastiche": 1200.00,
+    "spese_funebri": 0.00,
+    "erogazioni_liberali": 200.00,
+    "ristrutturazioni_edilizie": 0.00,
+    "interessi_mutuo": 4500.00,
+    "assicurazioni": 600.00,
+    "abbonamenti_trasporti": 250.00
+  },
+  "calcoli": {
+    "detrazioni_carichi_famiglia": {
+      "coniuge_a_carico": 690.00,
+      "figli_a_carico": 1600.00,
+      "totale": 2290.00
+    },
+    "detrazioni_lavoro_dipendente": 1920.00,
+    "irpef_lorda": 11850.00,
+    "irpef_netta": 7640.00,
+    "addizionale_regionale": 1350.00,
+    "addizionale_comunale": 360.00,
+    "totale_a_debito": 9350.00
+  }
+}

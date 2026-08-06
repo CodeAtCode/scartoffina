@@ -1,0 +1,15 @@
+{
+  "condominio": "Condominio Via Roma 10",
+  "indirizzo": "Via Roma 10, 00184 Roma",
+  "data_prima_convocazione": "2026-09-15",
+  "ora_prima_convocazione": "17:00",
+  "data_seconda_convocazione": "2026-09-22",
+  "ora_seconda_convocazione": "17:00",
+  "luogo": "Sala riunioni del condominio",
+  "ordine_del_giorno": [
+    "Approvazione bilancio consuntivo 2025",
+    "Approvazione preventivo spese 2026",
+    "Nomina amministratore",
+    "Opere di manutenzione straordinaria"
+  ]
+}

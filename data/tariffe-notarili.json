@@ -1,0 +1,184 @@
+{
+  "_meta": {
+    "source": "Ministero della Giustizia - D.M. 17/2017",
+    "source_url": "https://www.giustizia.it/giustizia/it/mg_1_12_1.page",
+    "fetched_at": "2026-08-05T00:00:00Z",
+    "verified_at": "2026-08-05T00:00:00Z",
+    "fetched_by": "manual",
+    "license": "CC-BY-4.0",
+    "tier": "manual",
+    "next_check_due": "2027-01-01",
+    "note": "Tariffe notarili D.M. 17 gennaio 2017. Verificare aggiornamenti ministeriali."
+  },
+  "riferimento_normativo": "D.M. 17 gennaio 2017 - Tariffe per le prestazioni notarili",
+  "atti": [
+    {
+      "tipo": "Compravendita immobiliare",
+      "atti_corrispondenti": ["Rogito di vendita", "Compromesso con acconto"],
+      "onorario": {
+        "scaglioni": [
+          {"da": 0, "a": 50000, "importo": 2582},
+          {"da": 50001, "a": 100000, "importo": 3098},
+          {"da": 100001, "a": 200000, "importo": 4130},
+          {"da": 200001, "a": 500000, "importo": 5164},
+          {"da": 500001, "a": null, "importo": 6197}
+        ],
+        "unita": "euro",
+        "note": "Onorario base per atto di compravendita"
+      },
+      "imposte_e_bolli": [
+        {
+          "voce": "Imposta di registro (prima casa)",
+          "calcolo": "2% del valore",
+          "importo_fisso": null,
+          "note": "Se acquisto prima casa da privato"
+        },
+        {
+          "voce": "Imposta di registro (altre case)",
+          "calcolo": "9% del valore",
+          "importo_fisso": null,
+          "note": "Se acquisto seconda casa o da costruttore"
+        },
+        {
+          "voce": "Imposta ipotecaria",
+          "calcolo": "fisso",
+          "importo_fisso": 50,
+          "note": "Per ogni trascrizione"
+        },
+        {
+          "voce": "Imposta catastale",
+          "calcolo": "fisso",
+          "importo_fisso": 50,
+          "note": "Per ogni visura"
+        },
+        {
+          "voce": "IVA (se da costruttore)",
+          "calcolo": "4% o 10% o 22%",
+          "note": "IVA sull'immobile + imposta fissa 200€"
+        }
+      ]
+    },
+    {
+      "tipo": "Costituzione di mutuo",
+      "atti_corrispondenti": ["Atto di mutuo ipotecario", "Rogito di mutuo"],
+      "onorario": {
+        "scaglioni": [
+          {"da": 0, "a": 50000, "importo": 1549},
+          {"da": 50001, "a": 100000, "importo": 2065},
+          {"da": 100001, "a": 200000, "importo": 2582},
+          {"da": 200001, "a": 500000, "importo": 3098},
+          {"da": 500001, "a": null, "importo": 4130}
+        ],
+        "unita": "euro",
+        "note": "Onorario base per atto di mutuo"
+      },
+      "imposte_e_bolli": [
+        {
+          "voce": "Imposta di registro",
+          "calcolo": "2% del capitale",
+          "note": "Se mutuo per prima casa"
+        },
+        {
+          "voce": "Imposta ipotecaria",
+          "calcolo": "0.50% del capitale",
+          "note": "Minimo 50€, massimo 2000€"
+        },
+        {
+          "voce": "Imposta di bollo",
+          "calcolo": "16€ ogni 4 pagine",
+          "note": "Sulle copie e atti"
+        }
+      ]
+    },
+    {
+      "tipo": "Dichiarazione di successione",
+      "atti_corrispondenti": ["Successione ereditaria", "Accettazione eredità"],
+      "onorario": {
+        "scaglioni": [
+          {"da": 0, "a": 50000, "importo": 1032},
+          {"da": 50001, "a": 100000, "importo": 1549},
+          {"da": 100001, "a": 200000, "importo": 2065},
+          {"da": 200001, "a": 500000, "importo": 2582},
+          {"da": 500001, "a": null, "importo": 3098}
+        ],
+        "unita": "euro",
+        "note": "Onorario base per dichiarazione di successione"
+      },
+      "imposte_e_bolli": [
+        {
+          "voce": "Imposta di successione (coniuge/figli)",
+          "calcolo": "4% sopra franchigia 1M€",
+          "note": "Franchigia 1.000.000€ per ciascun beneficiario"
+        },
+        {
+          "voce": "Imposta di successione (fratelli/sorelle)",
+          "calcolo": "6% sopra franchigia 100k€",
+          "note": "Franchigia 100.000€"
+        },
+        {
+          "voce": "Imposta di successione (altri)",
+          "calcolo": "8% senza franchigia",
+          "note": "Per parenti oltre 4° grado e estranei"
+        },
+        {
+          "voce": "Imposta ipotecaria",
+          "calcolo": "fisso",
+          "importo_fisso": 50,
+          "note": "Per ogni immobile"
+        },
+        {
+          "voce": "Imposta catastale",
+          "calcolo": "fisso",
+          "importo_fisso": 50,
+          "note": "Per ogni immobile"
+        }
+      ]
+    },
+    {
+      "tipo": "Costituzione di società SRL",
+      "atti_corrispondenti": ["Atto costitutivo SRL", "Statuto sociale"],
+      "onorario": {
+        "scaglioni": [
+          {"da": 0, "a": 50000, "importo": 1549},
+          {"da": 50001, "a": 100000, "importo": 2065},
+          {"da": 100001, "a": 200000, "importo": 2582},
+          {"da": 200001, "a": 500000, "importo": 3098},
+          {"da": 500001, "a": null, "importo": 4130}
+        ],
+        "unita": "euro",
+        "note": "Onorario base per atto costitutivo SRL"
+      },
+      "imposte_e_bolli": [
+        {
+          "voce": "Imposta di registro",
+          "calcolo": "200€ fisso",
+          "importo_fisso": 200,
+          "note": "Per SRL ordinari"
+        },
+        {
+          "voce": "Imposta di bollo",
+          "calcolo": "155€",
+          "importo_fisso": 155,
+          "note": "Per atto e copie"
+        },
+        {
+          "voce": "Diritto camerale",
+          "calcolo": "50€",
+          "importo_fisso": 50,
+          "note": "Iscrizione Registro Imprese"
+        },
+        {
+          "voce": "Imposta di bollo (capitale)",
+          "calcolo": "0.50% del capitale",
+          "note": "Sul capitale sociale versato"
+        }
+      ]
+    }
+  ],
+  "spese_accessorie": [
+    {"voce": "Bollo per copie", "importo": 16.00, "unita": "ogni 4 pagine"},
+    {"voce": "Diritti di segreteria", "importo": 27.00, "unita": "a pratica"},
+    {"voce": "Visure catastali", "importo": 4.00, "unita": "per immobile"},
+    {"voce": "Trascrizioni", "importo": 35.00, "unita": "per trascrizione"}
+  ]
+}

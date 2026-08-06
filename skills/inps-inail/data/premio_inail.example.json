@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "skill": "inps-inail",
+    "tipo": "premio_inail",
+    "tier": "manual",
+    "fonte": "esempio",
+    "data_aggiornamento": "2025-01-01",
+    "source": "esempio",
+    "verified_at": "2025-01-01",
+    "next_check_due": "2026-01-01"
+  },
+  "azienda": {
+    "denominazione": "Azienda Esempio S.r.l.",
+    "partita_iva": "12345678903",
+    "posizione_inail": "1234567",
+    "pat": "1234567"
+  },
+  "lavoratori": 15,
+  "retribuzione_annua_complessiva": 450000.0,
+  "categoria_rischio": "industria_meccanica",
+  "tasso_base": 3.5,
+  "classe_rischio": 1.1
+}

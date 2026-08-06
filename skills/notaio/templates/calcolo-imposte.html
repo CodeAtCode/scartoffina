@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Calcolo Imposte Atto - {{tipo_atto}}</title>
+<style>
+body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 40px; line-height: 1.6; }
+h1 { font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background: #f8f9fa; }
+.importo { text-align: right; font-variant-numeric: tabular-nums; }
+.totale { font-weight: bold; background: #f0f0f0; }
+.formula { background: #f8f9fa; padding: 10px; font-family: monospace; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1>Calcolo Imposte dell'Atto</h1>
+
+<h2>Dati dell'atto</h2>
+<table>
+  <tr><td>Tipo atto</td><td>{{tipo_atto}}</td></tr>
+  <tr><td>Valore</td><td class="importo">{{valore}} €</td></tr>
+  <tr><td>Agevolazione prima casa</td><td>{{agevolata}}</td></tr>
+</table>
+
+<h2>Dettaglio imposte</h2>
+<table>
+  <tr><th>Imposta</th><th>Base</th><th>Aliquota</th><th class="importo">Importo (€)</th></tr>
+  <tr>
+    <td>Registro</td>
+    <td>{{registro_base}}</td>
+    <td>{{registro_aliquota}}</td>
+    <td class="importo">{{registro_importo}}</td>
+  </tr>
+  <tr>
+    <td>Ipotecaria</td>
+    <td>{{ipotecaria_base}}</td>
+    <td>{{ipotecaria_aliquota}}</td>
+    <td class="importo">{{ipotecaria_importo}}</td>
+  </tr>
+  <tr>
+    <td>Catastale</td>
+    <td>{{catastale_base}}</td>
+    <td>{{catastale_aliquota}}</td>
+    <td class="importo">{{catastale_importo}}</td>
+  </tr>
+  <tr>
+    <td>Bollo</td>
+    <td>-</td>
+    <td>-</td>
+    <td class="importo">{{bollo_importo}}</td>
+  </tr>
+  <tr>
+    <td>Tassa trascrizione</td>
+    <td>-</td>
+    <td>-</td>
+    <td class="importo">{{tassa_trascrizione}}</td>
+  </tr>
+  <tr class="totale">
+    <td colspan="3">Totale imposte</td>
+    <td class="importo">{{totale_imposte}}</td>
+  </tr>
+</table>
+
+<h2>Formule applicate</h2>
+<div class="formula">
+  <p>Registro = {{registro_base}} × {{registro_aliquota}} = {{registro_importo}} €</p>
+  <p>Ipotecaria = {{ipotecaria_base}} × {{ipotecaria_aliquota}} = {{ipotecaria_importo}} €</p>
+  <p>Catastale = {{catastale_base}} × {{catastale_aliquota}} = {{catastale_importo}} €</p>
+</div>
+
+<p style="margin-top: 30px; font-size: 12px; color: #666;">
+  Calcolo basato su DPR 131/1986, DPR 601/1970, DPR 642/1972.
+</p>
+</body>
+</html>

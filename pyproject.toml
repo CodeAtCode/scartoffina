@@ -1,0 +1,47 @@
+[project]
+name = "scartoffina"
+version = "0.1.0"
+description = "Skill per agenti AI su burocrazia e adempimenti italiani"
+readme = "README.md"
+license = { text = "MIT", file = "LICENSE" }
+requires-python = ">=3.11"
+authors = [{ name = "Scartoffina" }]
+keywords = ["italy", "fisco", "contabilita", "burocrazia", "ai-skills"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Italian",
+]
+
+dependencies = [
+    "requests>=2.31",
+    "PyYAML>=6.0",
+    "jsonschema>=4.20",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+scartoffina-updater = "updater.cli:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends._legacy:_Backend"

@@ -1,0 +1,34 @@
+# === Scartoffina ===
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+updater/.cache/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Dati locali dell'azienda (mai committare)
+company.json
+company.local.json
+
+# Output degli eval
+evals/output/
+*.eval.json
+
+# Output generato dagli script (es. registro_iva.csv, bilancio.json)
+skills/*/registro_iva.*
+skills/*/libro_giornale.*
+skills/*/bilancio.json
+skills/*/fattura.xml
+skills/*/fatture.json
+skills/*/convocazione.txt
+skills/*/verbale.txt
+skills/*/atto.md
+
+# OS
+.DS_Store
+Thumbs.db
+.cortexkit/

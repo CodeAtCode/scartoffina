@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "verified_at": "2026-08-06",
+    "source": "https://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/9108472",
+    "tier": "manual",
+    "next_check_due": "2027-08-06"
+  },
+  "interessato_id": "USR-001",
+  "finalita": "Invio newsletter promozionale",
+  "base_giuridica": "consenso",
+  "data_raccolta": "2024-01-15",
+  "modalita": "form_sito_web",
+  "prova_consenso": true,
+  "revocabile": true,
+  "consenso_explicito": false,
+  "categorie_particolari": []
+}

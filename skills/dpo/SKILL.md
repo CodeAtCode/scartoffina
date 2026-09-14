@@ -30,7 +30,7 @@ Copri l'intero ciclo di compliance GDPR: dallo scoping dell'obbligo di designazi
 
 ## 1. Scope
 
-### 1.1 Cosa fai
+### 1.1 1 Cosa fai
 
 - **Scoping obbligo designazione DPO** (art. 37 GDPR): verifica se la designazione è obbligatoria (autorità pubbliche, monitoraggio sistematico su larga scala, trattamento su larga scala di categorie particolari di dati).
 - **Registro delle attività di trattamento** (art. 30 GDPR): mappatura completa di finalità, categorie di interessati e dati, destinatari, trasferimenti extra-UE, misure di sicurezza, termini di cancellazione.
@@ -42,7 +42,7 @@ Copri l'intero ciclo di compliance GDPR: dallo scoping dell'obbligo di designazi
 - **Cookie e consenso** (art. 7 GDPR): informativa cookie (art. 13), consenso libero/specifico/informato, distinzione tecnici vs profilazione, scadenza 6/12 mesi.
 - **Sanzioni**: calcolo e applicazione delle sanzioni amministrative (art. 83 GDPR).
 
-### 1.2 Cosa NON fai
+### 1.2 2 Cosa NON fai
 
 - **Cybersecurity tecnica operativa**: skill `cti` (CSIRT, incident response tecnica).
 - **Rappresentanza legale in tribunale**: skill `avvocato`.
@@ -52,7 +52,7 @@ Copri l'intero ciclo di compliance GDPR: dallo scoping dell'obbligo di designazi
 
 ## 2. Prerequisiti
 
-### 2.1 Dati condivisi
+### 2.1 1 Dati condivisi
 
 L'agente usa i dataset in `SCARTOFFINA_DATA_DIR` (default `./data/`):
 
@@ -67,7 +67,7 @@ L'agente usa i dataset in `SCARTOFFINA_DATA_DIR` (default `./data/`):
 **Verifica sempre `_meta.verified_at` e `_meta.next_check_due`** prima di usare i dati. Se `next_check_due` è nel passato, avvisa l'utente che i dati potrebbero essere obsoleti.
 **Verifica sempre `_meta.verified_at` e `_meta.next_check_due`** prima di usare i dati. Se `next_check_due` è nel passato, avvisa l'utente che i dati potrebbero essere obsoleti.
 
-### 2.2 Contesto aziendale
+### 2.2 2 Contesto aziendale
 
 Per operare correttamente, l'agente necessita di:
 
@@ -78,7 +78,7 @@ Per operare correttamente, l'agente necessita di:
 - **Trasferimenti internazionali**: paesi di destinazione dei dati.
 - **Sistemi tecnologici**: cloud provider, software in uso, infrastrutture.
 
-### 2.3 Documentazione di riferimento
+### 2.3 3 Documentazione di riferimento
 
 Questa skill dispone di documentazione approfondita nella cartella `references/`:
 
@@ -119,7 +119,16 @@ Fonti di verifica:
 
 ---
 
-## 4. Script
+## 4. Workflow
+
+1. **Mappa i trattamenti**: compila il registro delle attività di trattamento (sez. 7) identificando titolare, responsabili, finalità e base giuridica.
+2. **Verifica le basi giuridiche**: per ogni trattamento conferma la base giuridica ex art. 6 GDPR.
+3. **Valuta il rischio**: per i trattamenti ad alto rischio avvia la DPIA secondo i criteri di trigger (sez. 9).
+4. **Implementa le misure**: privacy by design, minimizzazione dei dati, misure di sicurezza adeguate al rischio.
+5. **Gestisci gli incidenti**: in caso di violazione attiva la procedura di breach (sez. 8) — notifica al Garante entro 72 ore, comunicazione agli interessati se a alto rischio.
+6. **Gestisci i diritti**: smista le richieste di accesso, rettifica, cancellazione, portabilità (sez. 10) entro il termine di un mese.
+
+## 5. Script
 
 | Script | Comando | Descrizione |
 |---------|---------|-------------|
@@ -129,7 +138,7 @@ Fonti di verifica:
 | `check_breach.py` | `python3 scripts/check_breach.py --data-breach 2024-06-01 --tipo dati_personali --numero-interessati 500` | Verifica scadenze notifica data breach (art. 33-34) |
 | `verify_dpo.py` | `python3 scripts/verify_dpo.py --input data/azienda.example.json` | Verifica obbligo di designazione DPO (art. 37) |
 
-## 5. Promemoria Obbligatori
+## 6. Promemoria Obbligatori
 
 - **Registro trattamenti**: mantenere aggiornato il registro art. 30 entro 48 ore da ogni modifica rilevante.
 - **Designazione DPO**: verificare l'obbligo con `verify_dpo.py` per autorità pubbliche e trattamenti su larga scala.
@@ -141,9 +150,9 @@ Fonti di verifica:
 - **Diritti interessati**: rispondere entro 1 mese (prorogabile a 3) alle richieste ex artt. 15-22; gratuito salvo richieste manifestamente infondate.
 - **Audit registry**: eseguire audit periodico con `audit_registry.py` per verificare la completezza delle voci obbligatorie.
 
-## 6. Registro Trattamenti - Esempi Pratici
+## 7. Registro Trattamenti - Esempi Pratici
 
-### 3.1 Esempio 1: Gestione Dipendenti
+### 7.1 1 Esempio 1: Gestione Dipendenti
 
 ```
 ID trattamento: HR-001
@@ -205,7 +214,7 @@ DATA INSERIMENTO: 15/01/2024
 DATA ULTIMO AGGIORNAMENTO: 15/01/2024
 ```
 
-### 3.2 Esempio 2: Email Marketing
+### 7.2 2 Esempio 2: Email Marketing
 
 ```
 ID trattamento: MKT-001
@@ -244,7 +253,7 @@ TERMINI CANCELLAZIONE:
 BASE GIURIDICA: Consenso (art. 6 c. 1 a) GDPR)
 ```
 
-### 3.3 Esempio 3: Videosorveglianza
+### 7.3 3 Esempio 3: Videosorveglianza
 
 ```
 ID trattamento: SEC-001
@@ -287,7 +296,7 @@ INFORMAZIONI AGGIUNTIVE:
   - Aree escluse: spogliatoi, bagni, mensa
 ```
 
-### 3.4 Esempio 4: Sito Web e Cookie
+### 7.4 4 Esempio 4: Sito Web e Cookie
 
 ```
 ID trattamento: WEB-001
@@ -327,7 +336,7 @@ BASE GIURIDICA:
   - Cookie profilazione: Consenso (art. 6 c. 1 a)
 ```
 
-### 3.5 Esempio 5: Gestione Pazienti (Sanità)
+### 7.5 5 Esempio 5: Gestione Pazienti (Sanità)
 
 ```
 ID trattamento: HRD-001
@@ -373,9 +382,9 @@ BASE GIURIDICA:
 
 ---
 
-## 7. Data Breach - Workflow Completo
+## 8. Data Breach - Workflow Completo
 
-### 4.1 Timeline 72 ore
+### 8.1 1 Timeline 72 ore
 
 **Ora 0: Scoperta del breach**
 - Registrare la segnalazione
@@ -395,7 +404,7 @@ BASE GIURIDICA:
 - Inviare notifica al Garante
 - Preparare comunicazione agli interessati
 
-### 4.2 Matrice di valutazione del rischio
+### 8.2 2 Matrice di valutazione del rischio
 
 | Fattore | Basso | Medio | Alto |
 |---------|-------|-------|------|
@@ -404,7 +413,7 @@ BASE GIURIDICA:
 | **Identificabilità** | Dati anonimizzati | Dati pseudonimizzati | Dati identificativi diretti |
 | **Gravità potenziale** | Danno minimo | Danno moderato | Danno grave |
 
-### 4.3 Quando notificare
+### 8.3 3 Quando notificare
 
 **Notifica al Garante (art. 33):**
 - Obbligatoria SE: rischio per diritti e libertà
@@ -414,7 +423,7 @@ BASE GIURIDICA:
 - Obbligatoria SE: rischio ALTO
 - Termini: senza ingiustificato ritardo
 
-### 4.4 Template notifica Garante
+### 8.4 4 Template notifica Garante
 
 ```
 NOTIFICA DATA BREACH - ART. 33 GDPR
@@ -459,9 +468,9 @@ NOTIFICA DATA BREACH - ART. 33 GDPR
 
 ---
 
-## 8. DPIA - Criteri di Trigger
+## 9. DPIA - Criteri di Trigger
 
-### 5.1 Casi che richiedono DPIA (linee guida EDPB)
+### 9.1 1 Casi che richiedono DPIA (linee guida EDPB)
 
 1. **Valutazione sistematica e completa di aspetti personali**:
    - Profilazione per scoring creditizio
@@ -487,14 +496,14 @@ NOTIFICA DATA BREACH - ART. 33 GDPR
    - Blocco accesso a servizi
    - Limitazione diritti digitali
 
-### 5.2 Struttura DPIA
+### 9.2 2 Struttura DPIA
 
 1. **Descrizione sistematica** del trattamento e delle finalità.
 2. **Valutazione della necessità e proporzionalità** rispetto alle finalità.
 3. **Valutazione dei rischi** per i diritti e le libertà degli interessati.
 4. **Misure previste** per affrontare i rischi (garanzie, misure di sicurezza).
 
-### 5.3 Esempio trigger DPIA
+### 9.3 3 Esempio trigger DPIA
 
 **Scenario:**
 ```
@@ -515,9 +524,9 @@ Tecnologia: Machine learning per predire comportamenti d'acquisto
 
 ---
 
-## 9. Esercizio Diritti Interessati
+## 10. Esercizio Diritti Interessati
 
-### 6.1 Diritti principali
+### 10.1 1 Diritti principali
 
 **Diritto di accesso** (art. 15):
 - Conferma che i dati sono trattati.
@@ -542,14 +551,14 @@ Tecnologia: Machine learning per predire comportamenti d'acquisto
 - Opposizione al trattamento per motivi legittimi.
 - Opposizione al trattamento per marketing diretto (assoluto).
 
-### 6.2 Tempi di risposta
+### 10.2 2 Tempi di risposta
 
 - **1 mese** dalla ricezione (prorogabile a 3 mesi per casi complessi).
 - **Gratuito** (salvo richieste manifestamente infondate o eccessive).
 
 ---
 
-## 10. Output
+## 11. Output
 
 Per ogni operazione richiesta, l'agente produce:
 
@@ -563,7 +572,7 @@ Per ogni operazione richiesta, l'agente produce:
 - **Calcolo sanzioni** (se applicabile) con criteri di irrogazione.
 - **Riporto delle verifiche** effettuate (`_meta` dei dati usati, scadenze rispettate, controlli di coerenza).
 
-## 11. Controlli di coerenza
+## 12. Controlli di coerenza
 
 Prima di considerare un'operazione conclusa, verifica:
 
@@ -577,7 +586,7 @@ Prima di considerare un'operazione conclusa, verifica:
 
 Se un controllo fallisce, **fermati e segnala l'anomalia**. Non procedere con trattamenti non conformi.
 
-## 12. Limiti e responsabilità
+## 13. Limiti e responsabilità
 
 - I dati normativi (GDPR, provvedimenti del Garante, linee guida EDPB) possono essere aggiornati. L'agente segnala se `_meta.next_check_due` è passato.
 - I dati non sostituiscono il parere di un **professionista specializzato in protezione dei dati** (DPO certificato, avvocato specializzato).

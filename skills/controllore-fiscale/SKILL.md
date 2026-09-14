@@ -3,7 +3,7 @@ name: controllore-fiscale
 description: Simulazione difensiva di accertamento Agenzia delle Entrate — analisi 8 assi di rischio, capi di rettifica, stima importi, strumenti difensivi
 metadata:
   author: Scartoffina
-  version: 0.1.0
+  version: 0.2.0
   tags:
     - accertamento
     - difesa-fiscale
@@ -40,7 +40,7 @@ Questa simulazione è uno strumento di **autotutela preventiva**: il contribuent
 
 ## 1. Scope
 
-### 1.1 Cosa fai
+### 1.1 1 Cosa fai
 
 - **Analisi 8 assi di rischio**: identificazione delle vulnerabilità fiscali del contribuente su ciascun asse.
 - **Capi di rettifica simulati**: per ogni asse, simulazione del capo di rettifica che l'Agenzia potrebbe formulare, con citazione della base legale.
@@ -51,7 +51,7 @@ Questa simulazione è uno strumento di **autotutela preventiva**: il contribuent
 - **Redditometro**: stima del reddito sulla base delle spese sostenute.
 - **Sanzioni e ravvedimento**: calcolo sanzioni ridotte per adesione o ravvedimento operoso.
 
-### 1.2 Cosa NON fai
+### 1.2 2 Cosa NON fai
 
 - Consulenza per occultamento di redditi o elusione fiscale → fuori scope.
 - Orientamento all'evasione o suggerimenti per ridurre la tracciabilità → fuori scope.
@@ -61,7 +61,7 @@ Questa simulazione è uno strumento di **autotutela preventiva**: il contribuent
 
 ## 2. Prerequisiti
 
-### 2.1 File `company.json`
+### 2.1 1 File `company.json`
 
 L'agente legge il file `company.json` (variabile `SCARTOFFINA_COMPANY_FILE`) con i dati dell'azienda. Campi rilevanti per questa skill:
 
@@ -75,7 +75,7 @@ L'agente legge il file `company.json` (variabile `SCARTOFFINA_COMPANY_FILE`) con
 | `operazioni_estere` | Flag per verifiche su paradisi fiscali |
 | `soggetti_non_operativi` | Flag per verifiche su società di comodo |
 
-### 2.2 Dati di riferimento
+### 2.2 2 Dati di riferimento
 
 L'agente usa i seguenti riferimenti normativi:
 
@@ -107,30 +107,10 @@ Fonti di verifica:
 - https://www.cassazione.cdn.it — Giurisprudenza tributaria
 
 **Verificare sempre online prima di citare qualsiasi parametro numerico.**
-## 4. Script
 
-| Script | Comando | Descrizione |
-|---------|---------|-------------|
-| `validate_vat.py` | `python3 scripts/validate_vat.py --partita-iva 12345678903` | Validazione partita IVA italiana (algoritmo Luhn) |
-| `check_withholding.py` | `python3 scripts/check_withholding.py --compenso 5000 --aliquota 0.20 --tipo autonomo` | Calcolo ritenuta d'acconto su compenso |
-| `verify_tax_return.py` | `python3 scripts/verify_tax_return.py --input data/dichiarazione.example.json --anno 2024` | Quadratura dichiarazione fiscale annuale |
-| `calc_sanctions.py` | `python3 scripts/calc_sanctions.py --imposta 1000 --giorni-ritardo 45 --tipo ritardato` | Calcolo sanzioni con ravvedimento operoso |
-| `audit_checklist.py` | `python3 scripts/audit_checklist.py --input data/azienda.example.json --anno 2024` | Genera checklist di audit fiscale per azienda |
+## 4. Workflow
 
-## 5. Promemoria Obbligatori
-
-- **Scadenze dichiarative**: verificare che le dichiarazioni siano state presentate entro i termini (IRPEF/IRES/IVA/IRAP).
-- **Ravvedimento operoso**: prima di ogni adesione, calcolare la sanzione ridotta con `calc_sanctions.py`.
-- **Validazione partita IVA**: verificare la correttezza della P.IVA del contribuente con `validate_vat.py` prima di ogni elaborazione.
-- **Ritenute d'acconto**: verificare l'applicazione corretta delle ritenute con `check_withholding.py` sui compensi.
-- **Quadratura dichiarazione**: verificare la coerenza dei dati dichiarativi con `verify_tax_return.py` prima della presentazione.
-- **Termini di ricorso**: 60 giorni dalla notifica dell'avviso di accertamento per il ricorso in CTP.
-- **Termini di adesione**: 60 giorni dalla notifica per adesione con sanzione ridotta al 30%.
-- **Documentazione difensiva**: raccogliere tutta la documentazione giustificativa prima del contraddittorio.
-
-## 6. Workflow
-
-### 6.1 Analisi 8 assi di rischio
+### 4.1 1 Analisi 8 assi di rischio
 
 Per ciascun asse di rischio, esegui:
 
@@ -256,7 +236,7 @@ Per ciascun asse di rischio, esegui:
 - Documentazione: prova della sostanza (dipendenti, sede reale, attività economica).
 - Onere della prova: contribuente deve dimostrare l'operatività.
 
-### 6.2 Calcolo sanzioni e interessi
+### 4.2 2 Calcolo sanzioni e interessi
 
 Per ogni rettifica simulata, calcola:
 
@@ -272,7 +252,7 @@ Per ogni rettifica simulata, calcola:
 - **Adesione** (art. 16 L. 212/2000): sanzione ridotta a 30% (o 1/3 se entro 30 giorni).
 - **Interessi**: 0,4% al mese (art. 13 D.L. 472/97), calcolati dal giorno della scadenza.
 
-### 6.3 Strumenti difensivi
+### 4.3 3 Strumenti difensivi
 
 Per ogni capo di rettifica, indica:
 
@@ -281,6 +261,27 @@ Per ogni capo di rettifica, indica:
 3. **Adesione**: se conviene aderire (riduzione sanzione a 30%).
 4. **Conciliazione giudiziale**: se è possibile conciliare in fase di contestazione.
 5. **Contraddittorio**: diritto di presentare memorie prima dell'avviso di accertamento (art. 7-bis L. 212/2000).
+
+## 5. Script
+
+| Script | Comando | Descrizione |
+|---------|---------|-------------|
+| `validate_vat.py` | `python3 scripts/validate_vat.py --partita-iva 12345678903` | Validazione partita IVA italiana (algoritmo Luhn) |
+| `check_withholding.py` | `python3 scripts/check_withholding.py --compenso 5000 --aliquota 0.20 --tipo autonomo` | Calcolo ritenuta d'acconto su compenso |
+| `verify_tax_return.py` | `python3 scripts/verify_tax_return.py --input data/dichiarazione.example.json --anno 2024` | Quadratura dichiarazione fiscale annuale |
+| `calc_sanctions.py` | `python3 scripts/calc_sanctions.py --imposta 1000 --giorni-ritardo 45 --tipo ritardato` | Calcolo sanzioni con ravvedimento operoso |
+| `audit_checklist.py` | `python3 scripts/audit_checklist.py --input data/azienda.example.json --anno 2024` | Genera checklist di audit fiscale per azienda |
+
+## 6. Promemoria Obbligatori
+
+- **Scadenze dichiarative**: verificare che le dichiarazioni siano state presentate entro i termini (IRPEF/IRES/IVA/IRAP).
+- **Ravvedimento operoso**: prima di ogni adesione, calcolare la sanzione ridotta con `calc_sanctions.py`.
+- **Validazione partita IVA**: verificare la correttezza della P.IVA del contribuente con `validate_vat.py` prima di ogni elaborazione.
+- **Ritenute d'acconto**: verificare l'applicazione corretta delle ritenute con `check_withholding.py` sui compensi.
+- **Quadratura dichiarazione**: verificare la coerenza dei dati dichiarativi con `verify_tax_return.py` prima della presentazione.
+- **Termini di ricorso**: 60 giorni dalla notifica dell'avviso di accertamento per il ricorso in CTP.
+- **Termini di adesione**: 60 giorni dalla notifica per adesione con sanzione ridotta al 30%.
+- **Documentazione difensiva**: raccogliere tutta la documentazione giustificativa prima del contraddittorio.
 
 ## 7. Esempi di Avviso di Accertamento
 
@@ -471,7 +472,7 @@ Il **chef du redressement** (capo principale di rettifica) è l'elemento central
 
 ## 9. Tracking dei Termini
 
-### 9.1 Termini Critici
+### 9.1 1 Termini Critici
 
 | Termine | Durata | Decorrenza | Conseguenze |
 |---------|--------|------------|-------------|
@@ -482,7 +483,7 @@ Il **chef du redressement** (capo principale di rettifica) è l'elemento central
 | Cassazione | **60 giorni** | Notifica sentenza CTR | Scaduto → sentenza definitiva |
 | Pagamento rateale | **Richiesta entro 60 giorni** | Notifica avviso | Scaduto → non più possibile |
 
-### 9.2 Calendario di Riferimento
+### 9.2 2 Calendario di Riferimento
 
 ```
 Giorno 0:   Notifica avviso di accertamento
@@ -504,7 +505,7 @@ Giorno 61+: │─► Se ricorso presentato:
             │   - Eventuale appello CTR (60 giorni)
 ```
 
-### 9.3 Alert System
+### 9.3 3 Alert System
 
 L'agente deve monitorare i termini e avvisare:
 

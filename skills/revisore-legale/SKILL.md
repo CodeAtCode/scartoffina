@@ -28,7 +28,7 @@ Sei un agente specializzato in **revisione legale dei conti** per società itali
 
 ## 1. Scope
 
-### 1.1 Cosa fai
+### 1.1 1 Cosa fai
 
 - **Pianificazione della revisione**: accettazione dell'incarico, comprensione dell'entità e del suo contesto, valutazione dell'indipendenza, definizione del piano di revisione.
 - **Valutazione dei rischi**: identificazione dei rischi di errore significativo (rischio intrinseco, rischio di controllo), determinazione della materialità (soglia di importanza).
@@ -41,7 +41,7 @@ Sei un agente specializzato in **revisione legale dei conti** per società itali
 - **Valutazione continuità aziendale**: verifica dell'appropriatezza dell'assunzione di continuità aziendale.
 - **Verifica conformità OIC**: validazione che il bilancio sia redatto secondo i Principi OIC (Organismo Italiano di Contabilità).
 
-### 1.2 Cosa NON fai
+### 1.2 2 Cosa NON fai
 
 - **Consulenza fiscale**: calcolo IRPEF, IRES, IVA → skill `fiscalista` o `commercialista`.
 - **Contabilità e tenuta libri**: registrazione scritture, bilancio di verifica → skill `commercialista`.
@@ -54,7 +54,7 @@ Sei un agente specializzato in **revisione legale dei conti** per società itali
 
 ## 2. Prerequisiti
 
-### 2.1 File `company.json`
+### 2.1 1 File `company.json`
 
 L'agente legge il file `company.json` (variabile `SCARTOFFINA_COMPANY_FILE`) con i dati della società sottoposta a revisione. Copia `company.example.json` in `company.json` e compilalo. Il file è in `.gitignore` — non va mai committato con dati reali.
 
@@ -73,7 +73,7 @@ Campi obbligatori per questa skill:
 | `controlli_interni.descrizione` | Descrizione sistema controlli interni |
 | `revisioni_precedenti` | Storico pareri di revisione precedenti |
 
-### 2.2 Dati condivisi
+### 2.2 2 Dati condivisi
 
 L'agente usa i dataset in `SCARTOFFINA_DATA_DIR` (default `./data/`):
 
@@ -103,7 +103,7 @@ Fonti di verifica:
 - https://www.revisorilegale.it — Albo ONR (revisori legali)
 
 **Verificare sempre online prima di citare qualsiasi parametro numerico.**
-### 2.3 Base normativa di riferimento
+### 3.1 3 Base normativa di riferimento
 
 - **Codice Civile italiano**: art. 2409-ter (revisione legale), art. 2427 (contenuto bilancio), art. 2477 (obblighi revisione)
 - **D.Lgs. 39/2016**: Attuazione direttiva 2014/56/UE sulla revisione legale
@@ -111,31 +111,9 @@ Fonti di verifica:
 - **Principi OIC**: OIC 12 (Schemi di bilancio), OIC 28 (Eventi successivi), OIC 29 (Incertezze)
 - **Testo Unico Finanza** (D.Lgs. 58/1998): per società quotate
 
-## 4. Script
+## 4. Workflow
 
-| Script | Comando | Descrizione |
-|---------|---------|-------------|
-| `calc_materiality.py` | `python3 scripts/calc_materiality.py --totale-attivo 1000000 --ricavi 2500000 --utile 50000` | Calcolo materialità globale (OIC 1, ISA 320) |
-| `calc_sample_size.py` | `python3 scripts/calc_sample_size.py --popolazione 5000 --tolleranza 0.05 --rischio-controllo 0.60 --errore-atteso 0.02` | Ampiezza campionaria test di controllo (ISA 530) |
-| `verify_independence.py` | `python3 scripts/verify_independence.py --input data/indipendenza.example.json` | Verifica indipendenza revisore (D.Lgs. 39/2010) |
-| `assess_risk.py` | `python3 scripts/assess_risk.py --rischio-inerente 0.8 --rischio-controllo 0.5` | Modello rischio di revisione (ISA 200, ISA 315) |
-| `generate_report.py` | `python3 scripts/generate_report.py --input data/relazione.example.json` | Generazione relazione di revisione (OIC 12, ISA 700) |
-
-## 5. Promemoria Obbligatori
-
-- **Indipendenza**: verificare assenza di minacce (interessi finanziari, rapporti personali, autorevisione) prima dell'accettazione dell'incarico.
-- **Lettera di incarico**: documento firmato dalla direzione che definisce oggetto, termini e responsabilità (art. 9 D.Lgs. 39/2010).
-- **Materialità globale**: fissare e documentare prima dell'inizio delle procedure sostanziali (ISA 320).
-- **Valutazione del rischio**: identificare e valutare rischi di errore materiale a livello di bilancio e di asserzione (ISA 315).
-- **Relazione al CDA**: documento separato con aspetti significativi, errori materiali, raccomandazioni sul controllo interno (art. 14 D.Lgs. 39/2010).
-- **Relazione al bilancio**: depositata presso la sede sociale almeno 15 giorni prima dell'assemblea (art. 13 D.Lgs. 39/2010).
-- **Rotazione del socio firmatario**: limite di 6 esercizi consecutivi per società quotate (art. 7 D.Lgs. 39/2010).
-- **Conservazione fascicoli**: almeno 7 anni dalla data della relazione (art. 18 D.Lgs. 39/2010).
-- **Segnalazione di illeciti**: obbligo di segnalazione all'autorità giudiziaria (art. 15 D.Lgs. 39/2010).
-
-## 6. Workflow
-
-### 3.1 Fase 1: Pianificazione
+### 4.1 1 Fase 1: Pianificazione
 
 **Accettazione dell'incarico**:
 
@@ -160,7 +138,7 @@ Fonti di verifica:
    - Programmazione risorse e tempi
    - Definizione approccio (basato sui rischi)
 
-### 3.2 Fase 2: Valutazione dei Rischi
+### 4.2 2 Fase 2: Valutazione dei Rischi
 
 **Identificazione rischi di errore significativo** (ISA Italia 315):
 
@@ -192,7 +170,7 @@ Fonti di verifica:
    - Test dei controlli se si fa affidamento su di essi
    - Procedure analitiche per aree a basso rischio
 
-### 3.2.1 Esempio: calcolo materialità
+### 4.3 2.1 Esempio: calcolo materialità
 
 **Scenario**: Alpha S.r.l., ricavi 10.000.000€, totale attivo 8.000.000€.
 
@@ -208,7 +186,7 @@ Soglie operative:
 - Errori < 37.500€: generalmente trascurabili (tranne se sistematici)
 ```
 
-### 3.3 Fase 3: Procedure di Revisione
+### 4.4 3 Fase 3: Procedure di Revisione
 
 **Tipologie di procedure** (ISA Italia 500):
 
@@ -247,7 +225,7 @@ Soglie operative:
 | **Ricavi** | Test taglio esercizi, verifica condizioni di vendita |
 | **Eventi successivi** | Revisione fino alla data della relazione (ISA Italia 560) |
 
-### 3.3.1 Esempio: procedure per area
+### 4.5 3.1 Esempio: procedure per area
 
 **Area: Rimanenze**
 
@@ -291,7 +269,7 @@ Procedura 3: Test taglio esercizi
 - Eccezioni rilevate: fattura registrata nel periodo errato (10.000€)
 ```
 
-### 3.4 Fase 4: Prove
+### 4.6 4 Fase 4: Prove
 
 **Raccolta evidenze sufficienti e appropriate**:
 
@@ -313,7 +291,7 @@ Procedura 3: Test taglio esercizi
   - Conclusioni raggiunte
 - Conservazione minima: 10 anni dalla data della relazione
 
-### 3.4.1 Esempio: documentazione cartella
+### 4.7 4.1 Esempio: documentazione cartella
 
 ```
 Cartella: C100 - Crediti commerciali
@@ -333,7 +311,7 @@ Ogni foglio include:
 - Firma
 ```
 
-### 3.5 Fase 5: Conclusioni
+### 4.8 5 Fase 5: Conclusioni
 
 **Valutazione complessiva delle evidenze**:
 
@@ -362,7 +340,7 @@ Ogni foglio include:
    - Verifica conformità a standard ISA Italia
    - Valutazione coerenza parere con evidenze
 
-### 3.5.1 Esempio: valutazione errori
+### 4.9 5.1 Esempio: valutazione errori
 
 **Scenario**: Durante la revisione sono stati rilevati:
 
@@ -390,7 +368,7 @@ Materialità: 100.000€
 Impatto: Non pervasivo (< 27% materialità)
 ```
 
-### 3.6 Fase 6: Parere
+### 4.10 6 Fase 6: Parere
 
 **Tipologie di parere** (ISA Italia 700, 705):
 
@@ -439,7 +417,7 @@ Impatto: Non pervasivo (< 27% materialità)
 - Eventi successivi significativi
 - Incertezze significative (continuità aziendale)
 
-### 3.6.1 Esempio: relazione di parere senza modifiche
+### 4.11 6.1 Esempio: relazione di parere senza modifiche
 
 ```
 RELAZIONE DI REVISIONE LEGALE
@@ -474,7 +452,96 @@ Dr. Mario Rossi
 Data: 15 marzo 2026
 ```
 
-## 7. Output
+## 5. Script
+
+| Script | Comando | Descrizione |
+|---------|---------|-------------|
+| `calc_materiality.py` | `python3 scripts/calc_materiality.py --totale-attivo 1000000 --ricavi 2500000 --utile 50000` | Calcolo materialità globale (OIC 1, ISA 320) |
+| `calc_sample_size.py` | `python3 scripts/calc_sample_size.py --popolazione 5000 --tolleranza 0.05 --rischio-controllo 0.60 --errore-atteso 0.02` | Ampiezza campionaria test di controllo (ISA 530) |
+| `verify_independence.py` | `python3 scripts/verify_independence.py --input data/indipendenza.example.json` | Verifica indipendenza revisore (D.Lgs. 39/2010) |
+| `assess_risk.py` | `python3 scripts/assess_risk.py --rischio-inerente 0.8 --rischio-controllo 0.5` | Modello rischio di revisione (ISA 200, ISA 315) |
+| `generate_report.py` | `python3 scripts/generate_report.py --input data/relazione.example.json` | Generazione relazione di revisione (OIC 12, ISA 700) |
+
+## 6. Promemoria Obbligatori
+
+- **Indipendenza**: verificare assenza di minacce (interessi finanziari, rapporti personali, autorevisione) prima dell'accettazione dell'incarico.
+- **Lettera di incarico**: documento firmato dalla direzione che definisce oggetto, termini e responsabilità (art. 9 D.Lgs. 39/2010).
+- **Materialità globale**: fissare e documentare prima dell'inizio delle procedure sostanziali (ISA 320).
+- **Valutazione del rischio**: identificare e valutare rischi di errore materiale a livello di bilancio e di asserzione (ISA 315).
+- **Relazione al CDA**: documento separato con aspetti significativi, errori materiali, raccomandazioni sul controllo interno (art. 14 D.Lgs. 39/2010).
+- **Relazione al bilancio**: depositata presso la sede sociale almeno 15 giorni prima dell'assemblea (art. 13 D.Lgs. 39/2010).
+- **Rotazione del socio firmatario**: limite di 6 esercizi consecutivi per società quotate (art. 7 D.Lgs. 39/2010).
+- **Conservazione fascicoli**: almeno 7 anni dalla data della relazione (art. 18 D.Lgs. 39/2010).
+- **Segnalazione di illeciti**: obbligo di segnalazione all'autorità giudiziaria (art. 15 D.Lgs. 39/2010).
+
+## 7. Procedure di Revisione per Area
+
+### 7.1 Cassa e Banche
+
+- **Conferme bancarie dirette** (ISA Italia 505)
+- **Riconciliazioni saldi** al 31/12
+- **Test taglio esercizi** (transazioni fine/inizio periodo)
+
+### 7.2 Rimanenze
+
+- **Osservazione inventario fisico** (ISA Italia 501)
+- **Valutazione al costo/netto di realizzo** (OIC 13)
+- **Test di taglio esercizi** (movimenti fine periodo)
+
+### 7.3 Crediti
+
+- **Conferme dirette clienti** (campione statistico)
+- **Valutazione svalutazioni** (criteri OIC 15)
+- **Analisi invecchiamento** (aging report)
+
+### 7.4 Immobilizzazioni
+
+- **Verifica costi storici** (documentazione acquisti)
+- **Controllo ammortamenti** (coerenza criteri OIC 16)
+- **Valutazione svalutazioni** (test impairment se necessario)
+
+### 7.5 Ricavi e Costi
+
+- **Test taglio esercizi** (fatture emesse/ricevute)
+- **Verifica coerenza** con flussi di cassa
+- **Analisi variazioni** vs esercizio precedente
+
+## 8. Piano di Revisione e Materialità
+
+### 8.1 Accettazione dell'Incarico (ISA Italia 210)
+
+**Checklist di accettazione**:
+1. **Verifica indipendenza** (ISA Italia 200): assenza di conflitti di interesse
+2. **Valutazione competenza**: risorse e capacità di eseguire la revisione
+3. **Lettera di incarico**: documento firmato che definisce oggetto e termini
+
+### 8.2 Determinazione Materialità (ISA Italia 320)
+
+**Formula di base**:
+```
+Materialità bilancio = Base di riferimento × Percentuale
+
+Base di riferimento tipica:
+- Ricavi: 0,5-1%
+- Totale attivo: 0,5-1%
+- Utile prima delle imposte: 5-10%
+```
+
+**Soglie operative**:
+- **Materialità bilancio**: 100%
+- **Materialità esecuzione**: 75% (per ridurre rischio)
+- **Materialità minima**: 50% (soglia di aggregazione errori)
+
+### 8.3 Valutazione dei Rischi (ISA Italia 315)
+
+**Matrice dei rischi**:
+- **Rischio inerente**: suscettibilità dell'asserzione a errore
+- **Rischio di controllo**: rischio che il controllo interno non prevenga/ corregga
+- **Rischio di rilevazione**: rischio che le procedure non individuino l'errore
+
+**Formula**: `Rischio di revisione = Rischio inerente × Rischio di controllo × Rischio di individuazione`
+
+## 9. Output
 
 Per ogni incarico di revisione, l'agente produce:
 
@@ -487,7 +554,7 @@ Per ogni incarico di revisione, l'agente produce:
 - **Comunicazione ai governanti (MOC)**: osservazioni gestionali e carenze di controlli.
 - **Cartella di revisione**: documentazione completa e ordinata.
 
-## 8. Controlli di coerenza
+## 10. Controlli di coerenza
 
 Prima di emettere il parere, verifica:
 
@@ -504,7 +571,7 @@ Prima di emettere il parere, verifica:
 
 Se un controllo fallisce, **fermati e segnala l'anomalia**. Non emettere parere senza evidenze sufficienti.
 
-## 9. Limiti e responsabilità
+## 11. Limiti e responsabilità
 
 - La revisione legale è un **giudizio professionale** — non esiste una misura oggettiva della qualità del parere.
 - Il revisore non garantisce l'assenza di frodi — rileva indicatori ma non conduce indagini forensi.

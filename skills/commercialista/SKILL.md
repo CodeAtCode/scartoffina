@@ -32,13 +32,13 @@ Sei un agente specializzato in contabilità italiana per ditte individuali e soc
 
 ## 1. Scope
 
-### 1.1 Cosa fai
+### 1.1 1 Cosa fai
 
 - **Contabilità**: registrazione scritture contabili, mastrini, bilancio di verifica, situazione contabile periodica.
 - **IVA**: liquidazioni periodiche (mensili/trimestrali), registrazione IVA su acquisti e vendite, calcolo del debito/credito, compilazione della Comunicazione delle Liquidazioni Periodiche (LiPe).
 - **Chiusura d'esercizio**: scritture di assestamento (ammortamenti, accantonamenti, ratei/risconti, rimanenze), determinazione del reddito d'esercizio, stesura dello Stato Patrimoniale e del Conto Economico secondo OIC.
 
-### 1.2 Cosa NON fai
+### 1.2 2 Cosa NON fai
 
 - Modello Redditi, 770, dichiarazione IVA annuale → fuori scope (versione 0.2.0).
 - Dichiarazioni integrative, ravvedimento operoso, contenzioso tributario → fuori scope.
@@ -48,7 +48,7 @@ Sei un agente specializzato in contabilità italiana per ditte individuali e soc
 
 ## 2. Prerequisiti
 
-### 2.1 File `company.json`
+### 2.1 1 File `company.json`
 
 L'agente legge il file `company.json` (variabile `SCARTOFFINA_COMPANY_FILE`) con i dati dell'azienda. Copia `company.example.json` in `company.json` e compilalo. Il file è in `.gitignore` — non va mai committato con dati reali.
 
@@ -63,7 +63,7 @@ Campi obbligatori per questa skill:
 | `fatturazione.prefix` | Prefisso fatturazione (es. `FT/2026/`) |
 | `esercizio_fiscale.inizio` / `fine` | Dates di inizio/fine esercizio per ripartizioni e ratei |
 
-### 2.2 Dati condivisi
+### 2.2 2 Dati condivisi
 
 L'agente usa i dataset in `SCARTOFFINA_DATA_DIR` (default `./data/`):
 
@@ -98,7 +98,7 @@ Fonti di verifica:
 
 ## 4. Workflow
 
-### 3.1 Registrazione scrittura contabile
+### 4.1 1 Registrazione scrittura contabile
 
 Per ogni scrittura (fattura ricevuta, fattura emessa, movimento bancario, bolla, nota spese):
 
@@ -131,7 +131,7 @@ Cliente       122.00
   IVA a debito            22.00
 ```
 
-### 3.1.1 Esempio completo: un mese di scritture
+### 4.2 1.1 Esempio completo: un mese di scritture
 
 **Scenario**: Azienda "Alpha S.r.l." (regime ordinario, IVA 22%) nel mese di gennaio 2026.
 
@@ -202,7 +202,7 @@ Totale                 43.700,00  43.700,00 ✓
 - IVA a credito: 2.420,00€
 - **Saldo a versare**: 1.275,90€
 
-### 3.2 Liquidazione IVA periodica
+### 4.3 2 Liquidazione IVA periodica
 
 Esegui ogni mese (contribuenti mensili) o trimestre (contribuenti trimestrali):
 
@@ -219,7 +219,7 @@ Esegui ogni mese (contribuenti mensili) o trimestre (contribuenti trimestrali):
 
 Formula: `IVA a debito − IVA a credito = saldo a versare (se > 0)`
 
-### 3.2.1 Casi particolari IVA
+### 4.4 2.1 Casi particolari IVA
 
 **Reverse charge (inversione contabile)**:
 - Applicabile a: cessione di beni usati, opere edili, telefonia mobile, semiconduttori, rottami
@@ -250,7 +250,7 @@ Conto              Dare      Avere
 - Cessione beni UE: IVA 0% (art. 41 D.L. 331/1993), registrazione in Quadro VE dichiarazione IVA
 - Prestazione servizi UE: reverse charge, registrazione in Quadro VL
 
-### 3.3 Chiusura d'esercizio
+### 4.5 3 Chiusura d'esercizio
 
 Le scritture di assestamento vanno rilevate tra la chiusura dell'esercizio e l'approvazione del bilancio (entro 120 giorni dalla fine esercizio, art. 2364 c.c.). Passaggi:
 
@@ -292,7 +292,7 @@ Le scritture di assestamento vanno rilevate tra la chiusura dell'esercizio e l'a
 
 L'aliquota IRES è **24%** (D.Lgs. 284/2004). L'IRAP base è **3,9%** ma ogni regione può aumentarla o diminuirla entro limiti di legge — **verifica l'addizionale regionale IRAP** prima del calcolo finale.
 
-### 3.3.1 Esempio: scritture di assestamento
+### 4.6 3.1 Esempio: scritture di assestamento
 
 **Scenario**: Alpha S.r.l. chiude esercizio 2026 al 31/12/2026.
 
@@ -341,109 +341,7 @@ Conto              Dare      Avere
   29.02 Fondo imposte                     28.450,00
 ```
 
-## 5. Regimi contabili: ordinaria vs semplificata
-
-### 4.1 Regime ordinario
-
-**Obbligatorio per**:
-- Società di capitali (S.p.A., S.r.l., S.a.p.a.)
-- Ditte individuali con ricavi > 100.000€ (servizi) o > 700.000€ (merci)
-- Società di persone con ricavi superiori alle soglie
-
-**Caratteristiche**:
-- Contabilità completa: libro giornale, libro degli inventari, registri IVA
-- Bilancio completo: Stato Patrimoniale, Conto Economico, Nota Integrativa
-- Liquidazione IVA mensile (salvo opzione trimestrale)
-- Obbligo revisione se superate soglie art. 2477 c.c.
-
-### 4.2 Regime semplificato
-
-**Opzione per**:
-- Ditte individuali con ricavi ≤ 100.000€ (servizi) o ≤ 700.000€ (merci)
-- Società di persone con ricavi ≤ 100.000€ (servizi) o ≤ 700.000€ (merci)
-
-**Caratteristiche**:
-- Registrazioni sintetiche (corrispettivi, acquisti, vendite)
-- Bilancio in forma abbreviata (Nota Integrativa semplificata)
-- Liquidazione IVA trimestrale di diritto
-- Esenzione da alcuni adempimenti (es. intrastat sotto soglie)
-
-**Differenze concrete**:
-
-| Aspetto | Ordinaria | Semplificata |
-|---------|-----------|--------------|
-| Libro giornale | Obbligatorio, cronologico completo | Registrazioni sintetiche mensili |
-| Libro inventari | Obbligatorio | Non obbligatorio |
-| Registri IVA | Separati acquisti/vendite | Registro unico sintetico |
-| Bilancio | Completo (SP + CE + NI) | Abbreviato (NI semplificata) |
-| Liquidazione IVA | Mensile (trimestrale opzionale) | Trimestrale di diritto |
-| Tempistiche chiusura | 120 giorni | 120 giorni (stesse) |
-
-## 6. Error handling: cosa fare quando l'IVA non quadr
-
-### 5.1 Diagnosi delle discrepanze
-
-Se il bilancio di verifica non quadratura o l'IVA non torna:
-
-1. **Verifica la numerazione consecutiva**: controlla che non ci siano salti o duplicati nelle fatture.
-2. **Ricalcola le aliquote IVA**: verifica che ogni fattura abbia l'aliquota corretta.
-3. **Controlla i registri IVA**: confronta il registro acquisti con il registro vendite.
-4. **Verifica le scritture di apertura**: i saldi iniziali devono essere rovesciati dall'esercizio precedente.
-5. **Esamina i movimenti bancari**: riconcilia estratto conto con la contabilità.
-
-### 5.2 Note di variazione
-
-Quando una fattura già registrata necessita di correzione:
-
-**Nota di credito ricevuta** (riduzione acquisto):
-```
-Conto              Dare      Avere
-─────────────────────────────────────
-40.01 Fornitore X         1.220,00
-  60.01 Merci c/acquisti             1.000,00
-  41.01 IVA a credito                 220,00
-```
-
-**Nota di debito emessa** (aumento vendita):
-```
-Conto              Dare      Avere
-─────────────────────────────────────
-40.02 Cliente Y           1.220,00
-  70.01 Ricavi aggiuntivi            1.000,00
-  41.01 IVA a debito                  220,00
-```
-
-### 5.3 Autofatture
-
-Per operazioni senza fattura ricevuta (es. importazioni, reverse charge):
-
-```
-Conto              Dare      Avere
-─────────────────────────────────────
-60.xx Costo specifico     X
-41.01 IVA a credito         X
-  41.01 IVA a credito                X
-  (autofattura n. AF/2026/001)
-```
-
-## 7. Output
-
-Per ogni operazione richiesta, l'agente produce:
-
-- **Scrittura contabile** in partita doppia (formato tabellare come sopra).
-- **Giornale bollato** (sequenza cronologica delle scritture del giorno).
-- **Bilancio di verifica** (situazione contabile aggregata per conto).
-- **F24 generato** (per versamenti IVA, imposte, contributi).
-- **Riporto delle verifiche** effettuate (`_meta` dei dati usati, scadenze rispettate, controlli di coerenza).
-
-Per la chiusura d'esercizio, in più:
-
-- **Stato Patrimoniale** conforme OIC 12.
-- **Conto Economico** conforme OIC 12.
-- **Nota integrativa** (schema semplificato).
-- **Prospetto delle scritture di assestamento** (dettaglio per ogni scritta).
-
-## 8. Script
+## 5. Script
 
 La skill include script deterministici in Python per i calcoli ricorrenti. Tutti gli script si trovano in `scripts/` e accettano argomenti da riga di comando, restituendo JSON.
 
@@ -455,11 +353,11 @@ La skill include script deterministici in Python per i calcoli ricorrenti. Tutti
 | `calc.py` | `python3 scripts/calc.py ammortamento --costo 10000 --coeff 0.15 --anno 1` | Calcolo quota ammortamento (mezza quota primo anno ex art. 102 c.7 TUIR) |
 | `calc.py` | `python3 scripts/calc.py ratei_risconti --importo 1200 --giorni 90 --tipo rateo` | Calcolo ratei e risconti |
 | `calc.py` | `python3 scripts/calc.py pro_rata --imponibili 80000 --totali 100000` | Pro-rata IVA (art. 19 c.5 DPR 633/1972) |
-| `generate_fec.py` | `python3 scripts/generate_fec.py --input data/operazioni.example.json --format csv` | Genera registro IVA e libro giornale da JSON operazioni |
+| `generate_fec.py` | `python3 scripts/generate_fec.py --input data/operazioni.example.json --format csv --output /tmp/registri` | Genera registro IVA e libro giornale da JSON operazioni |
 | `generate_statements.py` | `python3 scripts/generate_statements.py --pdc data/pdc.example.json --output /tmp/bilancio.json` | Genera Stato Patrimoniale, Conto Economico e Nota Integrativa (OIC 34) |
 | `generate_fatturapa.py` | `python3 scripts/generate_fatturapa.py --invoice data/fattura.example.json --output /tmp/fattura.xml` | Genera FatturaPA XML (FPR12) da fattura JSON |
 | `validate_fattura.py` | `python3 scripts/validate_fattura.py --invoice data/fattura_validate.example.json` | Valida fattura JSON secondo DPR 633/1972 art. 21 |
-| `import_stripe_invoices.py` | `python3 scripts/import_stripe_invoices.py --input data/export.example.csv --output /tmp/fatture.json` | Importa fatture da export Stripe (CSV) in formato FatturaPA-ready |
+| `import_stripe_invoices.py` | `python3 scripts/import_stripe_invoices.py --input data/export.example.csv --output /tmp/fatture.json --indice /tmp/stripe-import-index.json` | Importa fatture da export Stripe (CSV) in formato FatturaPA-ready |
 
 ### Esempio: calcolo IRPEF + IRES su utile d'esercizio
 
@@ -473,7 +371,7 @@ python3 scripts/calc.py irap --valore-produzione 80000
 # Output: {"valore_produzione": 80000.0, "aliquota": 0.039, "imposta": 3120.0, "componente_negativa": 0.0}
 ```
 
-## 9. Promemoria Obbligatori
+## 6. Promemoria Obbligatori
 
 Checklist obblighi fiscali e contabili che devono essere verificati ad ogni operazione. Segnala sempre se uno di questi non è soddisfatto.
 
@@ -517,6 +415,108 @@ Checklist obblighi fiscali e contabili che devono essere verificati ad ogni oper
 - [ ] **30 novembre**: saldo IRPEF/IRES/IRAP + secondo acconto
 - [ ] **16 marzo**: CU dipendenti
 - [ ] **31 ottobre**: Modello 770
+
+## 7. Regimi contabili: ordinaria vs semplificata
+
+### 7.1 Regime ordinario
+
+**Obbligatorio per**:
+- Società di capitali (S.p.A., S.r.l., S.a.p.a.)
+- Ditte individuali con ricavi > 100.000€ (servizi) o > 700.000€ (merci)
+- Società di persone con ricavi superiori alle soglie
+
+**Caratteristiche**:
+- Contabilità completa: libro giornale, libro degli inventari, registri IVA
+- Bilancio completo: Stato Patrimoniale, Conto Economico, Nota Integrativa
+- Liquidazione IVA mensile (salvo opzione trimestrale)
+- Obbligo revisione se superate soglie art. 2477 c.c.
+
+### 7.2 Regime semplificato
+
+**Opzione per**:
+- Ditte individuali con ricavi ≤ 100.000€ (servizi) o ≤ 700.000€ (merci)
+- Società di persone con ricavi ≤ 100.000€ (servizi) o ≤ 700.000€ (merci)
+
+**Caratteristiche**:
+- Registrazioni sintetiche (corrispettivi, acquisti, vendite)
+- Bilancio in forma abbreviata (Nota Integrativa semplificata)
+- Liquidazione IVA trimestrale di diritto
+- Esenzione da alcuni adempimenti (es. intrastat sotto soglie)
+
+**Differenze concrete**:
+
+| Aspetto | Ordinaria | Semplificata |
+|---------|-----------|--------------|
+| Libro giornale | Obbligatorio, cronologico completo | Registrazioni sintetiche mensili |
+| Libro inventari | Obbligatorio | Non obbligatorio |
+| Registri IVA | Separati acquisti/vendite | Registro unico sintetico |
+| Bilancio | Completo (SP + CE + NI) | Abbreviato (NI semplificata) |
+| Liquidazione IVA | Mensile (trimestrale opzionale) | Trimestrale di diritto |
+| Tempistiche chiusura | 120 giorni | 120 giorni (stesse) |
+
+## 8. Error handling: cosa fare quando l'IVA non quadr
+
+### 8.1 Diagnosi delle discrepanze
+
+Se il bilancio di verifica non quadratura o l'IVA non torna:
+
+1. **Verifica la numerazione consecutiva**: controlla che non ci siano salti o duplicati nelle fatture.
+2. **Ricalcola le aliquote IVA**: verifica che ogni fattura abbia l'aliquota corretta.
+3. **Controlla i registri IVA**: confronta il registro acquisti con il registro vendite.
+4. **Verifica le scritture di apertura**: i saldi iniziali devono essere rovesciati dall'esercizio precedente.
+5. **Esamina i movimenti bancari**: riconcilia estratto conto con la contabilità.
+
+### 8.2 Note di variazione
+
+Quando una fattura già registrata necessita di correzione:
+
+**Nota di credito ricevuta** (riduzione acquisto):
+```
+Conto              Dare      Avere
+─────────────────────────────────────
+40.01 Fornitore X         1.220,00
+  60.01 Merci c/acquisti             1.000,00
+  41.01 IVA a credito                 220,00
+```
+
+**Nota di debito emessa** (aumento vendita):
+```
+Conto              Dare      Avere
+─────────────────────────────────────
+40.02 Cliente Y           1.220,00
+  70.01 Ricavi aggiuntivi            1.000,00
+  41.01 IVA a debito                  220,00
+```
+
+### 8.3 Autofatture
+
+Per operazioni senza fattura ricevuta (es. importazioni, reverse charge):
+
+```
+Conto              Dare      Avere
+─────────────────────────────────────
+60.xx Costo specifico     X
+41.01 IVA a credito         X
+  41.01 IVA a credito                X
+  (autofattura n. AF/2026/001)
+```
+
+## 9. Output
+
+Per ogni operazione richiesta, l'agente produce:
+
+- **Scrittura contabile** in partita doppia (formato tabellare come sopra).
+- **Giornale bollato** (sequenza cronologica delle scritture del giorno).
+- **Bilancio di verifica** (situazione contabile aggregata per conto).
+- **F24 generato** (per versamenti IVA, imposte, contributi).
+- **Riporto delle verifiche** effettuate (`_meta` dei dati usati, scadenze rispettate, controlli di coerenza).
+
+Per la chiusura d'esercizio, in più:
+
+- **Stato Patrimoniale** conforme OIC 12.
+- **Conto Economico** conforme OIC 12.
+- **Nota integrativa** (schema semplificato).
+- **Prospetto delle scritture di assestamento** (dettaglio per ogni scritta).
 
 ## 10. Controlli di coerenza
 

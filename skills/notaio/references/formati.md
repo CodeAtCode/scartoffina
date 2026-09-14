@@ -1,277 +1,348 @@
----
-title: Formati di Atto Notarile
-description: Atto pubblico, scrittura privata, atto per repertorio, nota di iscrizione
-skill: notaio
-version: 0.2.0
-updated: 2026-08-05
----
+# Formati di Esito — Documenti Contabili Italiani
 
-# Formati di Atto Notarile
+**Base normativa**: Art. 2214-2220 c.c., DPR 633/72, OIC 12.
 
-Guida tecnica ai formati di atto notarile: atto pubblico, scrittura privata autenticata, atto per repertorio, nota di iscrizione.
+## Documenti Contabili Obbligatori
 
-## 1. Panoramica
+### Libro Giornale
 
-Il notaio redige atti in diverse forme a seconda della natura dell'operazione e delle esigenze delle parti.
+**Obbligo**: Art. 2214 c.c. — obbligatorio per tutte le imprese
 
----
+**Contenuto**:
+- Registrazione cronologica di tutte le operazioni
+- Data, numero, descrizione, dare/avere
+- Riferimento al documento giustificativo
 
-## 2. Atto Pubblico
-
-### 2.1 Definizione
-
-L'**atto pubblico** è il documento redatto, con le richieste formalità, da un notaio o altro ufficiale pubblico autorizzato ad attribuirgli pubblica fede (art. 2699 c.c.).
-
-### 2.2 Requisiti di Forma
-
-**Art. 2699-2701 c.c.:**
-
-1. **Redazione da parte del notaio**
-2. **Intervento delle parti** (o dei loro procuratori speciali)
-3. **Intervento di testimoni** (se richiesti)
-4. **Lettura dell'atto alle parti**
-5. **Sottoscrizione** da parte di:
-   - Le parti
-   - I testimoni (se presenti)
-   - Il notaio
-
-### 2.3 Struttura dell'Atto Pubblico
-
-```
-ATTO PUBBLICO
-
-INTITOLOZIONE:
-- Notaio: [nome, cognome, sede]
-- Data: [data]
-- Numero di repertorio: [numero]
-
-PREMESSA:
-- Identificazione delle parti
-- Identificazione dei testimoni (se presenti)
-
-CORPO DELL'ATTO:
-- Dichiarazioni delle parti
-- Operazione giuridica
-- Clausole e condizioni
-
-CHiusura:
-- Lettura dell'atto alle parti
-- Dichiarazione di conformità
-- Sottoscrizioni
-
-NOTAIO:
-- Firma del notaio
-- Sigillo notarile
+**Formato**:
+```csv
+data,num_operazione,descrizione,conto_dare,importo_dare,conto_avere,importo_avere,documento
+2026-01-03,001,Fattura acquisto Beta,60.01,1000.00,40.01,1000.00,INV-BETA-123
+2026-01-03,001,Fattura acquisto Beta,41.01,220.00,40.01,220.00,INV-BETA-123
+2026-01-10,002,Fattura vendita Gamma,40.02,1220.00,70.01,1000.00,FT/2026/001
+2026-01-10,002,Fattura vendita Gamma,40.02,1220.00,41.01,220.00,FT/2026/001
 ```
 
-### 2.4 Effetti Giuridici
+**Conservazione**: 10 anni (Art. 2220 c.c.)
 
-- **Piena prova:** Fa piena prova fino a querela di falso
-- **Esecutività:** Può essere titolo esecutivo
-- **Data certa:** La data è certa verso tutti
+**Bollatura**: Obbligatoria preventivamente (o generazione elettronica)
 
----
+### Libro degli Inventari
 
-## 3. Scrittura Privata Autenticata
+**Obbligo**: Art. 2217 c.c. — obbligatorio per tutte le imprese
 
-### 3.1 Definizione
+**Contenuto**:
+- Descrizione dettagliata dei beni dell'azienda
+- Valore di ciascun bene
+- Passività e debiti
 
-La **scrittura privata autenticata** è un documento scritto dalle parti o da un terzo, sottoscritto dalle parti e autenticato dal notaio.
-
-### 3.2 Requisiti di Forma
-
-**Art. 2702 c.c.:**
-
-1. **Scrittura privata** (redatta dalle parti o da un terzo)
-2. **Sottoscrizione delle parti**
-3. **Autentica delle firme** da parte del notaio
-4. **Identificazione delle parti**
-
-### 3.3 Struttura
-
-```
-SCRITTURA PRIVATA AUTENTICATA
-
-SCRITTURA PRIVATA:
-- Oggetto: [descrizione]
-- Parti: [dati]
-- Contenuto: [testo dell'accordo]
-- Sottoscrizioni delle parti
-
-AUTENTICA NOTARILE:
-- Il notaio attesta l'identità delle parti
-- Le parti hanno sottoscritto in presenza del notaio
-- Data e luogo
-- Firma del notaio
+**Formato**:
+```csv
+data,codice,descrizione_bene,quantita,unita_misura,valor_unitario,valor_totale,categoria
+2026-01-01,INV-001,Merce magazzino A,100,pezzi,10.00,1000.00,rimanenze
+2026-01-01,INV-002,Macchinario X,1,unità,50000.00,50000.00,immobilizzazioni
+2026-01-01,INV-003,Auto aziendale,1,unità,25000.00,25000.00,immobilizzazioni
 ```
 
-### 3.4 Effetti Giuridici
+**Conservazione**: 10 anni
 
-- **Piena prova della sottoscrizione:** Fa piena prova fino a querela di falso delle sottoscrizioni
-- **Data certa:** La data è certa verso tutti
-- **Non è atto pubblico:** Non ha gli stessi effetti dell'atto pubblico
+### Registri IVA
 
----
+**Obbligo**: Art. 24-25 DPR 633/72
 
-## 4. Atto per Repertorio
+**Tipologie**:
+- **Registro vendite** (fatture emesse)
+- **Registro acquisti** (fatture ricevute)
+- **Registro beni strumentali** (per immobilizzazioni)
 
-### 4.1 Definizione
-
-L'**atto per repertorio** è una dichiarazione ricevuta dal notaio e iscritta nel repertorio, senza la formalità dell'atto pubblico completo.
-
-### 4.2 Casi di Utilizzo
-
-- **Dichiarazioni di successione**
-- **Accettazione di eredità con beneficio d'inventario**
-- **Dichiarazioni di volontà unilaterali**
-- **Ricevute di pagamento**
-
-### 4.3 Struttura
-
-```
-DICHIARAZIONE PER REPERTORIO
-
-DICHIARANTE:
-- Nome, cognome, CF, residenza
-
-DICHIARAZIONE:
-- Oggetto della dichiarazione
-- Contenuto specifico
-
-RICEVUTA:
-- Il notaio riceve la dichiarazione
-- Iscrizione in repertorio
-- Data e numero di repertorio
-
-FIRMA:
-- Firma del dichiarante
-- Firma del notaio
+**Formato Registro Vendite**:
+```csv
+data,num_fattura,cliente,imponibile,aliquota,imposta,totale,codice_op
+2026-01-10,FT/2026/001,Cliente Gamma,1000.00,22,220.00,1220.00,CE
+2026-01-15,FT/2026/002,Cliente Delta,2000.00,10,200.00,2200.00,CE
+2026-01-20,FT/2026/003,Cliente Estero UE,1500.00,0,0.00,1500.00,IN
 ```
 
-### 4.4 Effetti Giuridici
-
-- **Data certa:** La data è certa verso tutti
-- **Prova:** Fa prova della dichiarazione ricevuta
-- **Repertorio:** Iscrizione nel repertorio notarile
-
----
-
-## 5. Nota di Iscrizione
-
-### 5.1 Definizione
-
-La **nota di iscrizione** è il documento con cui si richiede l'iscrizione di un atto nei registri immobiliari.
-
-### 5.2 Casi di Utilizzo
-
-- **Trascrizione di atti di vendita**
-- **Iscrizione di ipoteche**
-- **Trascrizione di pignoramenti**
-- **Trascrizione di prenotazioni**
-
-### 5.3 Contenuto
-
-```
-NOTA DI ISCRIZIONE
-
-RICHIEDENTE:
-- Nome, cognome, CF, residenza
-- Eletto domicilio
-
-OGGETTO:
-- Tipo di iscrizione: [trascrizione, ipoteca, ecc.]
-- Atto da trascrivere: [data, notaio, numero repertorio]
-
-PARTI DELL'ATTO:
-- Venditore/gravato: [dati]
-- Compratore/beneficiario: [dati]
-
-DESCRIZIONE IMMOBILE:
-- Comune
-- Foglio
-- Particella
-- Subalterno
-- Categoria
-- Rendita
-
-DATI NOTARILI:
-- Notaio: [nome, sede]
-- Data atto: [data]
-- Numero repertorio: [numero]
-
-RICHIEDENTE:
-- Nome e firma
+**Formato Registro Acquisti**:
+```csv
+data,num_fattura,fornitore,imponibile,aliquota,imposta,totale,codice_op
+2026-01-03,INV-BETA-123,Fornitore Beta,1000.00,22,220.00,1220.00,AC
+2026-01-08,INV-GAMMA-456,Fornitore Gamma,500.00,22,110.00,610.00,AC
 ```
 
-### 5.4 Effetti Giuridici
+**Conservazione**: 10 anni
 
-- **Trascrizione:** Rende opponibile ai terzi l'atto
-- **Pubblicità:** Iscrizione nei registri immobiliari
-- **Priorità:** Determina la priorità delle iscrizioni
+## Formati di Esportazione
 
----
+### FEC (Fichier des Écritures Comptables) — Standard Europeo
 
-## 6. Confronto Forme di Atto
+**Nota**: L'Italia non ha un FEC obbligatorio, ma il registro IVA + libro giornale sono l'equivalente.
 
-| Caratteristica | Atto Pubblico | Scrittura Autenticata | Atto per Repertorio |
-|----------------|---------------|----------------------|---------------------|
-| Redazione | Notaio | Parti/Terzo | Notaio |
-| Sottoscrizione | Parti + Notaio | Parti + Notaio (autentica) | Dichiarante + Notaio |
-| Piena prova | Sì (fino a querela di falso) | Solo delle firme | Della dichiarazione |
-| Esecutività | Sì | No | No |
-| Costo | Più alto | Medio | Basso |
-
----
-
-## 7. Repertorio Notarile
-
-### 7.1 Obbligo di Iscrizione
-
-**Art. 47 D.P.R. 131/1986:** Ogni atto ricevuto dal notaio deve essere iscritto nel repertorio.
-
-### 7.2 Contenuto del Repertorio
-
-- Numero progressivo
-- Data dell'atto
-- Tipo di atto
-- Parti dell'atto
-- Oggetto dell'atto
-
-### 7.3 Conservazione
-
-- **Termine:** Conservazione permanente
-- **Formato:** Cartaceo e/o digitale
-- **Accesso:** Solo dalle parti e dai loro aventi causa
-
----
-
-## 8. Bolli e Marche
-
-### 8.1 Bolli sull'Atto
-
-- **€ 15,00 ogni 100 righe o frazione**
-- Calcolato sul numero di righe dell'atto
-
-### 8.2 Marche da Bollo
-
-- **€ 27,88 per visure certificate**
-- **€ 15,00 per certificati**
-
-### 8.3 Calcolo
-
-```
-Righe totali: 250
-Bolli necessari: 250 / 100 = 2,5 → 3 (arrotondato per eccesso)
-Costo bolli: 3 × € 15 = € 45
+**Struttura JSON italiana**:
+```json
+{
+  "version": "1.0",
+  "company": {
+    "name": "Alpha S.r.l.",
+    "vat": "IT12345678901",
+    "fiscal_year": "2026"
+  },
+  "entries": [
+    {
+      "date": "2026-01-03",
+      "number": "001",
+      "description": "Fattura acquisto Beta",
+      "account_dare": "60.01",
+      "amount_dare": 1000.00,
+      "account_avere": "40.01",
+      "amount_avere": 1000.00,
+      "document": "INV-BETA-123"
+    }
+  ]
+}
 ```
 
----
+### Registro IVA CSV
 
-## 9. Riferimenti Normativi
+**Formato standard per liquidazione**:
+```csv
+periodo,data_inizio,data_fine,iva_debito,iva_credito,saldo,versamento,credito_riportato
+2026-01,2026-01-01,2026-01-31,3695.90,2420.00,1275.90,1275.90,0.00
+2026-02,2026-02-01,2026-02-28,2100.00,1800.00,300.00,300.00,0.00
+```
 
-- **Art. 2699-2702 c.c.** — Atto pubblico e scrittura privata
-- **Art. 47 D.P.R. 131/1986** — Repertorio notarile
-- **D.P.R. 633/1972** — Bolli
-- **Legge 21/02/1953 n. 132** — Ordinamento notarile
+### Libro Giornale CSV
 
-</content>
+**Formato per controllo**:
+```csv
+data,num_operazione,conto,descrizione,dare,avere,bilancio
+2026-01-03,001,60.01,Acquisto merci,1000.00,0.00,1000.00
+2026-01-03,001,41.01,IVA acquisto,220.00,0.00,1220.00
+2026-01-03,001,40.01,Fornitore Beta,0.00,1220.00,0.00
+```
+
+## Bilancio di Esercizio
+
+### Stato Patrimoniale — Schema OIC 28
+
+**Formato JSON**:
+```json
+{
+  "tipo": "Stato Patrimoniale",
+  "esercizio": "2026",
+  "data_chiusura": "2026-12-31",
+  "attivo": {
+    "A_crediti_soci": 0.00,
+    "B_immobilizzazioni": {
+      "I_immateriali": 15000.00,
+      "II_materiali": 75000.00,
+      "III_finanziarie": 5000.00
+    },
+    "C_attivo_circolante": {
+      "I_rimanenze": 10000.00,
+      "II_crediti": 25000.00,
+      "III_strumenti_finanziari": 0.00,
+      "IV_disponibilita_liquide": 30000.00
+    },
+    "D_ratei_risconti_attivi": 11000.00
+  },
+  "passivo": {
+    "A_patrimonio_netto": {
+      "I_capitale": 10000.00,
+      "II_riserve": 50000.00,
+      "III_utile_esercizio": 20000.00
+    },
+    "B_fondi_rischi": 5000.00,
+    "C_debiti": {
+      "I_banche": 20000.00,
+      "II_fornitori": 15000.00,
+      "III_tributi": 8000.00,
+      "IV_previdenza": 3000.00
+    },
+    "D_ratei_risconti_passivi": 500.00
+  }
+}
+```
+
+### Conto Economico — Schema OIC 28
+
+**Formato JSON**:
+```json
+{
+  "tipo": "Conto Economico",
+  "esercizio": "2026",
+  "A_valore_produzione": {
+    "1_ricavi_vendite": 150000.00,
+    "2_variazione_rimanenze": 5000.00,
+    "3_altri_ricavi": 10000.00
+  },
+  "B_costi_produzione": {
+    "4_materie": 50000.00,
+    "5_servizi": 30000.00,
+    "6_personale": 40000.00,
+    "7_ammortamenti": 15000.00,
+    "8_oneri_diversi": 5000.00
+  },
+  "C_proventi_oneri_finanziari": {
+    "1_interessi_attivi": 500.00,
+    "2_interessi_passivi": 2000.00
+  },
+  "D_imposte": 12000.00,
+  "risultato_esercizio": 13500.00
+}
+```
+
+### Nota Integrativa — Schema OIC 29
+
+**Struttura**:
+```json
+{
+  "tipo": "Nota Integrativa",
+  "esercizio": "2026",
+  "principi_contabili": "OIC 12, OIC 28, OIC 29",
+  "dettaglio_immobilizzazioni": {
+    "immateriali": {
+      "costo_iniziale": 20000.00,
+      "ammortamento_cumulato": 8000.00,
+      "costo_finale": 18000.00,
+      "ammortamento_esercizio": 3000.00
+    },
+    "materiali": {
+      "costo_iniziale": 80000.00,
+      "ammortamento_cumulato": 25000.00,
+      "costo_finale": 90000.00,
+      "ammortamento_esercizio": 12000.00
+    }
+  },
+  "dettaglio_crediti": {
+    "commerciali": 20000.00,
+    "tributari": 3000.00,
+    "altri": 2000.00,
+    "svalutazione": 1000.00
+  },
+  "dettaglio_debiti": {
+    "commerciali": 15000.00,
+    "tributari": 5000.00,
+    "previdenza": 3000.00,
+    "finanziarie": 20000.00
+  },
+  "ratei_risconti": {
+    "attivi": 11000.00,
+    "passivi": 500.00
+  }
+}
+```
+
+## F24 — Modello di Versamento
+
+**Struttura dati**:
+```json
+{
+  "tipo": "F24",
+  "anno_riferimento": "2026",
+  "contribuente": {
+    "codice_fiscale": "RSSMRA80A01H501U",
+    "nome": "Mario Rossi",
+    "indirizzo": "Via Roma 1, 00100 Roma"
+  },
+  "sezioni": {
+    "erario": [
+      {
+        "codice_tributo": "1001",
+        "descrizione": "IVA mensile saldo",
+        "anno_riferimento": "2026",
+        "mese_riferimento": "01",
+        "importo": 1275.90,
+        "acconto": false
+      }
+    ],
+    "previdenza": []
+  },
+  "totale_debiti": 1275.90
+}
+```
+
+## CSV per Importo Bancario
+
+**Formato per riconciliazione**:
+```csv
+data,descrizione,importo_dare,importo_avere,bilancio,conto_riferimento
+2026-01-03,bonifico_fornitore_beta,0.00,1220.00,1220.00,40.01
+2026-01-10,incasso_cliente_gamma,1220.00,0.00,0.00,40.02
+```
+
+## XML FatturaPA
+
+**Struttura minima** (FatturaPA v1.6.1):
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<p:FatturaElettronica versione="FPR12" xmlns:p="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2">
+  <FatturaElettronicaHeader>
+    <DatiTrasmissione>
+      <IdTrasmittente>
+        <IdPaese>IT</IdPaese>
+        <IdCodice>12345678901</IdCodice>
+      </IdTrasmittente>
+      <ProgressivoInvio>00001</ProgressivoInvio>
+      <FormatoTrasmissione>FPR12</FormatoTrasmissione>
+      <CodiceDestinatario>ABCDEFG</CodiceDestinatario>
+    </DatiTrasmissione>
+    <CedentePrestatore>
+      <DatiAnagrafici>
+        <IdFiscaleIVA>
+          <IdPaese>IT</IdPaese>
+          <IdCodice>12345678901</IdCodice>
+        </IdFiscaleIVA>
+        <Anagrafica>
+          <Denominazione>Alpha S.r.l.</Denominazione>
+        </Anagrafica>
+        <RegimeFiscale>RF01</RegimeFiscale>
+      </DatiAnagrafici>
+      <Sede>
+        <Indirizzo>Via Roma 1</Indirizzo>
+        <CAP>00100</CAP>
+        <Comune>Roma</Comune>
+        <Provincia>RM</Provincia>
+        <Nazione>IT</Nazione>
+      </Sede>
+    </CedentePrestatore>
+  </FatturaElettronicaHeader>
+  <FatturaElettronicaBody>
+    <DatiGenerali>
+      <DatiGeneraliDocumento>
+        <TipoDocumento>TD01</TipoDocumento>
+        <Divisa>EUR</Divisa>
+        <Data>2026-01-10</Data>
+        <Numero>FT/2026/001</Numero>
+        <ImportoTotaleDocumento>1220.00</ImportoTotaleDocumento>
+      </DatiGeneraliDocumento>
+    </DatiGenerali>
+    <DatiBeniServizi>
+      <DettaglioLinee>
+        <NumeroLinea>1</NumeroLinea>
+        <Descrizione>Servizio di consulenza</Descrizione>
+        <Quantita>1.00</Quantita>
+        <PrezzoUnitario>1000.00</PrezzoUnitario>
+        <PrezzoTotale>1000.00</PrezzoTotale>
+        <AliquotaIVA>22.00</AliquotaIVA>
+      </DettaglioLinee>
+      <DatiRiepilogo>
+        <AliquotaIVA>22.00</AliquotaIVA>
+        <ImponibileImporto>1000.00</ImponibileImporto>
+        <Imposta>220.00</Imposta>
+      </DatiRiepilogo>
+    </DatiBeniServizi>
+  </FatturaElettronicaBody>
+</p:FatturaElettronica>
+```
+
+## Note Operative
+
+1. **Conservazione sostitutiva**: I documenti contabili possono essere conservati digitalmente (DM 17/06/2014)
+
+2. **Firma digitale**: Obbligatoria per i documenti con valore legale (bilancio, fatture elettroniche)
+
+3. **Formati accettati**: PDF/A per documenti, XML per fatture elettroniche, CSV/JSON per esportazioni
+
+4. **Integrità**: I file devono essere protetti da alterazioni (firma digitale o timestamp)
+
+5. **Indicizzazione**: Ogni documento deve essere indicizzato per data, numero e tipo per facile recupero

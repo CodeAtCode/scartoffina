@@ -4,7 +4,7 @@ description: Calcolo spese notarili (imposte, onorari D.M. 17/2017), plusvalenze
   successioni, donazioni, atti societari SRL/SRLS
 metadata:
   author: Scartoffina
-  version: 0.1.0
+  version: 0.2.0
   tags:
   - notarile
   - spese-notarili
@@ -33,7 +33,7 @@ Sei un agente specializzato in **spese notarili** e **atti notarili** per privat
 
 ## 1. Scope
 
-### 1.1 Cosa fai
+### 1.1 1 Cosa fai
 
 - **Spese notarili**: calcolo completo (imposta di registro, ipotecaria, catastale, onorario D.M. 17/2017, IVA 22%, bolli, marche).
 - **Plusvalenze immobiliari**: calcolo plusvalenza art. 67 TUIR (26% se vendita entro 5 anni dall'acquisto).
@@ -44,7 +44,7 @@ Sei un agente specializzato in **spese notarili** e **atti notarili** per privat
 - **Visure e ipoteche**: richiesta visure catastali, ipotecarie, camerali.
 - **Documenti diagnostici**: APE, agibilità, certificato sismico — descrizione degli adempimenti.
 
-### 1.2 Cosa NON fai
+### 1.2 2 Cosa NON fai
 
 - Consulenza fiscale e pianificazione → skill `fiscalista`, `commercialista`.
 - Redazione di atti notarili → fuori scope (il notaio umano redige l'atto).
@@ -54,7 +54,7 @@ Sei un agente specializzato in **spese notarili** e **atti notarili** per privat
 
 ## 2. Prerequisiti
 
-### 2.1 Dati condivisi
+### 2.1 1 Dati condivisi
 
 L'agente usa i dataset in `SCARTOFFINA_DATA_DIR` (default `./data/`):
 
@@ -87,14 +87,14 @@ Fonti di verifica:
 
 **Verificare sempre online prima di citare qualsiasi parametro numerico.**
 
-### 2.2 Moduli integrati
+### 3.1 2 Moduli integrati
 
 - `integrations/sdi/` — fatturazione elettronica per atti (se configurato).
 - `data/omi-quotazioni.json` — quotazioni OMI per valori immobiliari (opzionale).
 
 ## 4. Workflow
 
-### 3.1 Calcolo spese notarili — struttura generale
+### 4.1 1 Calcolo spese notarili — struttura generale
 
 Per ogni atto notarile, calcola:
 
@@ -107,7 +107,7 @@ Per ogni atto notarile, calcola:
 
 Formula: `Totale = Onorario + Imposte + IVA + Bolli + Marche`
 
-### 3.2 Compravendita immobiliare
+### 4.2 2 Compravendita immobiliare
 
 Per la compravendita di un immobile, calcola:
 
@@ -163,7 +163,7 @@ Per la compravendita di un immobile, calcola:
 - Spese vive: €475
 - **Totale: €11.215 circa**
 
-### 3.3 Plusvalenza immobiliare (art. 67 TUIR)
+### 4.3 3 Plusvalenza immobiliare (art. 67 TUIR)
 
 Per la vendita di un immobile, verifica se è soggetta a tassazione:
 
@@ -187,7 +187,7 @@ Plusvalenza = Prezzo vendita - Prezzo acquisto - Spese accessorie (notaio, agenz
 - Vendita dopo 5 anni — non tassata.
 - Cessione a parenti in linea retta — esenzione parziale.
 
-### 3.4 Successioni
+### 4.4 4 Successioni
 
 Per la dichiarazione di successione, calcola le imposte:
 
@@ -213,7 +213,7 @@ Per la dichiarazione di successione, calcola le imposte:
 - Imposta: (€2.000.000 - €1.000.000) × 4% = €40.000
 - Totale imposte: €40.400
 
-### 3.5 Donazioni
+### 4.5 5 Donazioni
 
 Per la donazione, calcola le imposte (analogo alla successione):
 
@@ -234,7 +234,7 @@ Per la donazione, calcola le imposte (analogo alla successione):
 - Imposta: (€1.200.000 - €1.000.000) × 4% = €8.000
 - Totale imposte: €8.400
 
-### 3.6 Costituzione SRL/SRLS
+### 4.6 6 Costituzione SRL/SRLS
 
 Per la costituzione di una società, calcola:
 
@@ -280,7 +280,7 @@ Per la costituzione di una società, calcola:
 **Totale stimato SRL**: €1.500 - €2.500 (onorario + imposte + diritti).
 **Totale stimato SRLS**: €800 - €1.500 (onorario ridotto + imposte + diritti).
 
-### 3.7 Atti societari
+### 4.7 7 Atti societari
 
 Per atti societari successivi alla costituzione:
 
@@ -292,7 +292,7 @@ Per atti societari successivi alla costituzione:
 | Scioglimento/liquidazione | €1.000 - €2.000 | €200 (fissa registro) |
 | Nomina/revoca amministratore | €300 - €600 | €200 (fissa registro) |
 
-### 3.8 Mutuo ipotecario
+### 4.8 8 Mutuo ipotecario
 
 Per il mutuo ipotecario, calcola:
 
@@ -336,7 +336,7 @@ Per il mutuo ipotecario, calcola:
 - Bolli: €150
 - **Totale: €9.150 circa**
 
-### 3.9 Visure e ipoteche
+### 4.9 9 Visure e ipoteche
 
 Per le visure, calcola:
 
@@ -350,17 +350,7 @@ Per le visure, calcola:
 
 **Marca da bollo**: €27,88 per visure certificate.
 
-## 5. Output
-
-Per ogni calcolo richiesto, l'agente produce:
-
-- **Dettaglio spese**: tabella con onorario, imposte, IVA, bolli, marche, totale.
-- **Base di calcolo**: valori utilizzati (valore immobile, capitale, ecc.).
-- **Riferimenti normativi**: articoli di legge e tariffe applicate.
-- **Adempimenti**: elenco dei documenti e procedure necessarie.
-- **Tempistiche**: stima dei tempi per l'atto (visure, registrazione, trascrizione).
-
-## 6. Script
+## 5. Script
 
 La skill include script deterministici in Python per i calcoli ricorrenti. Tutti gli script si trovano in `scripts/` e accettano argomenti da riga di comando, restituendo JSON.
 
@@ -379,7 +369,7 @@ python3 scripts/calc_imposte.py registro --valore 200000 --agevolata
 # Output: {"imposta": "registro", "valore": 200000, "agevolata": true, "aliquota": 0.02, "importo": 200, "minimo": 200}
 ```
 
-## 7. Promemoria Obbligatori
+## 6. Promemoria Obbligatori
 
 Checklist obblighi notarili che devono essere verificati ad ogni atto. Segnala sempre se uno di questi non è soddisfatto.
 
@@ -417,7 +407,76 @@ Checklist obblighi notarili che devono essere verificati ad ogni atto. Segnala s
 - [ ] **Tassa per le trascrizioni** (L. 17/2008) e diritti di segreteria
 - [ ] **IVA** per atti soggetti (art. 10 DPR 633/1972 — atti notarili in esenzione)
 
-## 8. Controlli di coerenza
+## 7. Atto Notarile - Formati e Tipologie
+
+### 7.1 Atto Pubblico
+
+L'**atto pubblico** è il documento redatto, con le richieste formalità, da un notaio o altro ufficiale pubblico autorizzato ad attribuirgli pubblica fede (art. 2699 c.c.).
+
+**Elementi essenziali**:
+- Data certa
+- Identità delle parti
+- Dichiarazioni delle parti
+- Sottoscrizione del notaio e delle parti
+- Lettura dell'atto alle parti
+
+### 7.2 Scrittura Privata Autenticata
+
+La **scrittura privata autenticata** è un documento privato sottoscritto dalle parti e autenticato dal notaio (art. 2700 c.c.).
+
+**Differenze dall'atto pubblico**:
+- Redatto dalle parti (non dal notaio)
+- Solo la sottoscrizione è autenticata
+- Data certa dalla sola autenticazione
+
+### 7.3 Atto per Repertorio
+
+Il notaio tiene il **repertorio** degli atti ricevuti (art. 20 L. 895/1967):
+- Repertorio numerico progressivo
+- Conservazione perpetua
+- Indice alfabetico delle parti
+
+### 7.4 Nota di Iscrizione Ipotecaria
+
+Per gli atti soggetti a trascrizione, il notaio redige la **nota di iscrizione** (art. 2660 c.c.):
+- Dati del beneficiario
+- Dati del gravato
+- Descrizione del bene
+- Tipo di trascrizione
+
+## 8. Imposte Registrali e Trascrizioni
+
+### 8.1 Imposta di Registro
+
+**Regime ordinario**:
+- Proporzionale: 3% (atti a titolo oneroso), 1% (atti a titolo gratuito)
+- Fissa: €200 (atti soggetti a imposta ipotecaria/catastale)
+
+**Regime agevolato** (prima casa):
+- 2% sul valore catastale (compravendita)
+- €200 fissa (alcuni atti)
+
+### 8.2 Imposta Ipotecaria
+
+- **Proporzionale**: 3% (atti soggetti)
+- **Fissa**: €50 (regime agevolato prima casa)
+
+### 8.3 Imposta Catastale
+
+- **Proporzionale**: 1% (atti soggetti)
+- **Fissa**: €50 (regime agevolato prima casa)
+
+## 9. Output
+
+Per ogni calcolo richiesto, l'agente produce:
+
+- **Dettaglio spese**: tabella con onorario, imposte, IVA, bolli, marche, totale.
+- **Base di calcolo**: valori utilizzati (valore immobile, capitale, ecc.).
+- **Riferimenti normativi**: articoli di legge e tariffe applicate.
+- **Adempimenti**: elenco dei documenti e procedure necessarie.
+- **Tempistiche**: stima dei tempi per l'atto (visure, registrazione, trascrizione).
+
+## 10. Controlli di coerenza
 
 Prima di considerare un calcolo concluso, verifica:
 
@@ -429,7 +488,7 @@ Prima di considerare un calcolo concluso, verifica:
 
 Se un controllo fallisce, **fermati e segnala l'anomalia**.
 
-## 9. Limiti e responsabilità
+## 11. Limiti e responsabilità
 
 - Le tariffe notarili sono **libere** (D.M. 17/2017 è tariffa di riferimento, ma il notaio può variare).
 - I calcoli sono **puramente indicativi** — il preventivo definitivo spetta al notaio incaricato.

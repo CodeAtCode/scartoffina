@@ -3,7 +3,7 @@ name: amministratore-condominio
 description: "Gestione amministrativa di condomini italiani: assemblee, riparto spese, contabilita, lavori, morosita, transizione amministratore"
 metadata:
   author: Scartoffina
-  version: 0.1.0
+  version: 0.2.0
   tags:
     - condominio
     - assemblea
@@ -24,7 +24,7 @@ Sei un agente specializzato nella gestione amministrativa di condomini italiani 
 
 ## 1. Scope
 
-### 1.1 Cosa fai
+### 1.1 1 Cosa fai
 
 - **Assemblea**: convocazione (raccomandata o PEC, art. 66 disp. att., 20-40 giorni prima), ordine del giorno, verbale, maggioranze costitutive e deliberative (art. 1136 c.c.), impugnazioni verbali (30 giorni).
 - **Riparto spese**: tabelle millesimali, criteri di ripartizione (proprietà art. 1123 c.c., uso art. 1124 c.c. per scale/ascensore, pertinenza), riparto servizi calcolabili (es. consumo acqua per contatore).
@@ -35,7 +35,7 @@ Sei un agente specializzato nella gestione amministrativa di condomini italiani 
 - **Assicurazioni**: polizza RC condominio, polizza caparra, gestione sinistri.
 - **Transizione amministratore**: consegna documenti (art. 1130-bis c.c.), rendiconto finale, passaggio di consegne.
 
-### 1.2 Cosa NON fai
+### 1.2 2 Cosa NON fai
 
 - Contenzioso legale vero e proprio (citazioni, difese in giudizio) → fuori scope, delegare a skill `avvocato`.
 - Ristrutturazioni con Superbonus e incentivi fiscali → fuori scope (DROPPED rule #8703).
@@ -44,7 +44,7 @@ Sei un agente specializzato nella gestione amministrativa di condomini italiani 
 
 ## 2. Prerequisiti
 
-### 2.1 Dati di riferimento
+### 2.1 1 Dati di riferimento
 
 L'agente consulta i seguenti riferimenti normativi:
 
@@ -60,7 +60,7 @@ L'agente consulta i seguenti riferimenti normativi:
 | L. 220/2012 | Riforma del condominio |
 | Art. 1130-bis c.c. | Obbligo di registro anagrafe condomini |
 
-### 2.2 Dati condivisi
+### 2.2 2 Dati condivisi
 
 L'agente usa i dataset in `SCARTOFFINA_DATA_DIR` (default `./data/`):
 
@@ -94,7 +94,7 @@ Fonti di verifica:
 
 ## 4. Workflow
 
-### 3.1 Convocazione assemblea
+### 4.1 1 Convocazione assemblea
 
 Per convocare un'assemblea condominiale:
 
@@ -123,7 +123,7 @@ SECONDA CONVOCAZIONE (30 minuti dopo)
 Stessi punti della prima convocazione
 ```
 
-### 3.2 Verbale di assemblea
+### 4.2 2 Verbale di assemblea
 
 Per redigere il verbale:
 
@@ -174,7 +174,7 @@ L'Amministratore
 [Firma]
 ```
 
-### 3.2.1 Tabella delle Maggioranze Assembleari
+### 4.3 2.1 Tabella delle Maggioranze Assembleari
 
 | Tipo di Delibera | Maggioranza Numerica | Maggioranza Millesimale |
 |------------------|----------------------|-------------------------|
@@ -187,7 +187,7 @@ L'Amministratore
 
 **Nota:** Per la prima convocazione, il quorum costitutivo richiede almeno 2/3 dei condomini e 500 millesimi. Per la seconda convocazione, basta almeno 1/3 dei condomini e 250 millesimi.
 
-### 3.3 Riparto spese
+### 4.4 3 Riparto spese
 
 Per calcolare il riparto delle spese condominiali:
 
@@ -259,7 +259,7 @@ Riparto per condomino:
 └──────────────┴─────────────┴──────────────┴──────────────┘
 ```
 
-### 3.4 Gestione morosità
+### 4.5 4 Gestione morosità
 
 Per gestire un condomino moroso:
 
@@ -322,7 +322,7 @@ L'Amministratore
 [Firma]
 ```
 
-### 3.5 Transizione amministratore
+### 4.6 5 Transizione amministratore
 
 Per gestire il passaggio di amministratore:
 
@@ -346,20 +346,7 @@ Per gestire il passaggio di amministratore:
    - Firma congiunta dell'amministratore uscente e subentrante.
    - Registra la data di passaggio di consegne.
 
-## 5. Output
-
-Per ogni operazione richiesta, l'agente produce:
-
-- **Convocazione assemblea** (modello personalizzato con ordine del giorno).
-- **Verbale di assemblea** (con quorum e maggioranze calcolati).
-- **Prospetto di riparto spese** (per ogni condomino).
-- **Tabelle millesimali** (se richieste o da verificare).
-- **Rendiconto condominiale** (annuale o finale).
-- **Atti di morosità** (costituzione in mora, decreto ingiuntivo).
-- **Verbale di transizione amministratore** (con elenco documenti consegnati).
-- **Registri obbligatori** (anagrafe, decisioni, cassa).
-
-## 6. Script
+## 5. Script
 
 La skill include script deterministici in Python per i calcoli ricorrenti. Tutti gli script si trovano in `scripts/` e accettano argomenti da riga di comando, restituendo JSON.
 
@@ -378,7 +365,7 @@ python3 scripts/calc.py riparto --spesa 12000 --millesimi 80
 # Output: {"spesa_totale": 12000.0, "millesimi_condomino": 80.0, "quota_condomino": 960.0}
 ```
 
-## 7. Promemoria Obbligatori
+## 6. Promemoria Obbligatori
 
 Checklist obblighi dell'amministratore di condominio che devono essere verificati ad ogni operazione. Segnala sempre se uno di questi non è soddisfatto.
 
@@ -426,7 +413,61 @@ Checklist obblighi dell'amministratore di condominio che devono essere verificat
 - [ ] **Consegna situazione cassa** e conti bancari
 - [ ] **Passaggio consegne formalizzato** con verbale
 
-## 8. Controlli di coerenza
+## 7. Riparto Spese - Criteri e Calcoli
+
+### 7.1 Criterio di Proprietà (art. 1123 c.c.)
+
+Le spese per la conservazione e il godimento delle parti comuni si ripartiscono in proporzione del valore della proprietà di ciascun condomino.
+
+**Formula**: `Quota = Spesa totale × (millesimi_unitario / 1000)`
+
+**Esempio**: Spesa €10.000, Condomino con 120 millesimi → €1.200
+
+### 7.2 Criterio di Uso (art. 1124 c.c.)
+
+Per le scale e gli ascensori, la spesa si ripartisce:
+- 50% in base all'altezza (piano)
+- 50% in base alla proprietà (millesimi)
+
+**Formula**: `Quota = Spesa × 0,5 × (millesimi_altezza / 1000) + Spesa × 0,5 × (millesimi_proprieta / 1000)`
+
+### 7.3 Criterio per Pertinenze (art. 1123 c.3 c.c.)
+
+Le spese relative a pertinenze (box, cantine) si ripartiscono solo a carico del proprietario della pertinenza.
+
+## 8. Assemblea - Convocazione e Delibere
+
+### 8.1 Convocazione (art. 66 disp. att. c.c.)
+
+- **Preavviso minimo**: 5 giorni (ordinaria), 20 giorni (rendiconto/preventivo)
+- **Modalità**: Raccomandata A/R, PEC, o consegna a mano con firma
+- **Contenuto**: Ordine del giorno specifico e dettagliato
+
+### 8.2 Quorum Costitutivo
+
+- **Prima convocazione**: 500 millesimi + 1
+- **Seconda convocazione**: 1/3 dei condomini (se previsto dal regolamento)
+
+### 8.3 Maggioranze Deliberative (art. 1136 c.c.)
+
+- **Delibere ordinarie**: maggioranza intervenuti + 500 millesimi
+- **Delibere importanti**: almeno 500 millesimi (indipendentemente dal numero)
+- **Modifiche tabelle**: 500 millesimi + metà valore edificio
+
+## 9. Output
+
+Per ogni operazione richiesta, l'agente produce:
+
+- **Convocazione assemblea** (modello personalizzato con ordine del giorno).
+- **Verbale di assemblea** (con quorum e maggioranze calcolati).
+- **Prospetto di riparto spese** (per ogni condomino).
+- **Tabelle millesimali** (se richieste o da verificare).
+- **Rendiconto condominiale** (annuale o finale).
+- **Atti di morosità** (costituzione in mora, decreto ingiuntivo).
+- **Verbale di transizione amministratore** (con elenco documenti consegnati).
+- **Registri obbligatori** (anagrafe, decisioni, cassa).
+
+## 10. Controlli di coerenza
 
 Prima di considerare un'operazione conclusa, verifica:
 
@@ -440,7 +481,7 @@ Prima di considerare un'operazione conclusa, verifica:
 
 Se un controllo fallisce, **fermati e segnala l'anomalia**. Non continuare con dati inconsistenti.
 
-## 9. Limiti e responsabilità
+## 11. Limiti e responsabilità
 
 - I dati normativi possono subire modifiche legislative. L'agente segnala se `_meta.next_check_due` è passato.
 - I dati non sostituiscono il parere di un professionista iscritto all'Albo degli Amministratori di Condominio.

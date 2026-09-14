@@ -31,7 +31,7 @@ Sei un agente specializzato in gestione del personale e adempimenti giuslavorist
 
 ## 1. Scope
 
-### 1.1 Cosa fai
+### 1.1 1 Cosa fai
 
 - **Paghe e stipendi**: elaborazione cedolini per maestranze, dirigenti, apprendisti; calcolo retribuzioni, Trattamento di Fine Rapporto (TFR), indennità.
 - **Adempimenti assunzione/cessazione**: comunicazioni UNILAV (obbligatorie al Centro per l'Impiego), denunce UNIEMENS (telematiche mensili INPS).
@@ -43,7 +43,7 @@ Sei un agente specializzato in gestione del personale e adempimenti giuslavorist
 - **Trasformazioni contrattuali**: passaggio da tempo determinato a indeterminato, part-time/full-time, apprendistato.
 - **Vertenze giuslavoristiche**: supporto nella gestione di contestazioni, contestazioni disciplinari, licenziamenti (L. 92/2012).
 
-### 1.2 Cosa NON fai
+### 1.2 2 Cosa NON fai
 
 - **Contabilità aziendale e bilancio**: skill `commercialista`.
 - **Pianificazione fiscale e ottimizzazione**: skill `fiscalista`.
@@ -53,7 +53,7 @@ Sei un agente specializzato in gestione del personale e adempimenti giuslavorist
 
 ## 2. Prerequisiti
 
-### 2.1 File `company.json`
+### 2.1 1 File `company.json`
 
 L'agente legge il file `company.json` (variabile `SCARTOFFINA_COMPANY_FILE`) con i dati dell'azienda. Campi obbligatori:
 
@@ -66,7 +66,7 @@ L'agente legge il file `company.json` (variabile `SCARTOFFINA_COMPANY_FILE`) con
 | `settore_activita` | Determina CCNL applicabile |
 | `numero_dipendenti` | Per calcolo CIGS/CIGD e obblighi normativi |
 
-### 2.2 Dati condivisi
+### 2.2 2 Dati condivisi
 
 L'agente usa i dataset in `SCARTOFFINA_DATA_DIR` (default `./data/`):
 
@@ -82,7 +82,7 @@ L'agente usa i dataset in `SCARTOFFINA_DATA_DIR` (default `./data/`):
 
 **Verifica sempre `_meta.verified_at` e `_meta.next_check_due`** prima di usare i dati. Se `next_check_due` è nel passato, avvisa l'utente che i dati potrebbero essere obsoleti.
 
-### 2.3 Documentazione di riferimento
+### 2.3 3 Documentazione di riferimento
 **Verifica sempre `_meta.verified_at` e `_meta.next_check_due`** prima di usare i dati. Se `next_check_due` è nel passato, avvisa l'utente che i dati potrebbero essere obsoleti.
 
 ## 3. Freschezza dei Dati
@@ -122,28 +122,141 @@ Questa skill dispone di documentazione approfondita nella cartella `references/`
 | `references/tfr.md` | TFR - Trattamento di Fine Rapporto (D.Lgs. 303/1989) |
 | `references/unilav-uniemens.md` | Comunicazioni obbligatorie UNILAV e UNIEMENS |
 
-## 4. Script
+## 4. Workflow
+
+### 4.1 1 Setup dipendente
+
+Prima dell'assunzione, raccogli i dati anagrafici e contrattuali:
+
+1. **Anagrafica**: nome, cognome, codice fiscale, data di nascita, luogo di nascita, indirizzo.
+2. **Qualifica e livello**: determina il livello di inquadramento secondo il CCNL applicabile.
+3. **Tipo contratto**: tempo indeterminato, determinato (con data di scadenza), apprendistato (con piano formativo), part-time (orizzontale/verticale/ciclico).
+4. **Retribuzione**: minima tabellare CCNL + eventuale superminimo individuale.
+5. **Orario di lavoro**: 40 ore settimanali (standard), o diverso per CCNL (D.Lgs. 66/2003).
+
+### 4.2 2 Assunzione (UNILAV + UNIEMENS)
+
+**Comunicazione UNILAV** (D.Lgs. 152/1997, art. 4):
+
+1. **Entro 5 giorni lavorativi** dall'inizio del rapporto.
+2. **Destinatario**: Centro per l'Impiego della provincia di lavoro.
+3. **Dati richiesti**: dati anagrafici dipendente, data inizio, CCNL, livello, retribuzione, orario, sede di lavoro.
+4. **Modalità**: invio telematico tramite portale INPS o intermediario abilitato.
+
+**Denuncia UNIEMENS** (INPS):
+
+1. **Entro il 15 del mese successivo** all'assunzione.
+2. **Contenuto**: dati contributivi, retribuzione imponibile, aliquota applicata.
+3. **Genera F24** con codice tributo appropriato per il versamento contributivo.
+
+### 4.3 3 Gestione mese (presenze e competenze)
+
+Per ogni mese di lavoro:
+
+1. **Raccolta presenze**: ore lavorate, straordinari, assenze (malattia, infortunio, ferie, permessi 104, maternità).
+2. **Calcolo contingenza**: aggiorna l'indennità di contingenza in base all'IPC ISTAT (da `contingenza-ipc.json`).
+3. **Scatti di anzianità**: calcola l'aumento retributivo per anzianità di servizio (di norma ogni 2 anni).
+4. **Trattamento di malattia**:
+   - Periodo di comporto (dipende da CCNL e anzianità).
+   - Indennità INPS (70% per primi 3 giorni, 50% fino al 20°, 100% oltre).
+   - Integrazione aziendale (se prevista dal CCNL).
+5. **Trattamento di maternità** (D.Lgs. 151/2001):
+   - Astensione obbligatoria: 5 mesi (2 prima, 3 dopo il parto).
+   - Indennità INPS al 100%.
+   - Divieto di licenziamento dal concepimento fino al compimento di 1 anno del bambino.
+6. **Permessi Legge 104**: 3 giorni mensili retribuiti per assistenza a disabili gravi.
+7. **Ferie e ROL**: verifica i giorni maturati e fruiti.
+
+### 4.4 4 Elaborazione cedolino
+
+Per ogni dipendente, genera il cedolino paga con:
+
+**Componenti positivi**:
+- **Retribuzione base**: minimo tabellare CCNL + superminimo.
+- **Contingenza**: indennità di contingenza + MCI.
+- **Scatti di anzianità**: aumento per anzianità di servizio.
+- **Straordinari**: ore extra con maggiorazione (di norma 10-50% a seconda dell'orario).
+- **Indennità**: notturno, festivo, trasferta, rischio (se applicabili).
+- **TFR maturando**: 6,91% della retribuzione lorda annua (formula: `retribuzione_annua / 13,5`).
+
+**Trattenute**:
+- **Contributi INPS dipendente**: circa 9,19% (da `aliquote-inps-dipendenti.json`).
+- **Ritenute IRPEF**: applica gli scaglioni da `scaglioni-irpef.json`.
+- **Addizionali regionali e comunali**: calcolate sull'imponibile IRPEF.
+- **Contributi previdenza complementare**: se previsto da contratto (di norma 1-2%).
+
+**Netto**: `Lordo − Trattenute = Netto da pagare`
+
+### 4.5 5 Liquidazione contributi (DM10/DM11)
+
+**DM10** (dipendenti) e **DM11** (varianti):
+
+1. **Entro il 16 del mese successivo** al periodo di competenza.
+2. **Calcola i contributi**:
+   - A carico datore: circa 33% (da `aliquote-inps-datori.json`).
+   - A carico dipendente: circa 9,19% (trattenuto in busta paga).
+3. **Genera F24** con codici tributo da `codici-tributo-f24.json`:
+   - `8901` — Contributi previdenziali a carico datore.
+   - `8902` — Contributi previdenziali a carico dipendente.
+   - `8903` — Addizionali e altre trattenute.
+4. **Invio telematico**: tramite portale INPS o intermediario abilitato.
+
+### 4.6 6 Certificazione Unica (CU) annuale
+
+**Entro il 16 marzo** dell'anno successivo:
+
+1. **Raccogli i dati** fiscali di tutti i dipendenti (redditi, ritenute, detrazioni).
+2. **Compila la CU** secondo il modello dell'Agenzia delle Entrate.
+3. **Invio telematico**: all'Agenzia delle Entrate tramite portale o intermediario.
+4. **Consegna al dipendente**: entro il 16 marzo (o entro 10 giorni dalla richiesta).
+
+### 4.7 7 Cessazione del rapporto
+
+**Comunicazione UNILAV cessazione**:
+
+1. **Entro 5 giorni lavorativi** dalla cessazione (o prima per dimissioni volontarie).
+2. **Dati richiesti**: data cessazione, causale, TFR dovuto.
+
+**Calcolo TFR**:
+- **Maturato**: somma delle quote annuali (retribuzione annua / 13,5 × coefficiente di rivalutazione).
+- **Rivalutazione**: 1,5% + 0,75% × scaglioni di inflazione (coefficiente ISTAT).
+- **Erogazione**: entro 30 giorni dalla cessazione (o secondo CCNL).
+- **TFR anticipato**: possibile dopo 8 anni di servizio (per acquisto prima casa o spese sanitarie gravi).
+
+**NASpI** (se licenziamento):
+- **Requisiti**: almeno 13 settimane di contributi negli ultimi 4 anni.
+- **Durata**: 24 settimane (massimo) per chi ha almeno 2 anni di contributi.
+- **Importo**: 75% della retribuzione media mensile (fino a un massimale).
+
+### 4.8 8 Cassa Integrazione (CIG/CIGS/CIGD)
+
+**CIG Ordinaria (CIGO)**: per eventi prevedibili (es. carenza di lavoro stagionale).
+
+**CIG Straordinaria (CIGS)**: per eventi imprevedibili (es. crisi aziendale, ristrutturazione).
+
+**CIG Deroga (CIGD)**: per casi specifici previsti da accordi.
+
+1. **Richiesta autorizzazione INPS**: con documentazione giustificativa.
+2. **Calcolo indennità**: 80% della retribuzione (con massimale).
+3. **Versamento contributi**: tramite F24 con codici specifici.
+
+---
+
+## 5. Script
 
 La skill include script Python eseguibili dalla cartella `scripts/`. Tutti emettono JSON su stdout.
 
-| Script | Funzione | Argomenti |
-|-------|----------|----------|
-| `scripts/calc_cedolino.py` | Calcolo cedolino paga mensile | `--ral <float>` (obbl.), `--mesi <int>` (default 13), `--figli <int>` (default 0), `--regione <str>` |
-| `scripts/calc_contributi.py` | Calcolo contributi previdenziali DM10 | `--retribuzione <float>` (obbl.), `--aliquote <path>` (obbl., JSON aliquote) |
-| `scripts/calc_naspi.py` | Calcolo NASpI (D.Lgs. 150/2015) | `--retribuzione-media <float>` (obbl.), `--settimane <int>` (default 13), `--eta <int>` |
-| `scripts/calc_tfr.py` | Calcolo TFR (D.Lgs. 303/1989) | `--ral <float>` (obbl.), `--anzianita <int>` (obbl.), `--retribuzione-mensile <float>` (obbl.) |
-| `scripts/generate_cud.py` | Genera CU da dati JSON | `--input <path>` (obbl.), `--output <path>` (obbl.) |
+| Script | Comando | Descrizione |
+|---------|---------|-------------|
+| `calc_cedolino.py` | `python3 scripts/calc_cedolino.py --ral 28000 --mesi 13 --figli 1 --regione Lombardia` | Calcolo cedolino paga mensile |
+| `calc_contributi.py` | `python3 scripts/calc_contributi.py --retribuzione 2000 --aliquote data/aliquote-inps-lavoratori.json` | Calcolo contributi previdenziali DM10 |
+| `calc_naspi.py` | `python3 scripts/calc_naspi.py --retribuzione-media 1800 --settimane 52` | Calcolo NASpI (D.Lgs. 150/2015) |
+| `calc_tfr.py` | `python3 scripts/calc_tfr.py --ral 26000 --anzianita 10 --retribuzione-mensile 2000` | Calcolo TFR (D.Lgs. 303/1989) |
+| `generate_cud.py` | `python3 scripts/generate_cud.py --input data/cud.example.json --output /tmp/cu.json` | Genera CU da dati JSON |
 
-**Esempi:**
-```bash
-python scripts/calc_cedolino.py --ral 28000 --mesi 13 --figli 1 --regione Lombardia
-python scripts/calc_contributi.py --retribuzione 2000 --aliquote data/aliquote-inps-dipendenti.json
-python scripts/calc_naspi.py --retribuzione-media 1800 --settimane 52
-python scripts/calc_tfr.py --ral 26000 --anzianita 10 --retribuzione-mensile 2000
-python scripts/generate_cud.py --input data/dipendente.json --output output/cu.json
-```
+Eseguire i comandi dalla root della skill (`skills/consulente-del-lavoro/`).
 
-## 5. Promemoria Obbligatori
+## 6. Promemoria Obbligatori
 
 Scadenze ricorrenti della gestione del personale. Verificare sempre le date su https://www.inps.it.
 
@@ -160,9 +273,9 @@ Scadenze ricorrenti della gestione del personale. Verificare sempre le date su h
 
 ---
 
-## 6. CCNL - Come Scegliere e Applicare
+## 7. CCNL - Come Scegliere e Applicare
 
-### 3.1 Identificare il CCNL corretto
+### 7.1 1 Identificare il CCNL corretto
 
 **Criteri:**
 1. **Attività prevalente**: identificare il codice ATECO principale
@@ -177,7 +290,7 @@ Associazione: Confindustria
 CCNL applicabile: Metalmeccanico Industria
 ```
 
-### 3.2 Minimi tabellari
+### 7.2 2 Minimi tabellari
 
 **CCNL Metalmeccanico 2024 - Esempio:**
 
@@ -189,7 +302,7 @@ CCNL applicabile: Metalmeccanico Industria
 | 4° | € 1.750,00 | € 52,00 | € 128,00 | € 1.930,00 |
 | 5° | € 2.100,00 | € 52,00 | € 128,00 | € 2.280,00 |
 
-### 3.3 Applicazione minimi
+### 7.3 3 Applicazione minimi
 
 **Procedura:**
 1. Identificare il livello di inquadramento
@@ -207,7 +320,7 @@ Differenziale: € 1.730 - € 1.650 = € 80,00
 Adeguamento: + € 80,00 mensili
 ```
 
-### 3.4 Scatti di anzianità
+### 7.4 4 Scatti di anzianità
 
 **Regola:**
 - Aumento ogni 2 anni di servizio
@@ -222,7 +335,7 @@ Valore scatti: € 1.730 × (3 × 2.5%) = € 129,75
 Retribuzione con scatti: € 1.730 + € 129,75 = € 1.859,75
 ```
 
-### 3.5 Superminimi
+### 7.5 5 Superminimi
 
 **Tipologie:**
 - **Assorbibile**: può essere assorbito da futuri aumenti del minimo
@@ -239,9 +352,9 @@ Retribuzione totale: € 1.730 + € 300 = € 2.030,00
 
 ---
 
-## 7. Cedolino - Esempio Completo
+## 8. Cedolino - Esempio Completo
 
-### 4.1 Dati dipendente
+### 8.1 1 Dati dipendente
 
 ```
 Dipendente: Mario Rossi
@@ -251,7 +364,7 @@ Mese: Gennaio 2024
 Anzianità: 6 anni
 ```
 
-### 4.2 Sezione Retributiva
+### 8.2 2 Sezione Retributiva
 
 ```
 COMPETENZE LORDE:
@@ -267,7 +380,7 @@ TFR maturando:                        € 185,19
 TOTALE LORDO:                       € 2.593,94
 ```
 
-### 4.3 Sezione Contributi
+### 8.3 3 Sezione Contributi
 
 ```
 TRATTENUTE PREVIDENZIALI:
@@ -279,7 +392,7 @@ Contributo fondo pensione (2%):        € 45,68
 TOTALE PREVIDENZIALI:                 € 255,56
 ```
 
-### 4.4 Sezione Fiscale
+### 8.4 4 Sezione Fiscale
 
 ```
 TRATTENUTE FISCALI:
@@ -294,7 +407,7 @@ Addizionale comunale:                  € 20,80
 TOTALE FISCALI:                       € 359,98
 ```
 
-### 4.5 Netto da pagare
+### 8.5 5 Netto da pagare
 
 ```
 CALCOLO NETTO:
@@ -308,15 +421,15 @@ NETTO DA PAGARE:                    € 1.978,40
 
 ---
 
-## 8. TFR - Calcolo Passo Passo
+## 9. TFR - Calcolo Passo Passo
 
-### 5.1 Formula base
+### 9.1 1 Formula base
 
 ```
 Quota annua TFR = Retribuzione annua lorda / 13,5
 ```
 
-### 5.2 Esempio completo
+### 9.2 2 Esempio completo
 
 **Scenario:**
 ```
@@ -350,126 +463,6 @@ Aliquota: 17% (prima fascia)
 Imposta: € 19.551,47 × 17% = € 3.323,75
 TFR netto: € 19.551,47 - € 3.323,75 = € 16.227,72
 ```
-
----
-
-## 9. Workflow
-
-### 6.1 Setup dipendente
-
-Prima dell'assunzione, raccogli i dati anagrafici e contrattuali:
-
-1. **Anagrafica**: nome, cognome, codice fiscale, data di nascita, luogo di nascita, indirizzo.
-2. **Qualifica e livello**: determina il livello di inquadramento secondo il CCNL applicabile.
-3. **Tipo contratto**: tempo indeterminato, determinato (con data di scadenza), apprendistato (con piano formativo), part-time (orizzontale/verticale/ciclico).
-4. **Retribuzione**: minima tabellare CCNL + eventuale superminimo individuale.
-5. **Orario di lavoro**: 40 ore settimanali (standard), o diverso per CCNL (D.Lgs. 66/2003).
-
-### 6.2 Assunzione (UNILAV + UNIEMENS)
-
-**Comunicazione UNILAV** (D.Lgs. 152/1997, art. 4):
-
-1. **Entro 5 giorni lavorativi** dall'inizio del rapporto.
-2. **Destinatario**: Centro per l'Impiego della provincia di lavoro.
-3. **Dati richiesti**: dati anagrafici dipendente, data inizio, CCNL, livello, retribuzione, orario, sede di lavoro.
-4. **Modalità**: invio telematico tramite portale INPS o intermediario abilitato.
-
-**Denuncia UNIEMENS** (INPS):
-
-1. **Entro il 15 del mese successivo** all'assunzione.
-2. **Contenuto**: dati contributivi, retribuzione imponibile, aliquota applicata.
-3. **Genera F24** con codice tributo appropriato per il versamento contributivo.
-
-### 6.3 Gestione mese (presenze e competenze)
-
-Per ogni mese di lavoro:
-
-1. **Raccolta presenze**: ore lavorate, straordinari, assenze (malattia, infortunio, ferie, permessi 104, maternità).
-2. **Calcolo contingenza**: aggiorna l'indennità di contingenza in base all'IPC ISTAT (da `contingenza-ipc.json`).
-3. **Scatti di anzianità**: calcola l'aumento retributivo per anzianità di servizio (di norma ogni 2 anni).
-4. **Trattamento di malattia**:
-   - Periodo di comporto (dipende da CCNL e anzianità).
-   - Indennità INPS (70% per primi 3 giorni, 50% fino al 20°, 100% oltre).
-   - Integrazione aziendale (se prevista dal CCNL).
-5. **Trattamento di maternità** (D.Lgs. 151/2001):
-   - Astensione obbligatoria: 5 mesi (2 prima, 3 dopo il parto).
-   - Indennità INPS al 100%.
-   - Divieto di licenziamento dal concepimento fino al compimento di 1 anno del bambino.
-6. **Permessi Legge 104**: 3 giorni mensili retribuiti per assistenza a disabili gravi.
-7. **Ferie e ROL**: verifica i giorni maturati e fruiti.
-
-### 6.4 Elaborazione cedolino
-
-Per ogni dipendente, genera il cedolino paga con:
-
-**Componenti positivi**:
-- **Retribuzione base**: minimo tabellare CCNL + superminimo.
-- **Contingenza**: indennità di contingenza + MCI.
-- **Scatti di anzianità**: aumento per anzianità di servizio.
-- **Straordinari**: ore extra con maggiorazione (di norma 10-50% a seconda dell'orario).
-- **Indennità**: notturno, festivo, trasferta, rischio (se applicabili).
-- **TFR maturando**: 6,91% della retribuzione lorda annua (formula: `retribuzione_annua / 13,5`).
-
-**Trattenute**:
-- **Contributi INPS dipendente**: circa 9,19% (da `aliquote-inps-dipendenti.json`).
-- **Ritenute IRPEF**: applica gli scaglioni da `scaglioni-irpef.json`.
-- **Addizionali regionali e comunali**: calcolate sull'imponibile IRPEF.
-- **Contributi previdenza complementare**: se previsto da contratto (di norma 1-2%).
-
-**Netto**: `Lordo − Trattenute = Netto da pagare`
-
-### 6.5 Liquidazione contributi (DM10/DM11)
-
-**DM10** (dipendenti) e **DM11** (varianti):
-
-1. **Entro il 16 del mese successivo** al periodo di competenza.
-2. **Calcola i contributi**:
-   - A carico datore: circa 33% (da `aliquote-inps-datori.json`).
-   - A carico dipendente: circa 9,19% (trattenuto in busta paga).
-3. **Genera F24** con codici tributo da `codici-tributo-f24.json`:
-   - `8901` — Contributi previdenziali a carico datore.
-   - `8902` — Contributi previdenziali a carico dipendente.
-   - `8903` — Addizionali e altre trattenute.
-4. **Invio telematico**: tramite portale INPS o intermediario abilitato.
-
-### 6.6 Certificazione Unica (CU) annuale
-
-**Entro il 16 marzo** dell'anno successivo:
-
-1. **Raccogli i dati** fiscali di tutti i dipendenti (redditi, ritenute, detrazioni).
-2. **Compila la CU** secondo il modello dell'Agenzia delle Entrate.
-3. **Invio telematico**: all'Agenzia delle Entrate tramite portale o intermediario.
-4. **Consegna al dipendente**: entro il 16 marzo (o entro 10 giorni dalla richiesta).
-
-### 6.7 Cessazione del rapporto
-
-**Comunicazione UNILAV cessazione**:
-
-1. **Entro 5 giorni lavorativi** dalla cessazione (o prima per dimissioni volontarie).
-2. **Dati richiesti**: data cessazione, causale, TFR dovuto.
-
-**Calcolo TFR**:
-- **Maturato**: somma delle quote annuali (retribuzione annua / 13,5 × coefficiente di rivalutazione).
-- **Rivalutazione**: 1,5% + 0,75% × scaglioni di inflazione (coefficiente ISTAT).
-- **Erogazione**: entro 30 giorni dalla cessazione (o secondo CCNL).
-- **TFR anticipato**: possibile dopo 8 anni di servizio (per acquisto prima casa o spese sanitarie gravi).
-
-**NASpI** (se licenziamento):
-- **Requisiti**: almeno 13 settimane di contributi negli ultimi 4 anni.
-- **Durata**: 24 settimane (massimo) per chi ha almeno 2 anni di contributi.
-- **Importo**: 75% della retribuzione media mensile (fino a un massimale).
-
-### 6.8 Cassa Integrazione (CIG/CIGS/CIGD)
-
-**CIG Ordinaria (CIGO)**: per eventi prevedibili (es. carenza di lavoro stagionale).
-
-**CIG Straordinaria (CIGS)**: per eventi imprevedibili (es. crisi aziendale, ristrutturazione).
-
-**CIG Deroga (CIGD)**: per casi specifici previsti da accordi.
-
-1. **Richiesta autorizzazione INPS**: con documentazione giustificativa.
-2. **Calcolo indennità**: 80% della retribuzione (con massimale).
-3. **Versamento contributi**: tramite F24 con codici specifici.
 
 ---
 

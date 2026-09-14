@@ -108,7 +108,14 @@ Questa skill dispone di documentazione approfondita nella cartella `references/`
 
 ---
 
-## 4. Script
+## 4. Workflow
+
+1. **Verifica la regolarità**: controlla il DURC e le posizioni contributive INPS/INAIL (sez. 14) prima di qualsiasi adempimento.
+2. **Calcola i contributi**: applica le aliquote correnti a cedolino e fatture (sez. 7-8).
+3. **Gestisci gli eventi**: malattia (sez. 12), maternità (sez. 13), infortunio con conseguente apertura pratica INAIL (sez. 9).
+4. **Cessazione del rapporto**: verifica requisiti NASpI (sez. 10) e posizione pensionistica (sez. 11).
+
+## 5. Script
 
 | Script | Comando | Descrizione |
 |---------|---------|-------------|
@@ -118,7 +125,7 @@ Questa skill dispone di documentazione approfondita nella cartella `references/`
 | `calc_pension.py` | `python3 scripts/calc_pension.py --eta 67 --anni-contributi 22 --tipo vecchiaia` | Verifica requisiti pensionistici |
 | `verify_durc.py` | `python3 scripts/verify_durc.py --input data/durc.example.json` | Verifica stato DURC (validità 120 giorni) |
 
-## 5. Promemoria Obbligatori
+## 6. Promemoria Obbligatori
 
 - **Contributi INPS**: versamento F24 entro il 16 del mese successivo; denuncia UniEmens entro l'ultimo giorno del mese successivo.
 - **Premio INAIL**: autoliquidazione entro il 16 febbraio dell'anno successivo (rateizzabile in 4 rate).
@@ -130,9 +137,9 @@ Questa skill dispone di documentazione approfondita nella cartella `references/`
 - **Malattia**: indennità dal 4° giorno (carenza 3); 50% primi 10 giorni, 66,67% successivi.
 - **Assegni familiari (ANF)**: per coniuge e altri familiari a carico (ANF figli confluito nell'Assegno Unico Universale).
 
-## 6. Contributi INPS - Esempi Pratici
+## 7. Contributi INPS - Esempi Pratici
 
-### 3.1 Dipendente - Calcolo completo
+### 7.1 Dipendente - Calcolo completo
 
 **Scenario:**
 ```
@@ -155,7 +162,7 @@ Totale contributi: € 792,00 + € 220,56 = € 1.012,56
 Retribuzione netta (prima IRPEF): € 2.400,00 - € 220,56 = € 2.179,44
 ```
 
-### 3.2 Artigiano - Calcolo con scaglioni
+### 7.2 Artigiano - Calcolo con scaglioni
 
 **Scenario:**
 ```
@@ -174,7 +181,7 @@ Contributo aggiuntivo: € 17.066 × 24% = € 4.095,84
 Totale contributi: € 4.418,64 + € 4.095,84 = € 8.514,48
 ```
 
-### 3.3 Commerciante - Calcolo
+### 7.3 Commerciante - Calcolo
 
 **Scenario:**
 ```
@@ -193,7 +200,7 @@ Contributo aggiuntivo: € 10.066 × 24% = € 2.415,84
 Totale contributi: € 4.418,64 + € 2.415,84 = € 6.834,48
 ```
 
-### 3.4 Gestione Separata - Collaboratori
+### 7.4 Gestione Separata - Collaboratori
 
 **Scenario:**
 ```
@@ -213,9 +220,9 @@ Contributo: € 18.000 × 25.98% = € 4.676,40
 
 ---
 
-## 7. Lettura del Cedolino - Identificazione Contributi
+## 8. Lettura del Cedolino - Identificazione Contributi
 
-### 4.1 Voci contributive nel cedolino
+### 8.1 Voci contributive nel cedolino
 
 **Sezione "Trattenute Previdenziali":**
 
@@ -233,7 +240,7 @@ IMPEGNO CONTRIBUTIVO:
   Contributi a carico dipendente: € 235,13
 ```
 
-### 4.2 Come verificare
+### 8.2 Come verificare
 
 **Checklist:**
 1. Verificare che l'imponibile previdenziale corrisponda alla retribuzione lorda (meno esenzioni)
@@ -243,9 +250,9 @@ IMPEGNO CONTRIBUTIVO:
 
 ---
 
-## 8. INAIL - Calcolo Tasso Premio
+## 9. INAIL - Calcolo Tasso Premio
 
-### 5.1 Struttura del calcolo
+### 9.1 Struttura del calcolo
 
 **Formula:**
 ```
@@ -253,7 +260,7 @@ Tasso premio = Tasso base × Moltiplicatore classe rischio
 Premio INAIL = Imponibile salariale × Tasso premio
 ```
 
-### 5.2 Esempio completo
+### 9.2 Esempio completo
 
 **Scenario:**
 ```
@@ -275,7 +282,7 @@ Tasso premio: 1.8% × 1.0 = 1.8%
 Premio INAIL: € 200.000 × 1.8% = € 3.600,00
 ```
 
-### 5.3 Classi di rischio INAIL
+### 9.3 Classi di rischio INAIL
 
 | Classe | Moltiplicatore | Descrizione |
 |--------|----------------|-------------|
@@ -288,9 +295,9 @@ Premio INAIL: € 200.000 × 1.8% = € 3.600,00
 
 ---
 
-## 9. NASpI - Calcolo Dettagliato
+## 10. NASpI - Calcolo Dettagliato
 
-### 6.1 Requisiti
+### 10.1 Requisiti
 
 **Contributivi:**
 - 13 settimane di contributi negli ultimi 12 mesi
@@ -302,7 +309,7 @@ Premio INAIL: € 200.000 × 1.8% = € 3.600,00
 - Scioglimento rapporto apprendistato
 - **Dimissioni volontarie: NO diritto**
 
-### 6.2 Calcolo importo
+### 10.2 Calcolo importo
 
 **Scenario:**
 ```
@@ -319,7 +326,7 @@ Mese 5: € 1.125 - (3% × € 1.125) = € 1.091,25
 Mese 6: € 1.091,25 - (3% × € 1.091,25) = € 1.058,51
 ```
 
-### 6.3 Calcolo durata
+### 10.3 Calcolo durata
 
 **Scenario:**
 ```
@@ -333,9 +340,9 @@ Durata: 100 / 2 = 50 settimane = ~11.5 mesi
 
 ---
 
-## 10. Pensioni - Verifica Requisiti
+## 11. Pensioni - Verifica Requisiti
 
-### 7.1 Requisiti principali 2024
+### 11.1 Requisiti principali 2024
 
 | Tipo | Età | Contributi | Note |
 |------|-----|------------|------|
@@ -346,7 +353,7 @@ Durata: 100 / 2 = 50 settimane = ~11.5 mesi
 | APE Sociale | 63 anni 5 mesi | 30-38 anni | Categorie svantaggiate |
 | Opzione Donna | 58-59 anni | 35 anni | Con/senza figli |
 
-### 7.2 Esempio verifica
+### 11.2 Esempio verifica
 
 **Scenario:**
 ```
@@ -365,16 +372,16 @@ Contributi >= 38? SÌ ✓
 
 ---
 
-## 11. Malattia - Calcolo Indennità
+## 12. Malattia - Calcolo Indennità
 
-### 7.1 Periodi di comporto
+### 12.1 Periodi di comporto
 
 | Categoria | Primo anno | Anni successivi |
 |-----------|------------|-----------------|
 | Impiegati | 180 giorni | 360 giorni |
 | Operaio | 180 giorni | 180 giorni |
 
-### 7.2 Calcolo indennità
+### 12.2 Calcolo indennità
 
 **Scenario:**
 ```
@@ -393,9 +400,9 @@ Totale indennità: € 175,00 + € 166,65 = € 341,65
 
 ---
 
-## 12. Maternità - Calcolo Indennità
+## 13. Maternità - Calcolo Indennità
 
-### 9.1 Congedo obbligatorio
+### 13.1 Congedo obbligatorio
 
 **Periodo:**
 - 2 mesi prima della nascita
@@ -406,7 +413,7 @@ Totale indennità: € 175,00 + € 166,65 = € 341,65
 - 80% della retribuzione (INPS)
 - Integrazione al 100% da datore (se previsto CCNL)
 
-### 9.2 Esempio
+### 13.2 Esempio
 
 **Scenario:**
 ```
@@ -421,9 +428,9 @@ Indennità 5 mesi: € 1.600 × 5 = € 8.000,00
 
 ---
 
-## 13. DURC - Verifica Regolarità
+## 14. DURC - Verifica Regolarità
 
-### 10.1 Cosa verificare
+### 14.1 Cosa verificare
 
 **Elementi DURC:**
 - Regolarità contributiva INPS/INAIL
@@ -434,7 +441,7 @@ Indennità 5 mesi: € 1.600 × 5 = € 8.000,00
 **Validità:**
 - 120 giorni dal rilascio
 
-### 10.2 Procedura verifica
+### 14.2 Procedura verifica
 
 1. Richiedere DURC online sul sito INPS
 2. Verificare stato: "Regolare" o "Irregolare"
@@ -443,7 +450,7 @@ Indennità 5 mesi: € 1.600 × 5 = € 8.000,00
 
 ---
 
-## 14. Output
+## 15. Output
 
 Per ogni operazione richiesta, l'agente produce:
 
@@ -455,7 +462,7 @@ Per ogni operazione richiesta, l'agente produce:
 - **Verifica DURC** (stato di regolarità, eventuali irregolarità).
 - **Codici F24** per versamenti contributi.
 
-## 15. Controlli di coerenza
+## 16. Controlli di coerenza
 
 Prima di considerare un'operazione conclusa, verifica:
 
@@ -468,7 +475,7 @@ Prima di considerare un'operazione conclusa, verifica:
 
 Se un controllo fallisce, **fermati e segnala l'anomalia**. Non continuare con dati inconsistenti.
 
-## 16. Limiti e responsabilità
+## 17. Limiti e responsabilità
 
 - I dati previdenziali cambiano frequentemente (legge di bilancio, circolari INPS). L'agente segnala se `_meta.next_check_due` è passato.
 - I dati non sostituiscono il parere di un Consulente del Lavoro iscritto all'Albo.

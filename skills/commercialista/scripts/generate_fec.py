@@ -91,21 +91,23 @@ def main() -> int:
 
     if args.tipo in ("registro_iva", "entrambi"):
         registro = genera_registro_iva(operazioni)
+        stem = f"{args.output}_registro_iva" if args.output else "registro_iva"
         if args.format == "csv":
-            out = Path(f"{args.output or 'registro_iva'}.csv")
+            out = Path(f"{stem}.csv")
             write_csv(registro, out)
         else:
-            out = Path(f"{args.output or 'registro_iva'}.json")
+            out = Path(f"{stem}.json")
             out.write_text(json.dumps(registro, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"Registro IVA: {out} ({len(registro)} righe)")
 
     if args.tipo in ("libro_giornale", "entrambi"):
         giornale = genera_libro_giornale(operazioni)
+        stem = f"{args.output}_libro_giornale" if args.output else "libro_giornale"
         if args.format == "csv":
-            out = Path(f"{args.output or 'libro_giornale'}.csv")
+            out = Path(f"{stem}.csv")
             write_csv(giornale, out)
         else:
-            out = Path(f"{args.output or 'libro_giornale'}.json")
+            out = Path(f"{stem}.json")
             out.write_text(json.dumps(giornale, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"Libro giornale: {out} ({len(giornale)} righe)")
 

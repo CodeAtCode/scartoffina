@@ -102,16 +102,15 @@ Saldo = IVA a debito − IVA a credito
 
 | Codice | Descrizione | Scadenza |
 |--------|-------------|----------|
-| 1001 | IVA mensile saldo | 16 del mese successivo |
-| 1002 | IVA mensile acconto | 16 dicembre / 30 novembre |
-| 1004 | IVA prima rata acconto | 16 giugno |
-| 1005 | IVA seconda rata acconto | 30 novembre |
-| 6001 | IVA trimestrale | 16 del mese successivo al trimestre |
+| 6001–6012 | IVA mensile, da gennaio a dicembre | 16 del mese successivo |
+| 6031–6034 | IVA trimestrale, da primo a quarto trimestre | Scadenza prevista per il trimestre |
+| 6013 / 6035 | Acconto IVA mensile / trimestrale | Scadenza prevista per il regime |
+| 6099 | Saldo IVA annuale | Scadenza prevista per il saldo |
 
 **Esempio F24 per liquidazione mensile**:
 ```
 Sezione ERARIO
-Codice tributo: 1001
+Codice tributo: 6001
 Anno di riferimento: 2026
 Mese di riferimento: 01 (gennaio)
 Importo: 1.100,00
@@ -262,8 +261,8 @@ Debito IVA febbraio: 1.500€
 Saldo dopo compensazione IVA: 500€ (credito residuo)
 
 Compensazione F24 febbraio:
-- Codice 1001 (IVA febbraio): 0€ (coperto da credito)
-- Codice 1002 (IRES acconto): 1.500€ (parte del credito)
+- Codice 6002 (IVA febbraio): 0€ (coperto da credito)
+- Codice 2001 (IRES acconto): 1.500€ (parte del credito)
 - Versamento netto: 1.500€ (rimanente IRES)
 ```
 

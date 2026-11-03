@@ -191,7 +191,7 @@ IVA a debito:    € 5.000,00
 IVA a credito:   € 3.200,00
 Saldo a versare: € 1.800,00
 
-Codice tributo F24: 1001 (IVA mensile saldo)
+Codice tributo F24: 6001 (IVA mensile di gennaio)
 Scadenza: 16/02/2026
 ```
 

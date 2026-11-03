@@ -267,9 +267,9 @@ IVA a debito (vendite) - IVA a credito (acquisti) = Saldo
 
 | Regime | Scadenza | Modalità |
 |--------|----------|----------|
-| Mensile | 16 del mese successivo | F24 con codice 1001 |
-| Trimestrale | 16 del mese successivo al trimestre | F24 con codice 1001 |
-| Acconto annuale | 30 novembre (1° rata), 30 dicembre (2° rata) | F24 con codice 1004/1005 |
+| Mensile | 16 del mese successivo | F24 con codice 6001–6012, in base al mese |
+| Trimestrale | 16 del mese successivo al trimestre | F24 con codice 6031–6034, in base al trimestre |
+| Acconto IVA | Secondo il regime e le scadenze applicabili | F24 con codice 6013 (mensile) o 6035 (trimestrale) |
 
 ### Compensazione Credito IVA
 

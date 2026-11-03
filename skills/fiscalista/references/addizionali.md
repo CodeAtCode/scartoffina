@@ -269,8 +269,8 @@ Le addizionali si versano tramite:
 
 | Tributo | Codice | Descrizione |
 |---------|--------|-------------|
-| Addizionale regionale | 4100 | Addizionale IRPEF regionale |
-| Addizionale comunale | 4200 | Addizionale IRPEF comunale |
+| Addizionale regionale | 3801 | Addizionale regionale IRPEF |
+| Addizionale comunale | 3843 / 3844 | Acconto / saldo in autotassazione |
 
 ## 8. Checklist per Calcolo
 

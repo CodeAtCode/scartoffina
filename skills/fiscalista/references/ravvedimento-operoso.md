@@ -204,17 +204,17 @@ Totale da versare: 5.000 + 6,25 + 20 = 5.026,25€
 **F24**:
 ```
 Sezione ERARIO
-Codice tributo: 1001 (IVA mensile saldo)
+Codice tributo: 6001 (IVA mensile di gennaio)
 Anno: 2026
 Mese: 01
 Importo: 5.000€
 
 Sezione SANZIONI
-Codice: 8011 (Sanzione IVA)
+Codice: 8904 (Sanzione pecuniaria IVA)
 Importo: 6,25€
 
 Sezione INTERESSI
-Codice: 1001 (Interessi IVA)
+Codice: 1991 (Interessi sul ravvedimento IVA)
 Importo: 20€
 ```
 
@@ -239,16 +239,16 @@ Totale da versare: 8.000 + 300 + 728 = 9.028€
 **F24**:
 ```
 Sezione ERARIO
-Codice tributo: 1001 (IRPEF saldo)
+Codice tributo: 4001 (IRPEF saldo)
 Anno: 2025
 Importo: 8.000€
 
 Sezione SANZIONI
-Codice: 8001 (Sanzione IRPEF)
+Codice: 8901 (Sanzione pecuniaria IRPEF)
 Importo: 300€
 
 Sezione INTERESSI
-Codice: 1001 (Interessi IRPEF)
+Codice: 1989 (Interessi sul ravvedimento IRPEF)
 Importo: 728€
 ```
 
@@ -314,13 +314,13 @@ Totale da versare: 2.000 + 60 + 50 = 2.110€
 
 | Tributo | Codice Sanzione | Codice Interessi |
 |---------|-----------------|------------------|
-| IVA | 8011 | 1001 |
-| IRPEF | 8001 | 1001 |
-| IRES | 8021 | 1021 |
-| IRAP | 8031 | 1031 |
-| Ritenute | 8041 | 1041 |
+| IVA | 8904 | 1991 |
+| IRPEF | 8901 | 1989 |
+| IRES | 8918 | 1990 |
+| IRAP | 8907 | 1993 |
 | IMU | 8051 | 1051 |
-| TARI | 8061 | 1061 |
+| Ritenute | 8947 / 8948 / 8949, secondo il tipo di ritenuta | Specifico del tributo |
+| TARI | Secondo le istruzioni del Comune | Secondo le istruzioni del Comune |
 
 ### 5.3 Esempio F24 completo
 
@@ -328,17 +328,17 @@ Totale da versare: 2.000 + 60 + 50 = 2.110€
 F24 - Ravvedimento operoso
 
 SEZIONE ERARIO
-Codice tributo: 1001
+Codice tributo: 6001
 Anno: 2026
 Mese: 01
 Importo: 10.000,00
 
 SEZIONE SANZIONI
-Codice: 8011
+Codice: 8904
 Importo: 30,00 (0,3% per 10 giorni di ritardo sprint)
 
 SEZIONE INTERESSI
-Codice: 1001
+Codice: 1991
 Importo: 10,00 (0,1% × 10 giorni)
 
 Totale versamento: 10.040,00€

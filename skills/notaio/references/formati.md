@@ -247,8 +247,8 @@ data,num_operazione,conto,descrizione,dare,avere,bilancio
   "sezioni": {
     "erario": [
       {
-        "codice_tributo": "1001",
-        "descrizione": "IVA mensile saldo",
+        "codice_tributo": "6001",
+        "descrizione": "IVA mensile di gennaio",
         "anno_riferimento": "2026",
         "mese_riferimento": "01",
         "importo": 1275.90,

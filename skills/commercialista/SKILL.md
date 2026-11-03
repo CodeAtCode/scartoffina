@@ -209,9 +209,10 @@ Esegui ogni mese (contribuenti mensili) o trimestre (contribuenti trimestrali):
 1. **Somma IVA a debito** (vendite) e **IVA a credito** (acquisti) del periodo.
 2. **Calcola il saldo**: se debito > credito → versamento dovuto; se credito > debito → credito da riportare.
 3. **Determina il codice tributo** da `codici-tributo-f24.json`:
-   - `1001` — IVA mensile saldo
-   - `1002` — IVA mensile acconto
-   - `1004` / `1005` — IVA mensile prima/seconda rata acconto
+   - `6001`–`6012` — IVA mensile, rispettivamente da gennaio a dicembre
+   - `6031`–`6034` — IVA trimestrale, rispettivamente dal primo al quarto trimestre
+   - `6013` — acconto IVA mensile; `6035` — acconto IVA trimestrale
+   - `6099` — saldo IVA annuale
 4. **Calcola l'interesse (se dovuto)** — non c'è interesse di mora sulla liquidazione periodica, ma c'è sull'acconto IVA del 27 dicembre (interessi del 1%).
 5. **Genera l'F24** con importo, codice tributo, anno di riferimento, mese.
 6. **Compila la Comunicazione LiPe** (trimestrale) con i dati di liquidazione.
@@ -378,7 +379,7 @@ Checklist obblighi fiscali e contabili che devono essere verificati ad ogni oper
 ### Adempimenti periodici
 
 - [ ] **Liquidazione IVA** (mensile entro il 16 del mese successivo, trimestrale entro il 30 aprile per forfettari)
-- [ ] **F24 versamento IVA** (codice tributo 6004 per IVA debito, 6885 per acconto)
+- [ ] **F24 versamento IVA** (codice mensile 6001–6012 o trimestrale 6031–6034, secondo periodo; acconto 6013/6035 secondo periodicità)
 - [ ] **Comunicazione delle Liquidazioni Periodiche (LiPe)** (trimestrale, entro 30 giorni dalla scadenza del trimestre)
 - [ ] **Stampa registri contabili** (registro acquisti art. 24, registro vendite art. 23 DPR 633/1972)
 

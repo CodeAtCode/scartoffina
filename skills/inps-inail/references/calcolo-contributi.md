@@ -383,11 +383,11 @@ Rate: € 30.000 / 120 = € 250,00/mese
 
 | Codice | Descrizione |
 |--------|-------------|
-| 8901 | Contributi previdenziali a carico datore |
-| 8902 | Contributi previdenziali a carico dipendente |
-| 8950 | Contributi gestione separata |
-| 8960 | Contributi artigiani |
-| 8961 | Contributi commercianti |
+| AF / AP | Causali INPS per artigiani: minimale / eccedenza |
+| CF / CP | Causali INPS per commercianti: minimale / eccedenza |
+| PXX / P10 | Causali INPS per Gestione Separata: PXX per professionisti non pensionati e non assicurati altrove; P10 per pensionati o assicurati presso altra forma previdenziale |
+
+La sezione INPS richiede anche codice sede, codice INPS/codeline e periodo contributivo: usare i dati comunicati dall'INPS, non un codice tributo generico.
 
 ### 8.2 Scadenze
 
